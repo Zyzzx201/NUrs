@@ -1,0 +1,98 @@
+#h11{
+  font-family: cursive;
+}
+#h1T, #h1Ac, #h1A, #h1U, #h1D{
+  font-family: cursive;
+	font-size: 31px;
+	font-weight: bold;
+	position: absolute;
+	top: 15.4%;
+	left: 19.5%;
+	color: #ff0066; /*foshia*/
+}
+#h1Te{
+  font-size: 29.5px;
+  top: 16.5%;
+  left: 35.5%;
+}
+#h1Ac{
+  font-size: 29.5px;
+  top: 16.5%;
+  left: 33.5%;
+}
+#h1A, #h1U, #h1D{
+  top: 12%;
+  left: 21%;
+}
+#h1U{
+  left: 37%;
+}
+#h1D{
+  left: 20.2%;
+}
+.Uappform, .Dappform, .teacher2{
+	font-family: cursive;
+	border: 1px solid transparent;
+	border-radius: 40px;
+	background-color: #99ff99;  /*bestage*/
+	position: absolute;
+	top: 20%;
+	left: 9%;
+	width: 70%;
+	height: 230%;
+	margin-right: -50%;
+	opacity: 0.95;
+	padding: 20px;
+	z-index: -2;
+}
+.Dappform, .Uappform{
+	height: 275%;
+}
+header #pabtn, header #nabtn{
+  font-family: cursive;
+	font-weight: bold;
+  color: #0099cc;  /*blue*/
+	background-color: #ffcc00;  /*orange*/
+	text-align: center;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  position: absolute;
+	top: 53%;
+  right: 23.2%;
+}
+header #nabtn{
+  right: 40%;
+}
+header #pabtn{
+  top: 54%;
+}
+#Dbtn{
+  font-family: cursive;
+	font-weight: bold;
+	background-color: #003366; /*ko7ly*/
+	color: #0099cc;  /*blue*/
+	text-align: center;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  position: absolute;
+  left: 73%;
+  top: 97%;
+}
+#ACbtn, #RFbtn, #PNbtn{
+  font-family: cursive;
+	font-weight: bold;
+	background-color: #003366; /*ko7ly*/
+	color: #0099cc;  /*blue*/
+	text-align: center;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  position: absolute;
+  left: 73%;
+  top: 97.6%;
+}
+#ACbtn{
+  left: 55%;
+}
+#PNbtn{
+  left: 40%;
+}
