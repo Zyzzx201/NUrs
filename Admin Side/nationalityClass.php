@@ -14,7 +14,7 @@ class nationality{
 
     public function select(){
         $DBObject = new DB();
-        $sql = "SELECT * FROM nationality WHERE nationality.id = '".$this->id."' OR '%".$this->name."%' " ;
+        $sql = "SELECT * FROM nationality WHERE nationality.id = 1 OR '%".$this->name."%' " ; //'".$this->id."'
         $DBObject->connect();
         $result =  $DBObject->execute($sql);
         $row = mysqli_fetch_array($result);
