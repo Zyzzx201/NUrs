@@ -14,7 +14,7 @@ class marital{
 
     public function select(){
         $DBObject = new DB();
-        $sql = "SELECT * FROM maritalstatus where id = '".$this->id."' ";
+        $sql = "SELECT * FROM maritalstatus where id = 1 "; //'".$this->id."'
         $DBObject->connect();
         $result =  $DBObject->execute($sql);
         $row = mysqli_fetch_array($result);
