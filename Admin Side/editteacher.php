@@ -27,54 +27,56 @@
     <form method="POST" action="<?php $_SERVER["PHP_SELF"];?>">
       <?php
         require_once("db.php");
-        require_once("teacherCLass.php");
-        require_once("MainClass.php");
-        require_once("AddressClass.php");
-        require_once("MaritalClass.php");
-        require_once("ContactinfoClass.php");
-        require_once("nationalityClass.php");
+        require_once("teacherController.php");
+        require_once("MainController.php");
+        require_once("AddressController.php");
+        require_once("MaritalController.php");
+        require_once("ContactinfoController.php");
+        require_once("nationalityController.php");
 
-        $teacherOBJ1 =  new teacher();
-        $row = $teacherOBJ1->select();
-        $childOBJ2 = new main();
-        $row1 = $childOBJ2->select();
-        $addOBJ3 =  new Address();
-        $row3 =  $addOBJ3->select();
-        $marrOBJ4 = new marital();
-        $row4 = $marrOBJ4->select();
-        $ConOBJ5 = new contactinfo();
-        $row5 = $ConOBJ5->select();
-        $NatOBJ6 = new nationality();
-        $row6 = $NatOBJ6->select();
-        $teacherOBJ2 = new teacher();
-        $update = $teacherOBJ2->update();
+        $teacherOBJ1 =  new teacherC();
+        $Trow = $teacherOBJ1->TselectV();
+        $teacherOBJ2 = new mainC();
+        $Trow1 = $teacherOBJ2->MselectV();
+        $addOBJ3 =  new addressC();
+        $ADrow =  $addOBJ3->ADselectV();
+        $marrOBJ4 = new maritalC();
+        $MRrow = $marrOBJ4->MTselectV();
+        $ConOBJ5 = new contactinfoC();
+        $CIrow = $ConOBJ5->CIselectV();
+        $NatOBJ6 = new nationalityC();
+        $NTrow = $NatOBJ6->NAselectV();
 
       ?>
-      Full name: <input type="text" id="boxes" value="<?php echo $row1['fname'];?> <?php echo $row1['lname']; ?>">
-      <br><br>
-      Nationality: <input type="text" id="boxes" value="<?php echo $row['nationality'];?>"><br><br>
-      Home Address: <input type="text" id="boxes" value="<?php echo $row['address_id'];?>"><br><br>
-      Marital Status: <input type="text" id="boxes" value="<?php echo $row['mstatus_id'];?>"><br><br>
-      Academic Qualifications with Dates:<br><br>
-      Qualification 1: <input type="text" id="boxes" value="<?php echo $row['acaqual1'];?>">
-      <input type="text" id="boxes" value="<?php echo $row['date_acaqual1'];?>"><br><br>
-      Professional Qualifications with Dates:<br><br>
-      Qualification 1: <input type="text" id="boxes" value="<?php echo $row['personal_qual1'];?>">
-      <input type="text" id="boxes" value="<?php echo $row['date_ppersonalqual1'];?>"><br>
-      <br><hr>
-      Present Employer's Name: <input type="text" id="boxes" value="<?php echo $row['pempname'];?>"><br><br>
-      Present Employer's Address: <input type="text" id="boxes" value="<?php echo $row['pempaddress_id'];?>">
-      <br><br>
-      Present Employer's phone number: <input type="text" id="boxes" value="<?php echo $row['pempnum'];?>"><br><br><hr>
+      First name: <input type="text" id="boxes" value="<?php echo $Trow1['fname'];?>"><br><br>
+      Last Name: <input type="text" id="boxes" value="<?php echo $Trow1['lname'];?>"><br><br>
+      <!--Full name: <input type="text" id='uuu'>
+      <br><br-->
 
-      Current or Last Salary: <input type="text" id="boxes" value="<?php echo $row['corlsalary'];?>"><br><br>
-      Required Salary: <input type="text" id="boxes" value="<?php echo $row['reqsalary'];?>"><br><br>
+      Nationality: <input type="text" id="boxes" value="<?php echo $NTrow['name'];?>"><br><br>
+      Home Address: <input type="text" id="boxes" value="<?php echo $ADrow['name'];?>"><br><br>
+      Mobile number: <input type="text" id="boxes" value="<?php echo $CIrow['cellphone']; ?>"><br><br>
+      Marital Status: <input type="text" id="boxes" value="<?php echo $MRrow['value'];?>"><br><br>
+      <b>Academic Qualifications with Dates:<br><br></b>
+      Qualification 1: <input type="text" id="boxes" value="<?php echo $Trow['acaqual1'];?>">
+      <input type="text" id="boxes" value="<?php echo $Trow['date_acaqual1'];?>"><br><br>
+      <b>Professional Qualifications with Dates:<br><br></b>
+      Qualification 1: <input type="text" id="boxes" value="<?php echo $Trow['personal_qual1'];?>">
+      <input type="text" id="boxes" value="<?php echo $Trow['date_ppersonalqual1'];?>"><br>
+      <br><hr>
+      Present Employer's Name: <input type="text" id="boxes" value="<?php echo $Trow['pempname'];?>"><br><br>
+      Present Employer's Address: <input type="text" id="boxes" value="<?php echo $ADrow['name'];?>">
+      <br><br>
+      Present Employer's phone number: <input type="text" id="boxes" value="<?php echo $Trow['pempnum'];?>"><br><br><hr>
+
+      Current or Last Salary: <input type="text" id="boxes" value="<?php echo $Trow['corlsalary'];?>"><br><br>
+      Required Salary: <input type="text" id="boxes" value="<?php echo $Trow['reqsalary'];?>"><br><br>
 
       Have you been interviewed recently at other nurseries? if yes, please mention names:<br><br>
-      <input type="text" id="boxes" value="<?php echo $row['othernursery'];?>"><br><br>
+      <input type="text" id="boxes" value="<?php echo $Trow['othernursery'];?>"><br><br>
 
       In your point of view, how do you see an ideal nursery regarding its academic side?<br><br>
-      <input type="text" id="boxes" value="<?php echo $row['povnursery'];?>"></textarea><br>
+      <input type="text" id="boxes" value="<?php echo $Trow['povnursery'];?>"></textarea><br>
       <br><br>
 
 

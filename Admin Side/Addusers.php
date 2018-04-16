@@ -28,66 +28,69 @@
 		<form name="app" method="REQUEST" action="<?php $_SERVER["PHP_SELF"];?>">
       <?php
       require_once("db.php");
-      require_once("MainClass.php");
-			require_once("ChildClass.php");
-			require_once("MainClass.php");
-			require_once("AddressClass.php");
-			require_once("MaritalClass.php");
-			require_once("ContactinfoClass.php");
-			require_once("EmergencyClass.php");
-			require_once("WeekClass.php");
+			require_once("ChildController.php");
+			require_once("MainController.php");
+			require_once("AddressController.php");
+			require_once("MaritalController.php");
+			require_once("ContactinfoController.php");
+			require_once("EmergencyController.php");
+			require_once("WeekController.php");
+			require_once("ParentController.php");
 
-      $childOBJ1 =  new user();
-      $row = $childOBJ1->select();
-			$childOBJ2 = new main();
-			$row1 = $childOBJ2->select();
-			$EROBJ2 = new emergency();
-			$row2 =  $EROBJ2->select();
-			$addOBJ3 =  new Address();
-			$row3 =  $addOBJ3->select();
-			$marrOBJ4 = new marital();
-			$row4 = $marrOBJ4->select();
-			$ConOBJ5 = new contactinfo();
-			$row5 = $ConOBJ5->select();
-			$AttOBJ6 = new week();
-			$row6 = $AttOBJ6->select();
+      $childOBJ1 =  new childC();
+      $CHrow = $childOBJ1->CHselectV();
+			$childOBJ2 = new mainC();
+			$MArow = $childOBJ2->MselectV();
+			$EROBJ2 = new emergencyC();
+			$ERrow =  $EROBJ2->ERselectV();
+			$addOBJ3 =  new addressC();
+			$ADrow =  $addOBJ3->ADselectV();
+			$marrOBJ4 = new maritalC();
+			$MRrow = $marrOBJ4->MTselectV();
+			$ConOBJ5 = new contactinfoC();
+			$CIrow = $ConOBJ5->CIselectV();
+			$AttOBJ6 = new weekC();
+			$ATrow = $AttOBJ6->WselectV();
+			$ParOBJ7 = new parentsC();
+			$PRrow =  $ParOBJ7->PselectV();
       ?>
 		    <br>
-			Child's name: <?php echo $row1['fname'];?> <?php echo $row1['lname']; ?><br><br>
-			Date of birth: <?php echo $row1['dob'];?><br><br>
-			<!--Present age: <?php echo $row['age'];?><br><br-->
-			Desired Date of entry: <?php echo $row['ddoe'];?><br>
+			Child's First name: <?php echo $MArow['fname']; ?><br><br>
+			Child's Last name: <?php echo $MArow['lname']; ?><br><br>
+			Date of birth: <?php echo $MArow['dob'];?><br><br>
+			<!--Present age: <?php echo $CHrow['age'];?><br><br-->
+			Desired Date of entry: <?php echo $CHrow['ddoe'];?><br>
 			<hr>
-			Father's name: <?php echo $row1['fname'];?> <?php echo $row1['lname']; ?><br><br>
-			Mobile number: <?php echo $row5['cellphone'];?><br><br>
-			<!--Facebook Account:<?php echo $row['ffbook'];?><br><br-->
-			Occupation: <?php echo $row['foccupation'];?><br><br>
-			<!--Office phone number:<?php echo $row5['fofficenum'];?><br><br-->
+			Father's name: <?php echo $MArow['fname'];?> <?php echo $MArow['lname']; ?><br><br>
+			Mobile number: <?php echo $CIrow['cellphone'];?><br><br>
+			Facebook Account:<?php echo $PRrow['ffbook'];?><br><br>
+			Occupation: <?php echo $PRrow['foccupation'];?><br><br>
+			<!--Office phone number:<?php echo $PRrow['fofficenum'];?><br><br-->
 			<hr>
-			Mother's name: <?php echo $row1['fname'];?> <?php echo $row1['lname']; ?><br><br>
-			Mobile number: <?php echo $row5['cellphone'];?><br><br>
-			Facebook Account: <?php echo $row['mfbook'];?><br><br>
-			Occupation: <?php echo $row['moccupation'];?><br><br>
-			<!--Office phone number: <?php echo $row5['mofficenum'];?><br><br-->
+			Mother's name: <?php echo $MArow['fname'];?> <?php echo $MArow['lname']; ?><br><br>
+			Mobile number: <?php echo $CIrow['cellphone'];?><br><br>
+			Facebook Account: <?php echo $PRrow['mfbook'];?><br><br>
+			Occupation: <?php echo $PRrow['moccupation'];?><br><br>
+			<!--Office phone number: <?php echo $PRrow['mofficenum'];?><br><br-->
 			<hr>
-			Parents Are: <?php echo $row4['value'];?><br><br>
-			Home Address: <?php echo $row3['name'];?><br><br>
-			<!--Home Telephone number:<?php echo $row['homenum'];?><br><br-->
-			Name of the person who will usually pick up the child:<?php echo $row['usualpickup'];?><br><br>
+			Parents Are: <?php echo $MRrow['value'];?><br><br>
+			Home Address: <?php echo $ADrow['name'];?><br><br>
+			<!--Home Telephone number:<?php echo $PRrow['homenum'];?><br><br-->
+			Name of the person who will usually pick up the child: <?php echo $PRrow['usualpickup'];?><br><br>
 			<hr>
-			<h1 align="center"> Requested for Attendance: </h1> <?php echo $row6['day'];?><br><br>
+			<h1 align="center"> Requested for Attendance: </h1> <?php echo $ATrow['day'];?><br><br>
 			<hr>
 			<h1 align="center" id="h11"> Emergency contact </h1>
-			Emergency Contact's Name:<?php echo $row2['ecname'];?><br><br>
-			Emergency Contact's Address:<?php echo $row3['name'];?><br><br>
+			Emergency Contact's Name: <?php echo $ERrow['ecname'];?><br><br>
+			Emergency Contact's Address: <?php echo $ADrow['name'];?><br><br>
 
-			Relationship: <?php echo $row2['relation'];?><br><br>
+			Relationship: <?php echo $ERrow['relation'];?><br><br>
 
-			Emergency Contact's Number:<?php echo $row2['ecnum'];?><br><br>
+			Emergency Contact's Number: <?php echo $ERrow['ecnum'];?><br><br>
 
 			Does your child have special needs, require regular medical attention, have any allergies, food dislikes or
 			intolerances, if yes please give more details in the text are below:
-			<?php echo $row['extrainfo'];?><br><br>
+			<?php echo $ERrow['extrainfo'];?><br><br>
 
 			<form method="POST" action="<?php $_SERVER["PHP_SELF"];?>">
 				<?php

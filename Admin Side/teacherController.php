@@ -1,18 +1,45 @@
 <?php
+require_once("db.php");
+require_once("teacherClass.php");
 
-
-class TeacherController
+class teacherC
 {
-
-  public function teacherModel($Tmodel)
+  public function TselectV()
   {
-    require_once("teacherCLass'.$Tmodel.'.php");
-    return new $Tmodel();
+    $DBobj1 = new DB();
+    $DBobj1->connect();
+    $Tobj1 = new teacher();
+    $Trow1 = $Tobj1->select();
+    return $Trow1;
   }
-  public function teacherView($Tview, $Tdata=[])
+
+  public function TinsertV()
   {
-    require_once("acceptteacher '.$Tview.'.php");
+    $DBobj2 = new DB();
+    $DBobj2->connect();
+    $Tobj2 = new teacher();
+    $Trow2 = $Tobj2->insert();
+    return $Trow2;
+  }
+
+  public function TupdateV()
+  {
+    $DBobj3 = new DB();
+    $DBobj3->connect();
+    $Tobj3 = new teacher();
+    $Trow3 = $Tobj3->update();
+    return $Trow3;
+  }
+
+  public function TdeleteV()
+  {
+    $DBobj4 = new DB();
+    $DBobj4->connect();
+    $Tobj4 = new teacher();
+    $Trow4 = $Tobj4->delete();
+    return $Trow4;
   }
 }
+
 
  ?>

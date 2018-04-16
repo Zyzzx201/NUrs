@@ -29,60 +29,61 @@
       <form method="POST" action="<?php $_SERVER["PHP_SELF"];?>">
         <?php
           require_once("db.php");
-          require_once("teacherCLass.php");
-          require_once("MainClass.php");
-          require_once("AddressClass.php");
-          require_once("MaritalClass.php");
-          require_once("ContactinfoClass.php");
-          require_once("nationalityClass.php");
+          require_once("teacherController.php");
+          require_once("MainController.php");
+          require_once("AddressController.php");
+          require_once("MaritalController.php");
+          require_once("ContactinfoController.php");
+          require_once("nationalityController.php");
 
-          $teacherOBJ1 =  new teacher();
-          $row = $teacherOBJ1->select();
-          $childOBJ2 = new main();
-          $row1 = $childOBJ2->select();
-          $addOBJ3 =  new Address();
-          $row3 =  $addOBJ3->select();
-          $marrOBJ4 = new marital();
-          $row4 = $marrOBJ4->select();
-          $ConOBJ5 = new contactinfo();
-          $row5 = $ConOBJ5->select();
-          $NatOBJ6 = new nationality();
-          $row6 = $NatOBJ6->select();
+          $teacherOBJ1 =  new teacherC();
+          $Trow = $teacherOBJ1->TselectV();
+          $teacherOBJ2 = new mainC();
+          $Trow1 = $teacherOBJ2->MselectV();
+          $addOBJ3 =  new addressC();
+          $ADrow =  $addOBJ3->ADselectV();
+          $marrOBJ4 = new maritalC();
+          $MRrow = $marrOBJ4->MTselectV();
+          $ConOBJ5 = new contactinfoC();
+          $CIrow = $ConOBJ5->CIselectV();
+          $NatOBJ6 = new nationalityC();
+          $NTrow = $NatOBJ6->NAselectV();
         ?>
-        Full name:  <?php echo $row1['fname'];?> <?php echo $row1['lname']; ?>
+        Full name: <?php echo $Trow1['fname'];?> <?php echo $Trow1['lname']; ?>
         <br><br>
-        Nationality:  <?php echo $row6['name']; ?><br><br>
-        Home Address:  <?php echo $row3['name']; ?><br><br>
-        Mobile number 1: <?php echo $row5['cellphone']; ?><br><br>
-        Marital Status:  <?php echo $row4['value']; ?><br><br>
-        Academic Qualifications with Dates:<br><br>
-        Qualification 1:  <?php echo $row['acaqual1']; ?>
-         <?php echo $row['date_acaqual1']; ?><br><br>
-        Professional Qualifications with Dates:<br><br>
-        Qualification 1:  <?php echo $row['personal_qual1']; ?>
-         <?php echo $row['date_ppersonalqual1']; ?><br>
+        Nationality:  <?php echo $NTrow['name']; ?><br><br>
+        Home Address:  <?php echo $ADrow['name']; ?><br><br>
+        Mobile number: <?php echo $CIrow['cellphone']; ?><br><br>
+        Marital Status:  <?php echo $MRrow['value']; ?><br><br>
+        <b>Academic Qualifications with Dates:<br><br></b>
+        Qualification 1:  <?php echo $Trow['acaqual1']; ?> <br><br>
+        Date of Qualification: <?php echo $Trow['date_acaqual1']; ?><br><br>
+        <b>Professional Qualifications with Dates:<br><br></b>
+        Qualification 1:  <?php echo $Trow['personal_qual1']; ?> <br><br>
+        Date of Qualification: <?php echo $Trow['date_ppersonalqual1']; ?><br>
         <br><hr>
-        Present Employer's Name:  <?php echo $row['pempname']; ?><br><br>
-        Present Employer's Address: <?php echo $row3['name']; ?><br>
+        Present Employer's Name:  <?php echo $Trow['pempname']; ?><br><br>
+        Present Employer's Address: <?php echo $ADrow['name']; ?><br>
         <br>
-        Present Employer's phone number: <?php echo $row['pempnum']; ?><br><br><hr>
+        Present Employer's phone number: <?php echo $Trow['pempnum']; ?><br><br><hr>
 
-        Current or Last Salary: <?php echo $row['corlsalary']; ?><br><br>
-        Required Salary: <?php echo $row['reqsalary']; ?><br><br>
+        Current or Last Salary: <?php echo $Trow['corlsalary']; ?><br><br>
+        Required Salary: <?php echo $Trow['reqsalary']; ?><br><br>
 
         Have you been interviewed recently at other nurseries? if yes, please mention names:<br><br>
-        <?php echo $row['othernursery']; ?><br><br>
+        <?php echo $Trow['othernursery']; ?><br><br>
 
         In your point of view, how do you see an ideal nursery regarding its academic side?<br><br>
-        <?php echo $row['povnursery'];?></textarea><br>
+        <?php echo $Trow['povnursery'];?></textarea><br>
         <br><br>
         <form method="POST" action="<?php $_SERVER["PHP_SELF"];?>">
           <?php
           require_once("btns.php");
+          $BTNobj2= new BTN();
           /*$BTNobj1= new BTN();
           $action1 = $BTNobj1->statusChange();*/
            ?>
-          <button type="submit" onclick="<?php $BTNobj2= new BTN(); $action2 = $BTNobj2->actionBTN(1);?>">Accept Applicant</button>
+          <button type="submit" onclick="<?php $BTNobj2->actionBTN(1);?>">Accept Applicant</button>
           <button type="submit" onclick="<?php $BTNobj3= new BTN(); $action3 = $BTNobj3->actionBTN(2);?>">Refuse Applicant</button>
           <button type="submit" onclick="<?php $BTNobj4= new BTN(); $action4 = $BTNobj4->actionBTN(3);?>">Set As Pending</button>
 <!-- name="ACbtn"name="RFbtn"name="PNbtn"-->
