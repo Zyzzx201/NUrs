@@ -1,0 +1,35 @@
+header{
+	height: 100;
+}
+header #logo{
+	margin-top: 20px;
+	margin-left: 20px;
+	width: 120px;
+	height: 60px;
+}
+#hdr{
+	position: relative;
+	top: -60px;
+	left: 300px;
+}
+#bk{
+	position: relative;
+	top: -120;
+	left: 1000;
+}
+.appform{
+	position: relative;
+	top: -30;
+}
+#footer{
+	position: absolute;
+	bottom: -150;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100px;
+    background-color: #ccccb3;
+}
+#ftr{
+	width: 100%;
+}
