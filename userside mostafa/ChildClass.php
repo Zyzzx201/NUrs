@@ -22,6 +22,7 @@ class user{
         echo $row['id'];
         echo $row['ddoe'];
         echo $row['childtype'];
+        echo $row['main_id'];
     }
       $DBobject->disconnect();
     

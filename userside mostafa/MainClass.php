@@ -30,8 +30,8 @@ public $ssn;
       echo $row['status_id'];
       echo $row['fname'];
       echo $row['lname'];
-      echo $row['dob']
-      echo $row['ssn'];;
+      echo $row['dob'];
+      echo $row['ssn'];
     }
     $DBObject->disconnect();
   }
