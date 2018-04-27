@@ -21,11 +21,11 @@
     </header>
 </header>
     <br>
-	<div class = "Uappform">
+	<div class = "teacher2">
 		<form id="searchB" method="POST" action="<?php $_SERVER["PHP_SELF"];?>">
 				 <input type="text" name="Search" id="boxes" placeholder="Search for names.." onkeyup="aftersearch.php" >
 		</form>
-		<form name="app" method="REQUEST" action="<?php $_SERVER["PHP_SELF"];?>">
+		<form method="POST" action="<?php $_SERVER["PHP_SELF"];?>">
       <?php
       require_once("db.php");
 			require_once("ChildController.php");
@@ -36,6 +36,7 @@
 			require_once("EmergencyController.php");
 			require_once("WeekController.php");
 			require_once("ParentController.php");
+			require_once("relationController.php");
 
       $childOBJ1 =  new childC();
       $CHrow = $childOBJ1->CHselectV();
@@ -53,6 +54,8 @@
 			$ATrow = $AttOBJ6->WselectV();
 			$ParOBJ7 = new parentsC();
 			$PRrow =  $ParOBJ7->PselectV();
+			$RelOBJ8 = new relationC();
+			$Rrow = $RelOBJ8->RselectV();
       ?>
 		    <br>
 			Child's First name: <?php echo $MArow['fname']; ?><br><br>
@@ -84,28 +87,25 @@
 			Emergency Contact's Name: <?php echo $ERrow['ecname'];?><br><br>
 			Emergency Contact's Address: <?php echo $ADrow['name'];?><br><br>
 
-			Relationship: <?php echo $ERrow['relation'];?><br><br>
+			Relationship: <?php echo $Rrow['value'];?><br><br>
 
 			Emergency Contact's Number: <?php echo $ERrow['ecnum'];?><br><br>
 
 			Does your child have special needs, require regular medical attention, have any allergies, food dislikes or
 			intolerances, if yes please give more details in the text are below:
 			<?php echo $ERrow['extrainfo'];?><br><br>
-
-			<form method="POST" action="<?php $_SERVER["PHP_SELF"];?>">
-				<?php
-
-				/*$BTNobj1= new BTN();
-				$action1 = $BTNobj1->statusChange();*/
-				 ?>
-				<button type="submit" name="ACbtn" onclick="<?php require_once("btns.php");
-				 $BTNobj= new BTN(); $action = $BTNobj->actionBTN(1);?>">Accept Applicant</button>
-				<button type="submit" name="RFbtn" onclick="<?php require_once("btns.php");
-				 $BTNobj= new BTN(); $action = $BTNobj->actionBTN(2);?>">Refuse Applicant</button>
-				<button type="submit" name="PNbtn" onclick="<?php require_once("btns.php");
-				 $BTNobj= new BTN(); $action = $BTNobj->actionBTN(3);?>">Set As Pending</button>
-
-			</form>
+		</form>
+		<form  action="Afterbtns.php" method="post">
+			<input type="hidden" name="accept" value="1">
+			<input type="submit"  value="Accept Applicant" >
+		</form>
+		<form  action="Afterbtns.php" method="post">
+			<input type="hidden" name="refuse" value="2">
+			<input type="submit" name="Refuse" value="Refuse Applicant" >
+		</form>
+		<form  action="Afterbtns.php" method="post">
+			<input type="hidden" name="pending" value="3">
+			<input type="submit" name="Pending" value="Keep As Pending" >
 		</form>
 	</div>
 

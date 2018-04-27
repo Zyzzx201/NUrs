@@ -14,14 +14,14 @@
       <img src="logo.png" id="logo" onclick="location.href='/index.php';">
       <p id="h1T">Teacher</p><p id="h1Ac">Acceptance</p>
       <button type="submit" id="bkbtn" onclick="location.href='/index.php';">Back</button>
-      <button type="button" id="pabtn" onclick="<?php require_once("btns.php"); $BTNobj2= new BTN();
-      $action2 = $BTNobj2->navBTn(1); ?>">Previous Applicaton</button>
-      <button type="button" id="nabtn" onclick="<?php require_once("btns.php"); $BTNobj2= new BTN();
-      $action2 = $BTNobj2->navBTn(2); ?>">Next Applicaton</button>
+      <button type="button" id="pabtn" onclick="">Previous Applicaton</button> <!--?php require_once("btns.php"); $BTNobj2= new BTN();
+      $action2 = $BTNobj2->navBTn(1); ?-->
+      <button type="button" id="nabtn" onclick="">Next Applicaton</button> <!--?php require_once("btns.php"); $BTNobj2= new BTN();
+      $action2 = $BTNobj2->navBTn(2); ?-->
 
     </header>
 
-    <div class = "teacher2">
+    <div class = "teacher1">
       <form id="searchB" method="POST" action="<?php $_SERVER["PHP_SELF"];?>">
            <input type="text" name="Search" id="boxes" placeholder="Search for names.." onkeyup="aftersearch.php" >
       </form>
@@ -48,6 +48,7 @@
           $CIrow = $ConOBJ5->CIselectV();
           $NatOBJ6 = new nationalityC();
           $NTrow = $NatOBJ6->NAselectV();
+
         ?>
         Full name: <?php echo $Trow1['fname'];?> <?php echo $Trow1['lname']; ?>
         <br><br>
@@ -76,21 +77,24 @@
         In your point of view, how do you see an ideal nursery regarding its academic side?<br><br>
         <?php echo $Trow['povnursery'];?></textarea><br>
         <br><br>
-        <form method="POST" action="<?php $_SERVER["PHP_SELF"];?>">
-          <?php
-          require_once("btns.php");
-          $BTNobj2= new BTN();
-          /*$BTNobj1= new BTN();
-          $action1 = $BTNobj1->statusChange();*/
-           ?>
-          <button type="submit" onclick="<?php $BTNobj2->actionBTN(1);?>">Accept Applicant</button>
-          <button type="submit" onclick="<?php $BTNobj3= new BTN(); $action3 = $BTNobj3->actionBTN(2);?>">Refuse Applicant</button>
-          <button type="submit" onclick="<?php $BTNobj4= new BTN(); $action4 = $BTNobj4->actionBTN(3);?>">Set As Pending</button>
-<!-- name="ACbtn"name="RFbtn"name="PNbtn"-->
-        </form>
-
       </form>
+      <form  action="Afterbtns.php" method="post">
+        <input type="hidden" name="accept" value="1">
+        <input type="submit"  value="Accept Applicant" >
+      </form>
+      <form  action="Afterbtns.php" method="post">
+        <input type="hidden" name="refuse" value="2">
+        <input type="submit" name="Refuse" value="Refuse Applicant" >
+      </form>
+      <form  action="Afterbtns.php" method="post">
+        <input type="hidden" name="pending" value="3">
+        <input type="submit" name="Pending" value="Keep As Pending" >
+      </form>
+
     </div>
+
+
+
 
 </body>
 </html>

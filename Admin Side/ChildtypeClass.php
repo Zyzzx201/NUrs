@@ -16,12 +16,10 @@ class childtype{
     $DBObject = new DB();
     $sql = "SELECT * FROM childtype WHERE id = '".$this->id."' ";
     $DBObject->connect();
-    $result = $DBObject->execute($sql);
-    while ($row = mysqli_fetch_array($result)){
-    echo $row['id'];
-    echo $row['type'];
-    }
+    $result =  $DBObject->execute($sql);
+    $row = mysqli_fetch_array($result);
     $DBObject->disconnect();
+    return $row;
     }
 
     public function update(){

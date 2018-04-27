@@ -30,7 +30,7 @@
 #h1D{
   left: 20.2%;
 }
-.Uappform, .Dappform, .teacher2{
+.teacher2{
 	font-family: cursive;
 	border: 1px solid transparent;
 	border-radius: 40px;
@@ -39,14 +39,11 @@
 	top: 20%;
 	left: 9%;
 	width: 70%;
-	height: 230%;
+	height: 275%;
 	margin-right: -50%;
 	opacity: 0.95;
 	padding: 20px;
-	z-index: -2;
-}
-.Dappform, .Uappform{
-	height: 275%;
+	/*z-index: -2;*/
 }
 header #pabtn, header #nabtn{
   font-family: cursive;

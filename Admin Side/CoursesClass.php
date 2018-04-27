@@ -3,7 +3,7 @@ require_once('db.php');
 class Courses{
     public $id;
     public $description;
-    
+
 	public function insert(){
     $DBObject = new DB();
     $sql = "INSERT INTO courses (description) VALUES ('".$this->description."')";
@@ -12,16 +12,14 @@ class Courses{
     $DBObject->disconnect();
 
     }
-    public function select(){  
+    public function select(){
         $DBObject = new DB();
         $sql = "SELECT * FROM courses WHERE description LIKE '%".$this->description."%'";
         $DBObject->connect();
-        $result =$DBObject->execute($sql);
-        while ($row = mysqli_fetch_array($result)){
-                echo $row['id'];
-                echo $row['description'];
-            }
+        $result =  $DBObject->execute($sql);
+        $row = mysqli_fetch_array($result);
         $DBObject->disconnect();
+        return $row;
      }
     public function update(){
         $DBObject = new DB();
@@ -31,13 +29,13 @@ class Courses{
         $DBObject->disconnect();
 
      }
-    public function delete(){ 
+    public function delete(){
       $DBObject = new DB();
       $sql = "DELETE FROM courses WHERE courses.id  = '".$id."'";
       $DBObject->connect();
       $DBObject->execute($sql);
       $DBObject->disconnect();
       }
-    
+
 }
 ?>

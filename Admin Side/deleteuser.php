@@ -6,42 +6,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--arrow down-->
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<h1 align="left" id="h11"> <p><u>Teacher Application:</u></p> </h1>
-	<script type="text/javascript">
-		window.onload = function() {
-			document.getElementById('ptdyz').style.display = 'none';
-		}
-		function ptdays(){
-			if (document.getElementById('PTD').checked) {
-        		document.getElementById('ptdyz').style.display = 'block';
-			}
-			else if (document.getElementById('ozr').checked || document.getElementById('ozr2').checked){
-				document.getElementById('ptdyz').style.display = 'none';
-				document.getElementById('sun').checked= false;
-				document.getElementById('mon').checked= false;
-				document.getElementById('tue').checked= false;
-				document.getElementById('wed').checked= false;
-				document.getElementById('thu').checked= false;
-			}
-		};
-		function KeepCount() {
-			var count = 0;
-			if (document.app.sun.checked)
-			{count = count + 1;}
-			if (document.app.mon.checked)
-			{count = count + 1;}
-			if (document.app.tue.checked)
-			{count = count + 1;}
-			if (document.app.wed.checked)
-			{count = count + 1;}
-			if (document.app.thu.checked)
-			{count = count + 1;}
-			if (count > 3)
-			{
-				alert('Please only pick 3 days or one of the other options.');
-				document.getElementById('ozr').checked= true;
-			}
-		};
-	</script>
+
 </head>
 
 <body>
@@ -54,93 +19,84 @@
 	</header>
 </header>
     <br>
-	<div class = "Dappform">
-			<form name="app">
-				Child's name:
-				<input type="text" name="cname" id="boxes" required><br><br>
-				Date of birth:
-				<input type="date" name="dob"  id="boxes" required><br><br>
-				Present age:
-				<input type="number" name="page" min="1" max ="5" id="boxes" required><br><br>
-				Desired Date of entry:
-				<input type="date" name="dde" min="1" max ="5" id="boxes" required><br>
-				<!--desired age > present age-->
-				<hr>
-				Father's name:
-				<input type="text" name="Fname"  id="boxes" required><br><br>
-				Mobile number:
-				<input type="text" name="number1" maxlength="11" id="boxes" required><br><br>
-				Facebook Account:
-				<input type="text" name="Fb1" id="boxes" required><br><br>
-				Occupation:
-				<input type="text" name="occ1" id="boxes" required><br><br>
-				Office phone number:
-				<input type="text" name="off1" id="boxes" maxlength="8" required><br><br>
-				<hr>
-				Mother's name:
-				<input type="text" name="Mname" id="boxes" required><br><br>
-				Mobile number:
-				<input type="text" name="number2" id="boxes" maxlength="11"  required><br><br>
-				Facebook Account:
-				<input type="text" name="Fb2" id="boxes" ><br><br>
-				Occupation:
-				<input type="text" name="occ2" id="boxes" required><br><br>
-				Office phone number:
-				<input type="text" name="off2" id="boxes" maxlength="8" required><br><br>
-				<hr>
-				Parents Are:<br>
-				<label><input type="radio" name="status" value="Married"  > Married</label><br>
-				<label><input type="radio" name="status" value="Separated" > Separated</label><br><br>
-				<!-- Make this a required field/ choice-->
-				Home Address:
-				<input type="text" name="address" id="boxes" required><br><br>
-				Home Telephone number:
-				<input type="text" name="htn" maxlength="8" id="boxes" required><br><br>
-				Name of the person who will usually pick up the child:
-				<input type="text" name="name1" id="boxes" required><br><br>
-				<hr>
-				<h1 align="center" id="h11"> Requested for Attendance</h1>
-				Please fill in with a tick below in order of preference:<br>
-				<input type="radio" name="status" value="FT" id="ozr" onclick="ptdays();" checked> Full Time attendance : Sun.  - Thurs.(08:00 am - 3:00pm)<br>
-				<input type="radio" name="status" value="PT" id="PTD" onclick="ptdays();"> Part Time attendance : Three days a week, please specify the days in the box below <br>
-				<div id="ptdyz" >
-					<input type="checkbox" name="sun" value="DY" onclick="KeepCount(), ptdays()" id="sun">Sunday<br>
-					<input type="checkbox" name="mon" value="DY" onclick="KeepCount(), ptdays()" id="mon">Monday<br>
-					<input type="checkbox" name="tue" value="DY" onclick="KeepCount(), ptdays()" id="tue">Tuesday<br>
-					<input type="checkbox" name="wed" value="DY" onclick="KeepCount(), ptdays()" id="wed">Wednesday<br>
-					<input type="checkbox" name="thu" value="DY" onclick="KeepCount(), ptdays()" id="thu">Thursday<br>
-				</div>
-				<input type="radio" name="status" value="other" id="ozr2" onclick="ptdays();"> Sun. - Thurs. (09:00 am - 1:00pm)
+	<div class = "teacher2">
+		<form id="searchB" method="POST" action="<?php $_SERVER["PHP_SELF"];?>">
+				 <input type="text" name="Search" id="boxes" placeholder="Search for names.." onkeyup="aftersearch.php" >
+		</form>
+		<form name="app" method="REQUEST" action="<?php $_SERVER["PHP_SELF"];?>">
+			<?php
+			require_once("db.php");
+			require_once("ChildController.php");
+			require_once("MainController.php");
+			require_once("AddressController.php");
+			require_once("MaritalController.php");
+			require_once("ContactinfoController.php");
+			require_once("EmergencyController.php");
+			require_once("WeekController.php");
+			require_once("ParentController.php");
+			require_once("relationController.php");
+
+			$childOBJ1 =  new childC();
+			$CHrow = $childOBJ1->CHselectV();
+			$childOBJ2 = new mainC();
+			$MArow = $childOBJ2->MselectV();
+			$EROBJ2 = new emergencyC();
+			$ERrow =  $EROBJ2->ERselectV();
+			$addOBJ3 =  new addressC();
+			$ADrow =  $addOBJ3->ADselectV();
+			$marrOBJ4 = new maritalC();
+			$MRrow = $marrOBJ4->MTselectV();
+			$ConOBJ5 = new contactinfoC();
+			$CIrow = $ConOBJ5->CIselectV();
+			$AttOBJ6 = new weekC();
+			$ATrow = $AttOBJ6->WselectV();
+			$ParOBJ7 = new parentsC();
+			$PRrow =  $ParOBJ7->PselectV();
+			$RelOBJ8 = new relationC();
+			$Rrow = $RelOBJ8->RselectV();
+			?>
 				<br>
-				<strong>Note</strong> For working mothers who can not collect their children at 3:00pm extra fees will be charged<br><br>
-				<hr>
-				<h1 align="center" id="h11"> Emergency contact </h1>
-				Emergency Contact's Name:
-				<input type="text" name="ern" id="boxes" required><br><br>
-				Emergency Contact's Address:
-				<input type="text" name="address1" id="boxes" required><br><br>
-				<!-- Make this a required field/ choice-->
-				Relationship:
-				<select id="boxes" required>
-					<option value="auntM">Aunt (mum's side)</option>
-			    <option value="uncleM">Uncle (mum's side)</option>
-			    <option value="grandpaM">Grandpa (mum's side)</option>
-			    <option value="grandmaM">Grandma (mum's side)</option>
-			    <option value="auntD">Aunt (dad's side)</option>
-			    <option value="uncleD">Uncle (dad's side)</option>
-			    <option value="grandpaD">Grandpa (dad's side)</option>
-			    <option value="grandmaD">Grandma (dad's side)</option>
-			    <option value="cousin">Cousin (has to be 18+ years old)</option>
-				</select><br><br>
+			Child's First name: <?php echo $MArow['fname']; ?><br><br>
+			Child's Last name: <?php echo $MArow['lname']; ?><br><br>
+			Date of birth: <?php echo $MArow['dob'];?><br><br>
+			<!--Present age: <?php echo $CHrow['age'];?><br><br-->
+			Desired Date of entry: <?php echo $CHrow['ddoe'];?><br>
+			<hr>
+			Father's name: <?php echo $MArow['fname'];?> <?php echo $MArow['lname']; ?><br><br>
+			Mobile number: <?php echo $CIrow['cellphone'];?><br><br>
+			Facebook Account:<?php echo $PRrow['ffbook'];?><br><br>
+			Occupation: <?php echo $PRrow['foccupation'];?><br><br>
+			<!--Office phone number:<?php echo $PRrow['fofficenum'];?><br><br-->
+			<hr>
+			Mother's name: <?php echo $MArow['fname'];?> <?php echo $MArow['lname']; ?><br><br>
+			Mobile number: <?php echo $CIrow['cellphone'];?><br><br>
+			Facebook Account: <?php echo $PRrow['mfbook'];?><br><br>
+			Occupation: <?php echo $PRrow['moccupation'];?><br><br>
+			<!--Office phone number: <?php echo $PRrow['mofficenum'];?><br><br-->
+			<hr>
+			Parents Are: <?php echo $MRrow['value'];?><br><br>
+			Home Address: <?php echo $ADrow['name'];?><br><br>
+			<!--Home Telephone number:<?php echo $PRrow['homenum'];?><br><br-->
+			Name of the person who will usually pick up the child: <?php echo $PRrow['usualpickup'];?><br><br>
+			<hr>
+			<h1 align="center"> Requested for Attendance: </h1> <?php echo $ATrow['day'];?><br><br>
+			<hr>
+			<h1 align="center" id="h11"> Emergency contact </h1>
+			Emergency Contact's Name: <?php echo $ERrow['ecname'];?><br><br>
+			Emergency Contact's Address: <?php echo $ADrow['name'];?><br><br>
 
-				Emergency Contact's Number:
-				<input type="text" name="contact1" id="boxes"  maxlength="11" required><br><br>
+			Relationship: <?php echo $Rrow['value'];?><br><br>
 
-				Does your child have special needs, require regular medical attention, have any allergies, food dislikes or
-				intolerances, if yes please give more details in the text are below:<br><br>
-				<textarea name="info" rows="4" cols="50" id="boxes"></textarea><br>
-			<button type="button" id="Dbtn">Delete Application</button> <!--send a mail, maybe?-->
-		</form> <!--alert-->
+			Emergency Contact's Number: <?php echo $ERrow['ecnum'];?><br><br>
+
+			Does your child have special needs, require regular medical attention, have any allergies, food dislikes or
+			intolerances, if yes please give more details in the text are below:
+			<?php echo $ERrow['extrainfo'];?><br><br>
+
+			<form method="POST" action="Afterbtns.php">
+				<input type="submit" name="DeleteBtn" value="Delete Applicaton">
+			</form>
+		</form>
 	</div>
 
 </body>

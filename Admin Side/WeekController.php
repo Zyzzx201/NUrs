@@ -13,7 +13,7 @@ class weekC
     return $Wrow1;
   }
 
-  public function WinsertV()
+  /*public function WinsertV()
   {
     $DBobj2 = new DB();
     $DBobj2->connect();
@@ -38,7 +38,7 @@ class weekC
     $Wobj4 = new week();
     $Wrow4 = $Wobj4->delete();
     return $Wrow4;
-  }
+  }*/
 }
 
 

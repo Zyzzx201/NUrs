@@ -354,7 +354,7 @@ header #bkbtn{
 	margin-right: -50%;
 	opacity: 0.95;
 	padding: 20px;
-	z-index: -2;
+	/*z-index: -2;*/
 }
 .appform{
 	height: 370%;
@@ -372,7 +372,7 @@ header #bkbtn{
 	margin-right: -50%;
 	opacity: 0.95;
 	padding: 20px;
-	z-index: -1;
+	/*z-index: -1;*/
 }
 .scheds{
 	top: 75%;
