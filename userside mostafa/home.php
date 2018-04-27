@@ -68,7 +68,7 @@
 			<input type="button" value="Cancel" onclick="cancelGA()" id="cancelBtn">
 		</div>
 	</div-->
-	<div class="pics">
+	<!--div class="pics">
 		<div class="picsLeft">
 			<img src="pic1.jpg" alt="pic1" id="pic1" class="w3-round-xxlarge">
 			<img src="pic2.jpg" alt="pic2" id="pic2" class="w3-round-xxlarge">
@@ -87,7 +87,7 @@
 			<img src="pic6.jpg" alt="pic13" id="pic11" class="w3-round-xxlarge">
 			<img src="pic7.jpg" alt="pic13" id="pic12" class="w3-round-xxlarge">
 			<img src="pic8.jpg" alt="pic13" id="pic13" class="w3-round-xxlarge">
-		</div>
+		</div-->
 	</div>
 	<div align="justify" class = "wt">
 		<h2 id="h2">An important Message to all the parents : </h2><hr>

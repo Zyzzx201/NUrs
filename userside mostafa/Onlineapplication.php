@@ -1,13 +1,15 @@
+<?php session_start(); ?>
 <html>
 <head>
 	<title>Fun & Learn: Online Application</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
+	<link rel="stylesheet" type="text/css" href="StyleSheet.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script type="text/javascript">
 		window.onload = function() {
 			document.getElementById('ptdyz').style.display = 'none';
 			document.getElementById('navMenu').style.display = 'none';
-			document.getElementById('sBar').style.display = 'none';
+			//document.getElementById('sBar').style.display = 'none';
 		};
 		function changeM(x) {
 			x.classList.toggle("change");
@@ -16,12 +18,12 @@
 				document.getElementById('navMenu').display = 'none';
 			}
 		};
-		function sgaBox() {
+		/*function sgaBox() {
 			document.getElementById('sBar').style.display = 'block';
 		};
 		function cancelGA(){
 			document.getElementById('sBar').style.display= 'none';
-		};
+		};*/
 		function ptdays(){
 			if (document.getElementById('PTD').checked) {
         		document.getElementById('ptdyz').style.display = 'block';
@@ -67,7 +69,7 @@
 <body>
 
 	<header>
-		<img src="logo.png" id="logo" onclick="location.href='About us.php';">
+		<img src="logo.png" id="logo" onclick="location.href='/index.php';">
 		<p id="h1O">Online</p><p id="h1A">Application</p>
 		<div class="micon" onclick="changeM(this)" id="Menicon">
 			<div class="b1"></div>
@@ -82,7 +84,7 @@
 				<a id="addr" href="/Schedules.php" >Schedule</a>
 				<a id="addr" href="" >Gallery</a>
 				<a id="addr" href="" >Events</a>
-				<div class="dropdown">
+				<!--div class="dropdown">
 					<button class="dropbtn">Admin
 						<i class="fa fa-caret-down"></i>
 					</button>
@@ -93,89 +95,74 @@
 						<a href="/editteacher.php" id="admAdr">Teacher Edit</a>
 						<a href="#" class="secretGABtn" onclick="sgaBox()">Login</a>
 					</div>
-				</div>
+				</div-->
 			</div>
 		</div>
 	</header>
 
 	<div class = "Oappform">
 			<h1 align="center"> Application Form </h1>
-			<form name="app" action = "afteronlineapp.php" method = "post">
-				Child's first name:<br>
-				<input type="text" name="cname1" id="boxes" required><br>
-				Child's last name:<br>
-				<input type="text" name="cname2" id="boxes" required><br>
-				Date of birth:<br>
-				<input type="date" name="dob" id="boxes" required><br>
-				social security number :<br>
-				<input type="number" name="ssn"  id="boxes" required><br>
-				Desired Date of entry:<br>
-				<input type="number" name="dde" min="1" max ="5" id="boxes" required><br>
+			<form name="app" method="POST" action="childafterSave.php">
+				Child's name:
+				<input type="text" name="cfname" id="boxes" > <!--box msh sh8al-->
+				<input type="text" name="clname" id="boxes" ><br><br> <!--box msh sh8al-->
+				Date of birth:
+				<input type="date" name="dob" id="boxes" ><br><br> <!--box msh sh8al>
+				Present age:
+				<input type="number" name="page" min="1" max ="5" id="boxes" ><br> <box msh sh8al-->
+				Child's Social number:
+				<input type="text" name="cssn" maxlength="11" id="boxes" ><br><br>
+				Desired Date of entry:
+				<input type="date" name="ddoe" min="1" max ="5" id="boxes" ><br> <!--box msh sh8al-->
 				<hr>
-				Father's First name:<br>
-				<input type="text" name="FFname" id="boxes" required><br>
-				Father's Last Name:<br>
-				<input type="text" name="FLname" id="boxes" required><br>
-				Date of birth:<br>
-				<input type="date" name="Fdob" id="boxes" required><br>
-				social security number :<br>
-				<input type="number" name="Fssn"  id="boxes" required><br>
-				Mobile number:<br>
-				<input type="text" name="number1" maxlength="11" id="boxes" required><br>
-				Facebook Account:<br>
-				<input type="text" name="FFb" id="boxes"><br>
-				Occupation:<br>
-				<input type="text" name="Focc" id="boxes" required><br>
-				Office phone number:<br>
-				<input type="text" name="Foff" maxlength="8" id="boxes" required><br>
+				Father's name:
+				<input type="text" name="ffname" id="boxes" > <!--box msh sh8al-->
+				<input type="text" name="flname" id="boxes" ><br><br> <!--box msh sh8al-->
+				Father's Social security number:
+				<input type="text" name="fssn" maxlength="11" id="boxes" ><br><br> <!--box msh sh8al-->
+				Facebook Account:
+				<input type="text" name="ffbook" id="boxes"><br><br> <!--box msh sh8al-->
+				Occupation:
+				<input type="text" name="foccupation" id="boxes" ><br> <!--box msh sh8al-->
 				<hr>
-				Mother's First name:<br>
-				<input type="text" name="MFname" id="boxes" required><br>
-				Mother's Last Name:<br>
-				<input type="text" name="MLname" id="boxes" required><br>
-				Date of birth:<br>
-				<input type="date" name="Mdob" id="boxes" required><br>
-				social security number :<br>
-				<input type="number" name="Mssn"  id="boxes" required><br>
-				Mobile number:<br>
-				<input type="text" name="Mnumber" maxlength="11" id="boxes" required><br>
-				Facebook Account:<br>
-				<input type="text" name="MFb" id="boxes"><br>
-				Occupation:<br>
-				<input type="text" name="Mocc" id="boxes" required><br>
-				Office phone number:<br>
-				<input type="text" name="Moff" maxlength="8" id="boxes" required><br>
+				Mother's name:
+				<input type="text" name="mfname" id="boxes" >
+				<input type="text" name="mlname" id="boxes" ><br><br>
+				Mother's Social security number:
+				<input type="text" name="mssn" maxlength="11" id="boxes" ><br><br>
+				Facebook Account:
+				<input type="text" name="mfbook" id="boxes"><br><br>
+				Occupation:
+				<input type="text" name="moccupation" id="boxes" ><br>
 				<hr>
-				Parents Are:<br>
-				<label><input type="radio" name="status" value="1" required> Married</label>
-				<label><input type="radio" name="status" value="2" > Separated<br></label>
-				<!-- Make this a required field/ choice-->
-				Home Address:<br>
-				<select name = "address">
-              	<?php
-			  	require_once("AddressClass.php");
-                $AdressObject = new Address();
-                $Names = $AdressObject->getAllRoots();
-                $size = count($Names);
-                for ($x=0;$x<$size;$x++){
-                  echo '<option value = '.$Names[$x].'>'.$Names[$x].'</option>';
-				}
-              	?>
-				</select><br>
-				Home Telephone number:<br>
-				<input type="text" name="htn" maxlength="8" required id="boxes"><br>
-				Name of the person who will usually pick up the child:<br>
-				<input type="text" name="name1" id="boxes" required><br>
-
-				<p><u>Under any circumstance we will not receive the child to any other person unless the parents will inform us previously with the identity of this person</u>.</p>
-				<p><u>*Nursery is serving 2 nutritious meals included in the monthly fees</u>.</p>
+				Parents Are:
+				<label><input type="radio" name="mstatus_id" value="Married" > Married</label>
+				<label><input type="radio" name="mstatus_id" value="Separated" > Separated<br><br></label>
+				Home Address:
+				<select  id="boxes" name="address_id" >
+	        <?php require_once("AddressClass.php");
+					$addOBJ3 = new Address();
+					$names = $addOBJ3->getAllRoots();
+					$size = count($names);
+					for ($i=0; $i < $size ; $i++) {
+						echo '<option value= '.$names[$i].'>'.$names[$i].'</option>';
+					}
+					?>
+	      </select> <br><br>
+				Home Telephone number:
+				<input type="text" name="homenum" maxlength="8"  id="boxes"><br><br>
+				Name of the person who will usually pick up the child:
+				<input type="text" name="usualpickup" id="boxes" ><br><br>
+				<p><u>Under any circumstance we will not give the child to any other person unless the parents will inform us previously with the identity of this person</u>.</p>
+				<p><u>*Nursery is serving 2 nutritious meals included in the monthly fees.</u></p>
 				<hr>
-				<!-- Needs the required field to be made as a javascript function-->
+				<!-- Needs the  field to be made as a javascript function-->
 				<h1 align="center"> Requested for Attendance</h1>
-				Please fill in with a tick below in order of preference:<br>
-			    <label><input type="radio" name="attend" value="FT" id="ozr" required onclick="ptdays();" checked> Full Time attendance : Sun.  - Thurs.(08:00 am - 3:00pm)<br></label>
-
-				<label><input type="radio" name="attend" value="PT" id="PTD" onclick="ptdays();"> Part Time attendance : Three days a week, please specify the days in the box below
+				Please fill in with a tick below in order of preference: <br>
+			  <label><input type="radio" name="status" value="FT" id="ozr"  onclick="ptdays();" checked>
+				Full Time attendance : Sun.  - Thurs.(08:00 am - 3:00pm)<br></label>
+				<label><input type="radio" name="status" value="PT" id="PTD" onclick="ptdays();">
+				Part Time attendance : Three days a week, please specify the days in the box below
 			    <br></label>
 			    <div id="ptdyz" >
 					<input type="checkbox" name="sun" value="DY" onclick="KeepCount(), ptdays()" id="sun">Sunday<br>
@@ -184,45 +171,44 @@
 					<input type="checkbox" name="wed" value="DY" onclick="KeepCount(), ptdays()" id="wed">Wednesday<br>
 					<input type="checkbox" name="thu" value="DY" onclick="KeepCount(), ptdays()" id="thu">Thursday<br>
 				</div>
-			  <label><input type="radio" name="attend" value="other" id="ozr2" onclick="ptdays();"> Sun. - Thurs. (09:00 am - 1:00pm)<br>
+			  <label><input type="radio" name="status" value="other" id="ozr2" onclick="ptdays();"> Sun. - Thurs. (09:00 am - 1:00pm)<br>
 				</label><br>
-				<strong>Note</strong> For working mothers who can not collect their children at 3:00pm extra fees will be charged<br><br>
+				<strong>Note</strong> For working mothers who can not collect their children at 3:00pm extra fees will be charged<br>
 				<hr>
 				<h1 align="center"> Emergency contact </h1>
-				Emergency Contact's Name:<br>
-				<input type="text" name="ern" id="boxes" required><br>
-				Emergency Contact's Address:<br>
-				<select name = 'address1'>
-				<?php
-			  	require_once("AddressClass.php");
-                $AdressObject = new Address();
-                $Names = $AdressObject->getAllRoots();
-                $size = count($Names);
-                for ($x=0;$x<$size;$x++){
-                  echo '<option value = '.$Names[$x].'>'.$Names[$x].'</option>';
-                }
-              ?>
-			  </select><br>
-				Relationship:<br>
-				<select required id="boxes" name = 'rel'>
-			     	<option value="">None</option>
-					<option value="auntM">Aunt (mum's side)</option>
-				    <option value="uncleM">Uncle (mum's side)</option>
-				    <option value="grandpaM">Grandpa (mum's side)</option>
-				    <option value="grandmaM">Grandma (mum's side)</option>
-				    <option value="auntD">Aunt (dad's side)</option>
-				    <option value="uncleD">Uncle (dad's side)</option>
-				    <option value="grandpaD">Grandpa (dad's side)</option>
-				    <option value="grandmaD">Grandma (dad's side)</option>
-				    <option value="cousin">Cousin (has to be 18+ years old)</option>
-				</select><br>
-
-				Emergency Contact's Number:<br>
-				<input type="text" name="contact1"  maxlength="11" id="boxes" required><br>
-
+				Emergency Contact's Name:
+				<input type="text" name="ecname" id="boxes" ><br><br>
+				Emergency Contact's Address:
+	      <select  id="boxes" name="ecaddress_id" >
+					<?php require_once("AddressClass.php");
+				 $addOBJ3 = new Address();
+				 $names = $addOBJ3->getAllRoots();
+				 $size = count($names);
+				 for ($i=0; $i < $size ; $i++) {
+					 echo '<option value= ' .$names[$i].'>'.$names[$i].'</option>';
+				 }
+				 ?>
+	      </select>  <br><br>
+				Relationship:
+				<select  id="boxes">
+			     	<option value="" >None</option>
+				    <option value="1" name="relation_id">Uncle (mum's side)</option>
+				    <option value="2" name="relation_id">Uncle (dad's side)</option>
+				    <option value="3" name="relation_id">Cousin (has to be 18+ years old)</option>
+						<option value="4" name="relation_id">Sister (has to be 18+ years old)</option>
+						<option value="5" name="relation_id">Brother (has to be 18+ years old)</option>
+						<option value="8" name="relation_id">Grandpa (mum's side)</option>
+						<option value="8" name="relation_id">Grandpa (dad's side)</option>
+				    <option value="9" name="relation_id">Grandma (dad's side)</option>
+						<option value="9" name="relation_id">Grandma (mum's side)</option>
+						<option value="10" name="relation_id">Aunt (mum's side)</option>
+						<option value="11" name="relation_id">Aunt (dad's side)</option>
+				</select><br><br>
+				Emergency Contact's Number:
+				<input type="text" name="ecnum"  maxlength="11" id="boxes" ><br><br>
 				Does your child have special needs, require regular medical attention, have any allergies, food dislikes or
-				intolerances, if yes please give more details in the text are below:<br><br>
-				<textarea name="info" rows="4" cols="50" id="boxes"></textarea><br>
+				intolerances, if yes please give more details in the text are below: <br><br>
+				<textarea name="extrainfo" rows="4" cols="50" id="boxes"></textarea><br>
 				<hr>
 				<p><u><h2 align="left">Rules and Regulations</h2></u></p>
 				<ol>
@@ -248,18 +234,17 @@
 					fees are not refundable under any circumstances.</li>
 				</ol>
 				<br>
-				<input type="checkbox" name="hereby" value="acceptance" required> By checking this field, I hereby
+				<input type="checkbox" name="hereby" value="acceptance" > By checking this field, I hereby
 				accepted all above mentioned rules and regulations.<br>
-				The date this formed is being filled out:<br>
-				<input type="date" name="date1" id="boxes"><br>
+				<!--The date this formed is being filled out:
+				<input type="date" name="doa" id="boxes"--><br>
 				<hr>
-				<input type="submit" value="Submit Form" id="atbtn">
-				<input type="reset"  value="Reset Form" id="atbtn">
+				<input type="submit" value="Submit Form" name="childSave" id="atbtn"/>
+				<input type="reset"  value="Reset Form" id="atbtn"/>
 			</form>
 		</div>
 
 			<div class = "application">
-			<!--- FIX THIS PART URGENTLY -->
 					<h1 align="center"> Things to bring </h1>
 					<ul>
 						<li>Personal towel to be sent with the child at the beginning of the week and will be taken at the week end to wash it </li>
@@ -283,6 +268,7 @@
 					</ul>
 			</div>
 			<br>
+			<button type="submit" name="Savebtn">Save</button>
 			<button onclick="relocate()" id="appbtnE">Edit</button>
 			<button onclick="relocate()" id="appbtnD">Delete</button>
 
@@ -291,3 +277,7 @@
 			</div>
 </body>
 </html>
+<?php
+session_unset();
+session_destroy();
+ ?>

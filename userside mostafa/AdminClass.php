@@ -14,21 +14,17 @@ class Address{
       $DBObject->disconnect();
     }
 
-    public function select(){  
+    public function select(){
       $DBObject = new DB();
       $sql = "SELECT * FROM admin where id = '".$this->id."' OR teacher_id = '".$this->teacher_id."'";
       $DBObject->connect();
-      $result = $DBObject->execute($sql);
-      while ($row = mysqli_fetch_array($result)){
-        echo $row['id'];
-        echo $row['teacher_id'];
-        echo $row['username'];
-        echo $row['passwords'];
-      }
-     $DBObject->disconnect();
+      $result =  $DBObject->execute($sql);
+      $row = mysqli_fetch_array($result);
+      $DBObject->disconnect();
+      return $row;
      }
 
-    public function delete(){ 
+    public function delete(){
       $DBObject = new DB();
       $sql = "DELETE FROM admin where id = '".$this->id."' OR teacher_id ='".$this->teacher_id."')";
       $DBObject->connect();
@@ -48,11 +44,11 @@ class Address{
             return NULL;
         $DBObject->disconnect();
         //         //select * statements for password where password == password and email fetch row
-        //         /* 
-    
+        //         /*
+
         //         $result = mysql_query(
         //         "SELECT * FROM preditors_assigned WHERE lecture_name='$lectureName'");
-    
+
         //         if(mysql_fetch_row($result) == false)
         //         return 'avilable';
         //         return 'assign';

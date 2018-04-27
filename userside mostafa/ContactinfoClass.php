@@ -4,7 +4,7 @@ class contactinfo{
     public $id;
     public $main_id;
     public $cellphone;
-    
+
 	public function insert(){
         $DBObject = new DB();
         $DBObject->connect();
@@ -17,12 +17,10 @@ class contactinfo{
         $DBObject = new DB();
         $sql = "SELECT * FROM contactinfo WHERE cellphone LIKE '%".$this->cellphone."%' ";
         $DBObject->connect();
-        $result = $DBObject->execute($sql);
-            while ($row = mysqli_fetch_array($result)){
-                echo $row['id'];
-                echo $row['cellphone'];
-            }
-       $DBObject->disconnect();
+        $result =  $DBObject->execute($sql);
+        $row = mysqli_fetch_array($result);
+        $DBObject->disconnect();
+        return $row;
      }
     public function update(){
         $DBObject = new DB();
@@ -32,13 +30,13 @@ class contactinfo{
         $DBObject->disconnect();
 
      }
-    public function delete(){ 
+    public function delete(){
         $DBObject = new DB();
         $sql = "DELETE FROM contactinfo WHERE cellphone  = '".$this->cellphone."'";
         $DBObject->connect();
         $DBObject->execute($sql);
         $DBObject->disconnect();
-    
+
       }
 }
 ?>

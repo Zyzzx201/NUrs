@@ -1,25 +1,17 @@
 <?php
 require_once("db.php");
     class relation{
-        $id;
-        $value;
+        public $id;
+        public $value;
 
-        public function insert(){
-            $DBobject =  new DB();
-            $sql="INSERT INTO relation(value) VALUES('".$this->value."')";
-            $DBobject->connect();
-            $DBobject->execute($sql);
-            $DBobject->disconnect();
-        }
         public function select(){
             $DBobject = new DB();
             $sql="SELECT * FROM relation";
             $DBobject->connect();
             $result = $DBobject->execute($sql);
-             while ($row = mysqli_fetch_array($result)){
-                echo $row['id'];
-                echo $row['value'];
+            $row = mysqli_fetch_array($result);
             $DBobject->disconnect();
+            return $row;
         }
         public function update(){
             $DBobject = new DB();

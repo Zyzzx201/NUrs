@@ -3,7 +3,7 @@ require_once("db.php");
 class nationality{
     public $id;
     public $name;
-    
+
 	public function insert(){
         $DBObject = new DB();
         $sql = "INSERT INTO nationality (name) VALUES ('".$this->name."')";
@@ -14,14 +14,12 @@ class nationality{
 
     public function select(){
         $DBObject = new DB();
-        $sql = "SELECT * FROM nationality WHERE nationality.id = '".$this->id."' OR '%".$this->name."%' " ;
+        $sql = "SELECT * FROM nationality WHERE nationality.id = 1 OR '%".$this->name."%' " ; //'".$this->id."'
         $DBObject->connect();
-        $result = $DBObject->execute($sql);
-        while ($row = mysqli_fetch_array($result)){
-           echo $row['id'];
-           echo $row['name'];
-       }
-       $DBObject->disconnect();
+        $result =  $DBObject->execute($sql);
+        $row = mysqli_fetch_array($result);
+        $DBObject->disconnect();
+        return $row;
      }
 
      public function update(){
@@ -29,16 +27,16 @@ class nationality{
         $sql = "UPDATE nationality SET name ='".$this->name."' WHERE id  = '".$this->id."' ";
         $DBObject->connect();
         $DBObject->execute($sql);
-        $DBObject->disconnect(;)
+        $DBObject->disconnect();
      }
 
-    public function delete(){ 
+    public function delete(){
         $DBObject = new DB();
         $sql = "DELETE FROM nationality WHERE id  = '".$this->id."'";
         $DBObject->connect();
         $DBObject->execute($sql);
         $DBObject->disconnect();
-    
+
       }
 }
 ?>
