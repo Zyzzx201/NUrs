@@ -152,19 +152,15 @@
 				<!-- Make this a required field/ choice-->
 				Home Address:<br>
 				<select name = "address">
-              <?php
-			  require_once("AddressClass.php");
+              	<?php
+			  	require_once("AddressClass.php");
                 $AdressObject = new Address();
                 $Names = $AdressObject->getAllRoots();
                 $size = count($Names);
-
                 for ($x=0;$x<$size;$x++){
                   echo '<option value = '.$Names[$x].'>'.$Names[$x].'</option>';
-                }
-
-
-              ?>
-				
+				}
+              	?>
 				</select><br>
 				Home Telephone number:<br>
 				<input type="text" name="htn" maxlength="8" required id="boxes"><br>

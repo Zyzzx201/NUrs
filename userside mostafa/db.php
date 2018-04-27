@@ -10,13 +10,40 @@ class DB{
 
 public function connect(){
   if ($this->con == null) { //singleton 
-    $this->con = new mysqli($this->hostname,$this->userName,$this->Password,$this->DBName); // connecting to the localhost
-          }
-          else { // There is already a PDO, so just send it back.
-           return $this->con;
-            }
-
+    $this->con = mysqli_connect($this->hostname,$this->userName,$this->Password,$this->DBName); // connecting to the localhost
+    }
+  else { // There is already a PDO, so just send it back.
+    return $this->con;
+    }
+              
 }
+
+
+// function connect(){
+//   if ($this->con == null) { //singleton 
+// $this->con = mysqli_connect($this->servername, $this->username, $this->password, $this->db); // connecting to the localhost
+//   }
+//   else { // There is already a PDO, so just send it back.
+//    return $this->con;
+//     }
+  
+// if($this->con->connect_error){
+// die("Failed to connect: " .$this->con->connect_error);
+// }
+
+// else{
+// return $this->con;
+// }
+
+// }
+
+
+
+
+
+
+
+
 // public function test_input($data) {
 //   $data = trim($data);
 //   $data = stripslashes($data);

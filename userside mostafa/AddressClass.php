@@ -33,7 +33,7 @@ class Address{
       $DBObject->disconnect();
       }
       public function getAllRoots (){
-        $sql = 'SELECT * FROM address WHERE parentid = 1';
+        $sql = 'SELECT * FROM address ';
         $DB = new DB();
         $DB->connect();
         $index = 0;
