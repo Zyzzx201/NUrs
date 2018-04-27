@@ -55,6 +55,12 @@ public function connect(){
 public function execute($sql){
   $result = $this->con->query($sql);
   return $result;
+  /*if ($this->con->query($sql) === TRUE) {
+   // echo "New record created successfully. Last inserted ID is: ";
+  } 
+  else {
+    echo $this->con->error;
+  }*/
 }
 
 public function disconnect(){
