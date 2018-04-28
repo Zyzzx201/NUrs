@@ -12,10 +12,10 @@ class parents{
     public $mstatus_id;
     public $address_id;
     public $usualpickup;
-
+    
 	public function insert(){
     $DBObject = new DB();
-    $sql = "INSERT INTO parent (child_id, mother_id, father_id, ffbook, foccupation, mfbook, moccupation, mstatus_id, address_id, usualpickup)
+    $sql = "INSERT INTO parent (child_id, mother_id, father_id, ffbook, foccupation, mfbook, moccupation, mstatus_id, address_id, usualpickup) 
     VALUES ('".$this->child_id."','".$this->mother_id."','".$this->father_id."','".$this->ffbook."','".$this->foccupation."','".$this->mfbook."',
     '".$this->moccupation."','".$this->mstatus_id."','".$this->address_id."','".$this->usualpickup."')";
     $DBObject->connect();
@@ -26,12 +26,25 @@ class parents{
     $DBObject = new DB();
     $sql = "SELECT * FROM parent WHERE id = '".$this->id."'";
     $DBObject->connect();
-    $result =  $DBObject->execute($sql);
-    $row = mysqli_fetch_array($result);
-    $DBObject->disconnect();
-    return $row;
+    $result = $DBObject->execute($sql);
+      while ($row = mysqli_fetch_array($result)){
+        echo $row['id'];
+        echo $row['child_id'];
+        echo $row['mother_id'];
+        echo $row['father_id'];
+        echo $row['ffbook'];
+        echo $row['foccupation'];
+        echo $row['mfbook'];
+        echo $row['moccupation'];
+        echo $row['mstatus_id'];
+        echo $row['address_id'];
+        echo $row['usualpickup'];
+        }
+      $DBObject->disconnect();
+        
+    
      }
-  public function update(){
+  public function update(){ 
       $DBObject = new DB();
       $sql="UPDATE parent SET child_id = '".$this->child_id."',mother_id = '".$this->mother_id."',father_id = '".$this->father_id."',
       ffbook = '".$this->ffbook."',foccupation = '".$this->foccupation."',mfbook = '".$this->mfbook."',moccupation = '".$this->moccupation."',
@@ -39,8 +52,8 @@ class parents{
       $DBObject->connect();
       $DBObject->execute($sql);
       $DBObject->disconnect();
-
+        
       }
-
+	
 }
 ?>

@@ -9,7 +9,7 @@
 	<script type="text/javascript">
 		window.onload = function() {
 			document.getElementById('navMenu').style.display = 'none';
-			//document.getElementById('sBar').style.display = 'none';
+			document.getElementById('sBar').style.display = 'none';
 		};
 		function changeM(x) {
 			x.classList.toggle("change");
@@ -18,12 +18,12 @@
 				document.getElementById('navMenu').display = 'none';
 			}
 		};
-		/*function sgaBox() {
+		function sgaBox() {
 			document.getElementById('sBar').style.display = 'block';
 		};
 		function cancelGA(){
 			document.getElementById('sBar').style.display= 'none';
-		};*/
+		};
 	</script>
 </head>
 
@@ -38,7 +38,7 @@
     </div>
 		<div id="navMenu" >
       <div id="myTopnav" class="topnav">
-        <a id="addr" href="/Onlineapplication.php" >Online Application</a>
+        <a id="addr" href="Onlineapplication.php" >Online Application</a>
         <a id="addr" href="/About us.php" >About Us</a>
         <a id="addr" href="/addteacher.php" >Teacher Registration</a>
         <a id="addr" href="/Schedules.php" >Schedule</a>
@@ -53,21 +53,21 @@
             <a href="/Addusers.php" id="admAdr">User Add</a>
             <a href="/deleteuser.php" id="admAdr">User Delete</a>
             <a href="/editteacher.php" id="admAdr">Teacher Edit</a>
-            <!--a href="#" class="secretGABtn" onclick="sgaBox()">Login</a-->
+            <a href="#" class="secretGABtn" onclick="sgaBox()">Login</a>
           </div>
         </div>
       </div>
     </div>
 	</header>
 
-	<!--div>
+	<div>
 		<div class="secret-bar" id="sBar">
 			<strong id="title">Please enter your Serial Code:</strong><br>
-			<input type="text" name="serial number" id="serialBar" > <value="Serial Code">
+			<input type="text" name="serial number" id="serialBar" > <!--value="Serial Code"-->
 			<input type="button" value="Submit" id="serialBtn">
 			<input type="button" value="Cancel" onclick="cancelGA()" id="cancelBtn">
 		</div>
-	</div-->
+	</div>
 	<div class="pics">
 		<div class="picsLeft">
 			<img src="pic1.jpg" alt="pic1" id="pic1" class="w3-round-xxlarge">

@@ -9,14 +9,16 @@ class DB{
   private $con;
 
 public function connect(){
-  if ($this->con == null) { //singleton
-    $this->con = new mysqli($this->hostname,$this->userName,$this->Password,$this->DBName); // connecting to the localhost
-      }
+  if ($this->con == null) { //singleton 
+    $this->con = mysqli_connect($this->hostname,$this->userName,$this->Password,$this->DBName); // connecting to the localhost
+    }
   else { // There is already a PDO, so just send it back.
     return $this->con;
     }
-
+              
 }
+
+
 // public function test_input($data) {
 //   $data = trim($data);
 //   $data = stripslashes($data);
@@ -28,6 +30,12 @@ public function connect(){
 public function execute($sql){
   $result = $this->con->query($sql);
   return $result;
+  /*if ($this->con->query($sql) === TRUE) {
+   // echo "New record created successfully. Last inserted ID is: ";
+  } 
+  else {
+    echo $this->con->error;
+  }*/
 }
 
 public function disconnect(){
@@ -38,7 +46,7 @@ public function getID(){
   $ID = $this->con->insert_id;
   return $ID;
 }
-
+ 
 }
 
 

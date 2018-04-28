@@ -71,7 +71,6 @@ header #bkbtn{
   list-style-type: none;
   top: -130px;
   left: 500px;
-	width: auto;
 }
 .micon {
 	display: inline-block;
@@ -351,7 +350,7 @@ header #bkbtn{
 	margin-right: -50%;
 	opacity: 0.95;
 	padding: 20px;
-	/*z-index: -2;*/
+	z-index: -2;
 }
 .Oappform{
 	height: 370%;
@@ -439,7 +438,7 @@ header #bkbtn{
   margin-right: -50%;
   transform: translate(-50%, -50%);
 }
-/*#serialBar{
+#serialBar{
   text-align: center;
   position: absolute;
   top: 50%;
@@ -472,7 +471,7 @@ header #bkbtn{
   text-align: center;
   border: 1px solid transparent;
   border-radius: 5px;
-}*/
+}
 #footer{
 	position: absolute;
 	top: 160%;

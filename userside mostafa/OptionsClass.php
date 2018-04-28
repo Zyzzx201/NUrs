@@ -1,12 +1,13 @@
 <?php
 require_once("db.php");
-class marital{
+class options{
     public $id;
-    public $value;
+    public $name;
+    public $type;
 
 	public function insert(){
         $DBObject = new DB();
-        $sql = "INSERT INTO maritalstatus(value) VALUES ('".$this->value."')";
+        $sql = "INSERT INTO options (name, type) VALUES ('".$this->name."','".$this->type."')";
         $DBObject->connect();
         $DBObject->execute($sql);
         $DBObject->disconnect();
@@ -14,28 +15,29 @@ class marital{
 
     public function select(){
         $DBObject = new DB();
-        $sql = "SELECT * FROM maritalstatus where id = '".$this->id."' ";
+        $sql = "SELECT * FROM options where id = '".$this->id."' ";
         $DBObject->connect();
         $result =$DBObject->execute($sql);
         while ($row = mysqli_fetch_array($result)){
             echo $row['id'];
-            echo $row['value'];
+            echo $row['name'];
+            echo $row['type'];
            }
-           $DBObject->disconnect();
-         }
+        $DBObject->disconnect();
+        }
 
     public function update(){
         $DBObject = new DB();
-        $sql = "UPDATE maritalstatus SET value = '".$this->value."' WHERE id = '".$this->id."' ";
+        $sql = "UPDATE options SET name = '".$this->name."', type ='".$this->type."' WHERE id = '".$this->id."' ";
         $DBObject->connect();
         $DBObject->execute($sql);
         $DBObject->disconnect();
 
-         }
+        }
 
     public function delete(){ 
         $DBObject = new DB();
-        $sql = "DELETE FROM maritalstatus where id = '".$this->id."' ";
+        $sql = "DELETE FROM options where id = '".$this->id."'";
         $DBObject->connect();
         $DBObject->execute($sql);
         $DBObject->disconnect();

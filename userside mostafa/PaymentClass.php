@@ -1,12 +1,12 @@
 <?php
 require_once("db.php");
-class marital{
+class payment{
     public $id;
-    public $value;
+    public $name;
 
 	public function insert(){
         $DBObject = new DB();
-        $sql = "INSERT INTO maritalstatus(value) VALUES ('".$this->value."')";
+        $sql = "INSERT INTO payment (name) VALUES ('".$this->name."')";
         $DBObject->connect();
         $DBObject->execute($sql);
         $DBObject->disconnect();
@@ -14,28 +14,28 @@ class marital{
 
     public function select(){
         $DBObject = new DB();
-        $sql = "SELECT * FROM maritalstatus where id = '".$this->id."' ";
+        $sql = "SELECT * FROM payment where id = '".$this->id."' ";
         $DBObject->connect();
         $result =$DBObject->execute($sql);
         while ($row = mysqli_fetch_array($result)){
             echo $row['id'];
-            echo $row['value'];
+            echo $row['name'];
            }
            $DBObject->disconnect();
          }
 
     public function update(){
         $DBObject = new DB();
-        $sql = "UPDATE maritalstatus SET value = '".$this->value."' WHERE id = '".$this->id."' ";
+        $sql = "UPDATE payment SET name = '".$this->name."' WHERE id = '".$this->id."' ";
         $DBObject->connect();
         $DBObject->execute($sql);
         $DBObject->disconnect();
 
-         }
+        }
 
     public function delete(){ 
         $DBObject = new DB();
-        $sql = "DELETE FROM maritalstatus where id = '".$this->id."' ";
+        $sql = "DELETE FROM payment where id = '".$this->id."' ";
         $DBObject->connect();
         $DBObject->execute($sql);
         $DBObject->disconnect();

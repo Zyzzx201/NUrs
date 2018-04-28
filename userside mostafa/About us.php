@@ -10,7 +10,7 @@
   <script type="text/javascript">
     window.onload = function() {
       document.getElementById('navMenu').style.display = 'none';
-      //document.getElementById('sBar').style.display = 'none';
+      document.getElementById('sBar').style.display = 'none';
     };
     function changeM(x) {
       x.classList.toggle("change");
@@ -19,12 +19,12 @@
         document.getElementById('navMenu').display = 'none';
       }
     };
-    /*function sgaBox() {
+    function sgaBox() {
       document.getElementById('sBar').style.display = 'block';
     };
     function cancelGA(){
       document.getElementById('sBar').style.display= 'none';
-    };*/
+    };
   </script>
 
 </head>
@@ -55,13 +55,13 @@
             <a href="/Addusers.php" id="admAdr">User Add</a>
             <a href="/deleteuser.php" id="admAdr">User Delete</a>
             <a href="/editteacher.php" id="admAdr">Teacher Edit</a>
-            <!--a href="#" class="secretGABtn" onclick="sgaBox()">Login</a-->
+            <a href="#" class="secretGABtn" onclick="sgaBox()">Login</a>
           </div>
         </div>
       </div>
     </div>
 	</header>
-  <!--div class="pics">
+  <div class="pics">
     <div class="picsLeft">
   		<img src="pic1.jpg" alt="pic1" id="pic1" class="w3-round-xxlarge">
   		<img src="pic2.jpg" alt="pic2" id="pic2" class="w3-round-xxlarge">
@@ -81,7 +81,7 @@
   		<img src="pic7.jpg" alt="pic13" id="pic12" class="w3-round-xxlarge">
   		<img src="pic8.jpg" alt="pic13" id="pic13" class="w3-round-xxlarge">
   	</div>
-  </div-->
+  </div>
 
   <div class = "mission">
     <strong><h2 id="h2">Mission :</h2></strong><hr>
