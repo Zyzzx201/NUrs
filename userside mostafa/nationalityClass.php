@@ -23,13 +23,24 @@ class nationality{
        }
        $DBObject->disconnect();
      }
+     public function selectAll(){
+        $DBObject = new DB();
+        $sql = "SELECT * FROM nationality" ;
+        $DBObject->connect();
+        $result = $DBObject->execute($sql);
+        while ($row = mysqli_fetch_array($result)){
+           echo $row['id'];
+           echo $row['name'];
+       }
+       $DBObject->disconnect();
+     }
 
      public function update(){
         $DBObject = new DB();
         $sql = "UPDATE nationality SET name ='".$this->name."' WHERE id  = '".$this->id."' ";
         $DBObject->connect();
         $DBObject->execute($sql);
-        $DBObject->disconnect(;)
+        $DBObject->disconnect();
      }
 
     public function delete(){ 
