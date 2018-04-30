@@ -6,7 +6,7 @@ class childtype{
 
     public function insert(){
     $DBObject = new DB();
-    $sql = "INSERT INTO childtype(type) VALUES '".$this->type"' ";
+    $sql = "INSERT INTO childtype(type) VALUES ('".$this->type."' )";
     $DBObject->connect();
     $DBObject->execute($sql);
     $DBObject->disconnect();
@@ -22,9 +22,23 @@ class childtype{
     return $row;
     }
 
+    public function selectAll(){
+       $DBObject = new DB();
+       $sql = "SELECT * FROM childtype" ;
+       $DBObject->connect();
+       $result = $DBObject->execute($sql);
+       while ($row = mysqli_fetch_array($result)){
+         echo $row['id'];
+         echo " - ";
+         echo $row['type'];
+         echo "<br>";
+      }
+      $DBObject->disconnect();
+    }
+
     public function update(){
     $DBObject = new DB();
-    $sql = "UPDATE childtype SET type= '".$this->type."' WHERE id = '".$this->id"' ";
+    $sql = "UPDATE childtype SET type= '".$this->type."' WHERE id = '".$this->id."' ";
     $DBObject->connect();
     $DBObject->execute($sql);
     $DBObject->disconnect();
@@ -32,7 +46,7 @@ class childtype{
 
     public function delete(){
     $DBObject = new DB();
-    $sql = "DELETE FROM childtype WHERE id ='".$this->id"' ";
+    $sql = "DELETE FROM childtype WHERE id ='".$this->id."' ";
     $DBObject->connect();
     $DBObject->execute($sql);
     $DBObject->disconnect();

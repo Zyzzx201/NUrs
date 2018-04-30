@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php session_start();?>
 <html>
 <head>
   <title>Fun & Learn</title>
@@ -16,11 +16,19 @@
       <img src="logo.png" id="logo" onclick="location.href='userSide/index.php';">
       <p id="h1T">Teacher</p><p id="h1Ac">Acceptance</p>
       <button type="submit" id="bkbtn" onclick="location.href='userSide/index.php';">Back</button>
-      <button type="button" id="pabtn" onclick="">Previous Applicaton</button> <!--?php require_once("btns.php"); $BTNobj2= new BTN();
-      $action2 = $BTNobj2->navBTn(1); ?-->
-      <button type="button" id="nabtn" onclick="">Next Applicaton</button> <!--?php require_once("btns.php"); $BTNobj2= new BTN();
-      $action2 = $BTNobj2->navBTn(2); ?-->
-
+      <form class="" action="Afterbtns.php" method="post">
+        <button type="submit" id="pabtn" name="previousAC">Previous Applicaton</button>
+    		<button type="submit" id="nabtn" name="nextAC">Next Applicaton</button>
+      </form>
+      <?php
+        if(!empty($_SESSION["username"])){
+        ?>
+        <a href=""><?php echo $_SESSION["username"]; ?></a>
+      <?php  } ?>
+      <?php if(empty($_SESSION["username"])){ ?>
+      	<a href="adminlogin.php">Login</a>
+        <a href="">Sign up</a>
+      <?php } ?>
     </header>
 
     <div id="EditTeacher">

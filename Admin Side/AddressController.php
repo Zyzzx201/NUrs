@@ -1,6 +1,21 @@
 <?php
 require_once("AddressClass.php");
 
+$addOBJ1 = new Address();
+if (isset($_POST['saveAdd'])) {
+  $addOBJ1->name = $_POST['ADDadditional'];
+  $addOBJ1->parent_id = 2;
+  $addOBJ1->insert();
+  header('location:EditDB.php');
+}
+
+$addOBJ3 = new Address();
+if (isset($_POST['deleteAdd'])) {
+  $addOBJ3->id = $_POST['ADDid'];
+  $addOBJ3->delete();
+  header('location:EditDB.php');
+}
+
 class addressC
 {
   public function ADselectV()
@@ -9,19 +24,10 @@ class addressC
     $ADrow1 = $ADobj1->select();
     return $ADrow1;
   }
-
-  public function ADupdateV()
+  public function ADselectAll()
   {
-    $ADobj3 = new Address();
-    $ADrow3 = $ADobj3->update();
-    return $ADrow3;
-  }
-
-  public function ADdeleteV()
-  {
-    $ADobj4 = new Address();
-    $ADrow4 = $ADobj4->delete();
-    return $ADrow4;
+    $ADobj2 = new Address();
+    $ADrow2 = $ADobj2->selectAll();
   }
 }
 

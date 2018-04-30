@@ -1,8 +1,42 @@
+<?php session_start();?>
 <html>
+<?php
+require_once("ChildController.php");
+require_once("MainController.php");
+require_once("AddressController.php");
+require_once("MaritalController.php");
+require_once("ContactinfoController.php");
+require_once("EmergencyController.php");
+require_once("WeekController.php");
+require_once("ParentController.php");
+require_once("relationController.php");
+
+$childOBJ1 =  new childC();
+$CHrow = $childOBJ1->CHselectV();
+$childOBJ2 = new mainC();
+$MArow = $childOBJ2->MselectV();
+$EROBJ2 = new emergencyC();
+$ERrow =  $EROBJ2->ERselectV();
+$addOBJ3 =  new addressC();
+$ADrow =  $addOBJ3->ADselectV();
+$marrOBJ4 = new maritalC();
+$MRrow = $marrOBJ4->MTselectV();
+$ConOBJ5 = new contactinfoC();
+$CIrow = $ConOBJ5->CIselectV();
+$AttOBJ6 = new weekC();
+$ATrow = $AttOBJ6->WselectV();
+$ParOBJ7 = new parentsC();
+$PRrow =  $ParOBJ7->PselectV();
+$RelOBJ8 = new relationC();
+$Rrow = $RelOBJ8->RselectV();
+?>
+
 	<title>Fun & Learn</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="StyleSheet.css">
-	<link rel="stylesheet" href="AdminSS.css">
+	<link rel="stylesheet" type="text/css" href="StyleSheet2.css">
+  <link rel="stylesheet" type="text/css" href="StyleSheet3.css">
+  <link rel="stylesheet" type="text/css" href="AdminSS.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--arrow down-->
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<h1 align="left" id="h11"> <p><u>Teacher Application:</u></p> </h1>
@@ -11,11 +45,22 @@
 
 <body>
 	<header>
-		<img src="logo.png" id="logo" onclick="location.href='/index.php';">
+		<img src="logo.png" id="logo" onclick="location.href='userSide/index.php';">
 		<p id="h1D">Delete</p><p id="h1U">User</p>
-		<button type="button" id="bkbtn" onclick="location.href='/index.php';">Back</button>
-		<button type="button" id="pabtn" onclick="location.href='';">Previous Applicaton</button>
-		<button type="button" id="nabtn" onclick="location.href='';">Next Applicaton</button>
+		<button type="button" id="bkbtn" onclick="location.href='userSide/index.php';">Back</button>
+		<form class="" action="Afterbtns.php" method="post">
+			<button type="submit" id="pabtn" name="previousDU">Previous Applicaton</button>
+			<button type="submit" id="nabtn" name="nextDU">Next Applicaton</button>
+		</form>
+		<?php
+			if(!empty($_SESSION["username"])){
+			?>
+			<a href=""><?php echo $_SESSION["username"]; ?></a>
+		<?php  } ?>
+		<?php if(empty($_SESSION["username"])){ ?>
+			<a href="adminlogin.php">Login</a>
+			<a href="">Sign up</a>
+		<?php } ?>
 	</header>
 </header>
     <br>
@@ -23,39 +68,7 @@
 		<form id="searchB" method="POST" action="<?php $_SERVER["PHP_SELF"];?>">
 				 <input type="text" name="Search" id="boxes" placeholder="Search for names.." onkeyup="aftersearch.php" >
 		</form>
-		<form name="app" method="REQUEST" action="<?php $_SERVER["PHP_SELF"];?>">
-			<?php
-			require_once("db.php");
-			require_once("ChildController.php");
-			require_once("MainController.php");
-			require_once("AddressController.php");
-			require_once("MaritalController.php");
-			require_once("ContactinfoController.php");
-			require_once("EmergencyController.php");
-			require_once("WeekController.php");
-			require_once("ParentController.php");
-			require_once("relationController.php");
-
-			$childOBJ1 =  new childC();
-			$CHrow = $childOBJ1->CHselectV();
-			$childOBJ2 = new mainC();
-			$MArow = $childOBJ2->MselectV();
-			$EROBJ2 = new emergencyC();
-			$ERrow =  $EROBJ2->ERselectV();
-			$addOBJ3 =  new addressC();
-			$ADrow =  $addOBJ3->ADselectV();
-			$marrOBJ4 = new maritalC();
-			$MRrow = $marrOBJ4->MTselectV();
-			$ConOBJ5 = new contactinfoC();
-			$CIrow = $ConOBJ5->CIselectV();
-			$AttOBJ6 = new weekC();
-			$ATrow = $AttOBJ6->WselectV();
-			$ParOBJ7 = new parentsC();
-			$PRrow =  $ParOBJ7->PselectV();
-			$RelOBJ8 = new relationC();
-			$Rrow = $RelOBJ8->RselectV();
-			?>
-				<br>
+		<form name="app" method="REQUEST" action="<?php $_SERVER["PHP_SELF"];?>"><br>
 			Child's First name: <?php echo $MArow['fname']; ?><br><br>
 			Child's Last name: <?php echo $MArow['lname']; ?><br><br>
 			Date of birth: <?php echo $MArow['dob'];?><br><br>

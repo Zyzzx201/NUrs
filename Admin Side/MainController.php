@@ -35,14 +35,14 @@ if (isset($_POST['childSave'])) {
 }
 
 $mainOBJ5 = new main();
-if (isset($_POST['Updabtn'])) {
+if (isset($_POST['Updatebtn'])) {
   $mainOBJ5->utype = 2;
-  $mainOBJ5->status_id= 3;
+  $mainOBJ5->status_id= 1;
   $mainOBJ5->fname = $_POST['fname'];
   $mainOBJ5->lname = $_POST['lname'];
   $mainOBJ5->dob = $_POST['dob'];
   $mainOBJ5->ssn = $_POST['ssn'];
-  $mainOBJ5->insert();
+  $mainOBJ5->update();
   header('location:editteacher.php');
 }
 

@@ -1,43 +1,40 @@
 <?php
-require_once("db.php");
 require_once("MaritalClass.php");
+
+$MSOBJ1 = new marital();
+if (isset($_POST['saveMS'])) {
+  $MSOBJ1->value = $_POST['MSadditional'];
+  $MSOBJ1->insert();
+  header('location:EditDB.php');
+}
+$MSOBJ2 = new marital();
+if (isset($_POST['updateMS'])) {
+  $MSOBJ2->id = $_POST['MSid'];
+  $MSOBJ2->value = $_POST['MScurrent'];
+  $MSOBJ2->update();
+  header('location:EditDB.php');
+}
+
+$MSOBJ3 = new marital();
+if (isset($_POST['deleteMS'])) {
+  $MSOBJ3->id = $_POST['MSid'];
+  $MSOBJ3->delete();
+  header('location:EditDB.php');
+}
 
 class maritalC
 {
   public function MTselectV()
   {
-    $DBobj1 = new DB();
-    $DBobj1->connect();
     $MTobj1 = new marital();
     $MTrow1 = $MTobj1->select();
     return $MTrow1;
   }
 
-  public function MTinsertV()
+  public function MTselectALL()
   {
-    $DBobj2 = new DB();
-    $DBobj2->connect();
-    $MTobj2 = new marital();
-    $MTrow2 = $MTobj2->insert();
-    return $MTrow2;
-  }
-
-  public function MTupdateV()
-  {
-    $DBobj3 = new DB();
-    $DBobj3->connect();
-    $MTobj3 = new marital();
-    $MTrow3 = $MTobj3->update();
-    return $MTrow3;
-  }
-
-  public function MTdeleteV()
-  {
-    $DBobj4 = new DB();
-    $DBobj4->connect();
-    $MTobj4 = new marital();
-    $MTrow4 = $MTobj4->delete();
-    return $MTrow4;
+    $MTobj1 = new marital();
+    $MTrow1 = $MTobj1->selectAll();
   }
 }
 

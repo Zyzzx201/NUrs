@@ -1,44 +1,42 @@
 <?php
-require_once("db.php");
 require_once("relationClass.php");
+
+$relOBJ1 = new relation();
+if (isset($_POST['saveREL'])) {
+  $relOBJ1->relation = $_POST['RELadditional'];
+  $relOBJ1->insert();
+  header('location:EditDB.php');
+}
+
+$relOBJ2 = new relation();
+if (isset($_POST['updateREL'])) {
+  $relOBJ2->id = $_POST['RELid'];
+  $relOBJ2->relation = $_POST['RELcurrent'];
+  $relOBJ2->update();
+  header('location:EditDB.php');
+}
+$relBJ3 = new relation();
+if (isset($_POST['deleteREL'])) {
+  $relBJ3->id = $_POST['RELid'];
+  $relBJ3->delete();
+  header('location:EditDB.php');
+}
 
 class relationC
 {
   public function RselectV()
   {
-    $DBobj1 = new DB();
-    $DBobj1->connect();
     $Robj1 = new relation();
     $Rrow1 = $Robj1->select();
     return $Rrow1;
   }
-
-  public function RinsertV()
+  public function RselectALL()
   {
-    $DBobj2 = new DB();
-    $DBobj2->connect();
-    $Robj2 = new relation();
-    $Rrow2 = $Robj2->insert();
-    return $Rrow2;
+    $Robj1 = new relation();
+    $Rrow1 = $Robj1->selectALL();
+    return $Rrow1;
   }
 
-  public function RupdReV()
-  {
-    $DBobj3 = new DB();
-    $DBobj3->connect();
-    $Robj3 = new relation();
-    $Rrow3 = $Robj3->updRe();
-    return $Rrow3;
-  }
-
-  public function RdeleteV()
-  {
-    $DBobj4 = new DB();
-    $DBobj4->connect();
-    $Robj4 = new relation();
-    $Rrow4 = $Robj4->delete();
-    return $Rrow4;
-  }
 }
 
 

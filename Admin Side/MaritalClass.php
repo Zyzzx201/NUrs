@@ -22,6 +22,20 @@ class marital{
         return $row;
       }
 
+      public function selectAll(){
+         $DBObject = new DB();
+         $sql = "SELECT * FROM maritalstatus" ;
+         $DBObject->connect();
+         $result = $DBObject->execute($sql);
+         while ($row = mysqli_fetch_array($result)){
+           echo $row['id'];
+           echo " - ";
+           echo $row['value'];
+           echo "<br>";
+        }
+        $DBObject->disconnect();
+      }
+
     public function update(){
         $DBObject = new DB();
         $sql = "UPDATE maritalstatus SET value = '".$this->value."' WHERE id = '".$this->id."' ";

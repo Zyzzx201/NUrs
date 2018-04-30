@@ -50,7 +50,7 @@ $NatOBJ1 =  new nationality();
 $addOBJ1 =  new Address();
 $marrOBJ1 =  new marital();
 $mainOBJ1 = new main();
-if (isset($_POST['Updabtn'])) {
+if (isset($_POST['Updatebtn'])) {
   $teacherOBJ1->nationality = $NatOBJ1->id;
   $teacherOBJ1->address_id = $addOBJ1->id;
   $teacherOBJ1->main_id = $mainOBJ1->id;
@@ -93,14 +93,7 @@ class teacherC
     $Trow1 = $Tobj1->select();
     return $Trow1;
   }
-
-  public function TupdateV()
-  {
-    $Tobj3 = new teacher();
-    $Trow3 = $Tobj3->update();
-    return $Trow3;
-  }
-
+  
   public function TdeleteV()
   {
     $Tobj4 = new teacher();

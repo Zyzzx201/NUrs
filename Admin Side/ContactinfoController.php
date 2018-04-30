@@ -13,7 +13,7 @@ if (isset($_POST['Savebtn'])) {
 
 $ConOBJ2 = new contactinfo();
 $mainOBJ1 = new main();
-if (isset($_POST['Updabtn'])) {
+if (isset($_POST['Updatebtn'])) {
   $ConOBJ2->cellphone = $_POST['cellphone'];
   $ConOBJ2->main_id = $mainOBJ1->id;
   $ConOBJ2->update();
