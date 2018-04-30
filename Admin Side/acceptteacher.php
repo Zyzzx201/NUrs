@@ -4,16 +4,18 @@
   <title>Fun & Learn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="StyleSheet.css">
-  <link rel="stylesheet" href="AdminSS.css">
+  <link rel="stylesheet" type="text/css" href="StyleSheet2.css">
+  <link rel="stylesheet" type="text/css" href="StyleSheet3.css">
+  <link rel="stylesheet" type="text/css" href="AdminSS.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--arrow down-->
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body>
     <header>
-      <img src="logo.png" id="logo" onclick="location.href='/index.php';">
+      <img src="logo.png" id="logo" onclick="location.href='userSide/index.php';">
       <p id="h1T">Teacher</p><p id="h1Ac">Acceptance</p>
-      <button type="submit" id="bkbtn" onclick="location.href='/index.php';">Back</button>
+      <button type="submit" id="bkbtn" onclick="location.href='userSide/index.php';">Back</button>
       <button type="button" id="pabtn" onclick="">Previous Applicaton</button> <!--?php require_once("btns.php"); $BTNobj2= new BTN();
       $action2 = $BTNobj2->navBTn(1); ?-->
       <button type="button" id="nabtn" onclick="">Next Applicaton</button> <!--?php require_once("btns.php"); $BTNobj2= new BTN();
@@ -21,7 +23,7 @@
 
     </header>
 
-    <div class = "teacher1">
+    <div id="EditTeacher">
       <form id="searchB" method="POST" action="<?php $_SERVER["PHP_SELF"];?>">
            <input type="text" name="Search" id="boxes" placeholder="Search for names.." onkeyup="aftersearch.php" >
       </form>
@@ -78,19 +80,14 @@
         <?php echo $Trow['povnursery'];?></textarea><br>
         <br><br>
       </form>
-      <form  action="Afterbtns.php" method="post">
+      <form  action="Afterbtns.php" method="post" >
         <input type="hidden" name="accept" value="1">
-        <input type="submit"  value="Accept Applicant" >
-      </form>
-      <form  action="Afterbtns.php" method="post">
+        <input type="submit" name="Accept"  value="Accept Applicant" id="accBTN">
         <input type="hidden" name="refuse" value="2">
-        <input type="submit" name="Refuse" value="Refuse Applicant" >
-      </form>
-      <form  action="Afterbtns.php" method="post">
+        <input type="submit" name="Refuse" value="Refuse Applicant" id="refBTN">
         <input type="hidden" name="pending" value="3">
-        <input type="submit" name="Pending" value="Keep As Pending" >
+        <input type="submit" name="Pending" value="Keep As Pending" id="penBTN">
       </form>
-
     </div>
 
 

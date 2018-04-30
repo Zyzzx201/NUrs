@@ -5,7 +5,7 @@ require_once("db.php");
 $btnobj = new BTN();
 $DBobj2 = new DB();
 $DBobj2->connect();
-if (isset($_POST['accept'])) {
+if (isset($_POST['Accept'])) {
   $btnID= $_POST['accept'];
   $btnobj->actionBTN($btnID);
   header('location:acceptteacher.php');
