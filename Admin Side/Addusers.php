@@ -97,7 +97,7 @@ $Rrow = $RelOBJ8->RselectV();
 			Emergency Contact's Name: <?php echo $ERrow['ecname'];?><br><br>
 			Emergency Contact's Address: <?php echo $ADrow['name'];?><br><br>
 
-			Relationship: <?php echo $Rrow['value'];?><br><br>
+			Relationship: <?php echo $Rrow['relation'];?><br><br>
 
 			Emergency Contact's Number: <?php echo $ERrow['ecnum'];?><br><br>
 

@@ -1,8 +1,7 @@
 <?php session_start();?>
-<html>
 <?php
-require_once("ChildController.php");
 require_once("MainController.php");
+require_once("ChildController.php");
 require_once("AddressController.php");
 require_once("MaritalController.php");
 require_once("ContactinfoController.php");
@@ -10,11 +9,10 @@ require_once("EmergencyController.php");
 require_once("WeekController.php");
 require_once("ParentController.php");
 require_once("relationController.php");
-
-$childOBJ1 =  new childC();
-$CHrow = $childOBJ1->CHselectV();
 $childOBJ2 = new mainC();
 $MArow = $childOBJ2->MselectV();
+$childOBJ1 =  new childC();
+$CHrow = $childOBJ1->CHselectV();
 $EROBJ2 = new emergencyC();
 $ERrow =  $EROBJ2->ERselectV();
 $addOBJ3 =  new addressC();
@@ -30,6 +28,7 @@ $PRrow =  $ParOBJ7->PselectV();
 $RelOBJ8 = new relationC();
 $Rrow = $RelOBJ8->RselectV();
 ?>
+<html>
 
 	<title>Fun & Learn</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -68,7 +67,8 @@ $Rrow = $RelOBJ8->RselectV();
 		<form id="searchB" method="POST" action="<?php $_SERVER["PHP_SELF"];?>">
 				 <input type="text" name="Search" id="boxes" placeholder="Search for names.." onkeyup="aftersearch.php" >
 		</form>
-		<form name="app" method="REQUEST" action="<?php $_SERVER["PHP_SELF"];?>"><br>
+		<form name="app" method="POST" action="afterSaveBtn.php"><br>
+			Applicaton number: <?php echo $MArow['id']; ?> <br><br>
 			Child's First name: <?php echo $MArow['fname']; ?><br><br>
 			Child's Last name: <?php echo $MArow['lname']; ?><br><br>
 			Date of birth: <?php echo $MArow['dob'];?><br><br>
@@ -77,9 +77,9 @@ $Rrow = $RelOBJ8->RselectV();
 			<hr>
 			Father's name: <?php echo $MArow['fname'];?> <?php echo $MArow['lname']; ?><br><br>
 			Mobile number: <?php echo $CIrow['cellphone'];?><br><br>
-			Facebook Account:<?php echo $PRrow['ffbook'];?><br><br>
+			Facebook Account: <?php echo $PRrow['ffbook'];?><br><br>
 			Occupation: <?php echo $PRrow['foccupation'];?><br><br>
-			<!--Office phone number:<?php echo $PRrow['fofficenum'];?><br><br-->
+			<!--Office phone number: <?php echo $PRrow['fofficenum'];?><br><br-->
 			<hr>
 			Mother's name: <?php echo $MArow['fname'];?> <?php echo $MArow['lname']; ?><br><br>
 			Mobile number: <?php echo $CIrow['cellphone'];?><br><br>
@@ -92,13 +92,13 @@ $Rrow = $RelOBJ8->RselectV();
 			<!--Home Telephone number:<?php echo $PRrow['homenum'];?><br><br-->
 			Name of the person who will usually pick up the child: <?php echo $PRrow['usualpickup'];?><br><br>
 			<hr>
-			<h1 align="center"> Requested for Attendance: </h1> <?php echo $ATrow['day'];?><br><br>
+			<h1 align="center"> Requested for Attendance: </h1> <?php echo $ATrow['days'];?><br><br>
 			<hr>
 			<h1 align="center" id="h11"> Emergency contact </h1>
 			Emergency Contact's Name: <?php echo $ERrow['ecname'];?><br><br>
 			Emergency Contact's Address: <?php echo $ADrow['name'];?><br><br>
 
-			Relationship: <?php echo $Rrow['value'];?><br><br>
+			Relationship: <?php echo $Rrow['relation'];?><br><br>
 
 			Emergency Contact's Number: <?php echo $ERrow['ecnum'];?><br><br>
 
@@ -106,9 +106,7 @@ $Rrow = $RelOBJ8->RselectV();
 			intolerances, if yes please give more details in the text are below:
 			<?php echo $ERrow['extrainfo'];?><br><br>
 
-			<form method="POST" action="Afterbtns.php">
-				<input type="submit" name="DeleteBtn" value="Delete Applicaton">
-			</form>
+			<input type="submit" name="Deletebtn" value="Delete Form" id="Sbtn">
 		</form>
 	</div>
 

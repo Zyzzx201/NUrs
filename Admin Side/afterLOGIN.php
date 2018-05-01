@@ -8,7 +8,7 @@ $connection = $dbObj1->connect();
 if($_SERVER["REQUEST_METHOD"]== "POST"){
   $username = $_POST['Username'];
   $password = $_POST['Password'];
-  $sql = "SELECT username, password FROM login WHERE username = '".$this->username."'";
+  $sql = "SELECT username, password FROM admin WHERE username = '".$this->username."'";
   $result = excute($sql);
   $row = mysqli_fetch_array($result);
   if(($username==$row["username"])&&($password==$row["password"]))
