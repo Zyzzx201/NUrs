@@ -12,7 +12,7 @@ class BTN
     $db_obj = new DB();
     $db_obj->connect();
     if ($this->btnID == 1) {
-      echo " hi i'm working";
+      //echo " hi i'm working";
       $sql1 = "UPDATE main SET status_id=1 WHERE id = 1 "; //'".$this->AppId."'
       $db_obj->execute($sql1); //Accept
     }

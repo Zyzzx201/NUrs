@@ -20,7 +20,22 @@ class Attend_int{
       $row = mysqli_fetch_array($result);
       $DBObject->disconnect();
       return $row;
-
+    }
+    public function selectALL(){
+        $DBobject = new DB();
+        $sql="SELECT * FROM attend_int";
+        $DBobject->connect();
+        $result = $DBobject->execute($sql);
+        while ($row = mysqli_fetch_array($result)){
+          echo $row['id'];
+          echo " - ";
+          echo $row['child_id'];
+          echo " - ";
+          echo $row['week_id'];
+          echo "<br>";
+       }
+        $DBobject->disconnect();
+        return $row;
     }
     public function delete(){
       $DBobject = new DB();

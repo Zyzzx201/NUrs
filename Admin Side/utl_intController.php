@@ -1,44 +1,42 @@
 <?php
-require_once("db.php");
 require_once("utl_intClass.php");
+
+$UTLIOBJ1 = new utl_int();
+if (isset($_POST['saveUTLI'])) {
+  $UTLIOBJ1->page_id = $_POST['UTLIpageID'];
+  $UTLIOBJ1->utl_id = $_POST['UTLIutlID'];
+  $UTLIOBJ1->insert();
+  header('location:EditDB.php');
+}
+$UTLIOBJ2 = new utl_int();
+if (isset($_POST['updateUTLI'])) {
+  $UTLIOBJ2->id = $_POST['UTLIid'];
+  $UTLIOBJ2->page_id = $_POST['UTLIpageID'];
+  $UTLIOBJ2->utl_id = $_POST['UTLIutlID'];
+  $UTLIOBJ2->update();
+  header('location:EditDB.php');
+}
+
+$UTLIOBJ3 = new utl_int();
+if (isset($_POST['deleteUTL'])) {
+  $UTLIOBJ3->id = $_POST['UTLIid'];
+  $UTLIOBJ3->delete();
+  header('location:EditDB.php');
+}
 
 class utl_intC
 {
   public function UTIselectV()
   {
-    $DBobj1 = new DB();
-    $DBobj1->connect();
     $UTIobj1 = new utl_int();
     $UTIrow1 = $UTIobj1->select();
-    return $UTIrow1;
   }
-
-  public function UTIinsertV()
+  public function UTIselectAll()
   {
-    $DBobj2 = new DB();
-    $DBobj2->connect();
     $UTIobj2 = new utl_int();
-    $UTIrow2 = $UTIobj2->insert();
-    return $UTIrow2;
+    $UTIrow2 = $UTIobj2->selectALL();
   }
 
-  public function UTIupdReV()
-  {
-    $DBobj3 = new DB();
-    $DBobj3->connect();
-    $UTIobj3 = new utl_int();
-    $UTIrow3 = $UTIobj3->updRe();
-    return $UTIrow3;
-  }
-
-  public function UTIdeleteV()
-  {
-    $DBobj4 = new DB();
-    $DBobj4->connect();
-    $UTIobj4 = new utl_int();
-    $UTIrow4 = $UTIobj4->delete();
-    return $UTIrow4;
-  }
 }
 
 

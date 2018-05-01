@@ -1,6 +1,5 @@
 <?php session_start();?>
 <?php
-  require_once("db.php");
   require_once("teacherController.php");
   require_once("MainController.php");
   require_once("AddressController.php");
@@ -24,14 +23,13 @@
 <html>
 <head>
   <title>Fun & Learn</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="StyleSheet.css">
-<link rel="stylesheet" type="text/css" href="StyleSheet3.css">
-<link rel="stylesheet" type="text/css" href="AdminSS.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--arrow down-->
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<h1 align="left" id="h11"> <p><u>Teacher Application:</u></p> </h1>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="StyleSheet.css">
+  <link rel="stylesheet" type="text/css" href="StyleSheet3.css">
+  <link rel="stylesheet" type="text/css" href="AdminSS.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--arrow down-->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <h1 align="left" id="h11"> <p><u>Teacher Application:</u></p> </h1>
 </head>
 
 <body>

@@ -1,44 +1,44 @@
 <?php
-require_once("db.php");
 require_once("pageClass.php");
+
+$POBJ1 = new Page();
+if (isset($_POST['saveP'])) {
+  $POBJ1->name = $_POST['Padditional'];
+  $POBJ1->name = $_POST['PaddLink'];
+  $POBJ1->name = $_POST['PaddHTML'];
+  $POBJ1->insert();
+  header('location:EditDB.php');
+}
+$POBJ2 = new Page();
+if (isset($_POST['updateP'])) {
+  $POBJ2->id = $_POST['Pid'];
+  $POBJ2->name = $_POST['Pcurrent'];
+  $POBJ2->name = $_POST['PcurrentLink'];
+  $POBJ2->name = $_POST['PcurrentHTML'];
+  $POBJ2->update();
+  header('location:EditDB.php');
+}
+$POBJ3 = new Page();
+if (isset($_POST['deleteP'])) {
+  $POBJ3->id = $_POST['Pid'];
+  $POBJ3->delete();
+  header('location:EditDB.php');
+}
 
 class PageC
 {
   public function PAselectV()
   {
-    $DBobj1 = new DB();
-    $DBobj1->connect();
     $PAobj1 = new Page();
     $PArow1 = $PAobj1->select();
-    return $PArow1;
   }
 
-  public function PAinsertV()
+  public function PAselectAll()
   {
-    $DBobj2 = new DB();
-    $DBobj2->connect();
     $PAobj2 = new Page();
-    $PArow2 = $PAobj2->insert();
-    return $PArow2;
+    $PArow2 = $PAobj2->selectAll();
   }
 
-  public function PAupdateV()
-  {
-    $DBobj3 = new DB();
-    $DBobj3->connect();
-    $PAobj3 = new Page();
-    $PArow3 = $PAobj3->update();
-    return $PArow3;
-  }
-
-  public function PAdeleteV()
-  {
-    $DBobj4 = new DB();
-    $DBobj4->connect();
-    $PAobj4 = new Page();
-    $PArow4 = $PAobj4->delete();
-    return $PArow4;
-  }
 }
 
 

@@ -1,0 +1,71 @@
+#pic1, #pic2, #pic3{
+	width: 15%;
+	height: 30%;
+	position: absolute;
+	top: 21%;
+	right: 85%;
+	z-index: -5;
+	transform: rotate(-20deg) translate(9px, 9px);
+}
+#pic2{
+	top: 49%;
+	transform: rotate(20deg) translate(9px, 9px);
+}
+#pic3{
+	top: 79%;
+}
+#pic4, #pic5, #pic6{
+	width: 15%;
+	height: 30%;
+	position: absolute;
+	top: 21%;
+	left: 83.5%;
+	z-index: -5;
+	transform: rotate(-20deg) translate(9px, 9px);
+}
+#pic5{
+	top: 49%;
+	transform: rotate(20deg) translate(9px, 9px);
+}
+#pic6{
+	top: 79%;
+}
+#pic7, #pic8, #pic9, #pic10, #pic11, #pic12, #pic13{
+	width: 13%;
+	height: 30%;
+	position: absolute;
+	top: 107%;
+	right: 86%;
+	z-index: -5;
+	transform: rotate(20deg) translate(9px, 9px);
+}
+#pic11{ /*tany w7da t7t on the left*/
+	left: 15%;
+	top: 106%;
+	z-index: -4;
+	transform: rotate(-20deg) translate(9px, 9px);
+}
+#pic8{ /*eli fiha baby beds*/
+	left: 30%;
+	top: 105%;
+	z-index: -3;
+}
+#pic9{ /*in the middle*/
+	left: 43%;
+	top: 106%;
+	z-index: -3;
+	transform: rotate(-20deg) translate(9px, 9px);
+}
+#pic12{ /*bnt btktb*/
+	left: 57.5%;
+	top: 105%;
+}
+#pic13{ /*tany w7da t7t on the right*/
+	left: 70%;
+	top: 105%;
+	transform: rotate(-20deg) translate(9px, 9px);
+}
+
+#pic10{ /*awl w7da t7t on the right*/
+	left: 85%;
+}

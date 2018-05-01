@@ -21,6 +21,20 @@ class Courses{
         $DBObject->disconnect();
         return $row;
      }
+     public function selectALL(){
+         $DBobject = new DB();
+         $sql="SELECT * FROM courses";
+         $DBobject->connect();
+         $result = $DBobject->execute($sql);
+         while ($row = mysqli_fetch_array($result)){
+           echo $row['id'];
+           echo " - ";
+           echo $row['description'];
+           echo "<br>";
+        }
+         $DBobject->disconnect();
+         return $row;
+     }
     public function update(){
         $DBObject = new DB();
         $sql="UPDATE courses SET description='".$this->description."' WHERE id ='".$this->id."' ";

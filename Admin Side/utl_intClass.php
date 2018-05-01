@@ -20,7 +20,22 @@ class utl_int{
       $row = mysqli_fetch_array($result);
       $DBobject->disconnect();
       return $row;
-
+    }
+    public function selectALL(){
+        $DBobject = new DB();
+        $sql="SELECT * FROM utl_int";
+        $DBobject->connect();
+        $result = $DBobject->execute($sql);
+        while ($row = mysqli_fetch_array($result)){
+          echo $row['id'];
+          echo " - ";
+          echo $row['page_id'];
+          echo " - ";
+          echo $row['utl_id'];
+          echo "<br>";
+       }
+        $DBobject->disconnect();
+        return $row;
     }
     public function delete(){
       $DBobject = new DB();

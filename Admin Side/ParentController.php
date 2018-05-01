@@ -17,7 +17,7 @@ if (isset($_POST['childSave'])) {
   $parentOBJ2->usualpickup = $_POST['usualpickup'];
   $parentOBJ2->insert();
   header('location:Onlineapplication.php');
-}
+};
 
 class parentsC
 {
@@ -25,22 +25,8 @@ class parentsC
   {
     $Pobj1 = new parents();
     $Prow1 = $Pobj1->select();
-    return $Prow1;
   }
 
-  public function PupdateV()
-  {
-    $Pobj3 = new parents();
-    $Prow3 = $Pobj3->update();
-    return $Prow3;
-  }
-
-  public function PdeleteV()
-  {
-    $Pobj4 = new parents();
-    $Prow4 = $Pobj4->delete();
-    return $Prow4;
-  }
 }
 
 

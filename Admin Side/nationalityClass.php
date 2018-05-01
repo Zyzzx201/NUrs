@@ -14,14 +14,12 @@ class nationality{
 
     public function select(){
         $DBObject = new DB();
-        $sql = "SELECT * FROM nationality WHERE nationality.id = '".$this->id."' OR '%".$this->name."%' " ;
         $DBObject->connect();
+        $sql = "SELECT * FROM nationality WHERE id = 1 " ; /*'".$this->id."' OR '%".$this->name."%'*/
         $result = $DBObject->execute($sql);
-        while ($row = mysqli_fetch_array($result)){
-           echo $row['id'];
-           echo $row['name'];
-       }
-       $DBObject->disconnect();
+        $row = mysqli_fetch_array($result);
+        $DBObject->disconnect();
+        return $row;
      }
      public function selectAll(){
         $DBObject = new DB();

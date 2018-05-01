@@ -1,6 +1,6 @@
 <?php
 require_once("ContactinfoClass.php");
-require_once("MainClass.php");
+//require_once("MainClass.php");
 
 $ConOBJ1 = new contactinfo();
 //$mainOBJ1 = new main();
@@ -29,19 +29,6 @@ class contactinfoC
     return $CIrow1;
   }
 
-  public function CIupdateV()
-  {
-    $CIobj3 = new contactinfo();
-    $CIrow3 = $CIobj3->update();
-    return $CIrow3;
-  }
-
-  public function CIdeleteV()
-  {
-    $CIobj4 = new contactinfo();
-    $CIrow4 = $CIobj4->delete();
-    return $CIrow4;
-  }
 }
 
 

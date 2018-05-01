@@ -1,7 +1,4 @@
-#h11{
-  font-family: cursive;
-}
-#h1T, #h1Ac, #h1A, #h1U, #h1D{
+#h1T, #h1Ac, #h1U, #h1D{
   font-family: cursive;
 	font-size: 31px;
 	font-weight: bold;
@@ -9,11 +6,6 @@
 	top: 15.4%;
 	left: 19.5%;
 	color: #ff0066; /*foshia*/
-}
-#h1Te{
-  font-size: 29.5px;
-  top: 16.5%;
-  left: 35.5%;
 }
 #h1Ac{
   font-size: 29.5px;

@@ -1,0 +1,100 @@
+.wt, .ei, .mission, .vision, .scheds{
+	font-size: 14px;
+	font-family: cursive;
+	position: absolute;
+  top: 42%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+	border: 1px solid transparent;
+	border-radius: 40px;
+	background-color: #99ff99;  /*bestage*/
+	width: 70%;
+	height: 45%;
+	opacity: 0.95;
+	padding: 20px;
+	z-index: -1;
+}
+.ei, .vision{
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+.mission{
+	top: 41%;
+	height: 43%;
+}
+.vision{
+	height: 50%;
+	top: 83%;
+}
+.scheds{
+	top: 75%;
+	width: 90%;
+	height: 100%;
+}
+#h1t{
+	font-family: cursive;
+	font-size: 30px;
+	font-weight: bold;
+	position: absolute;
+	top: -2%;
+	left: 22%;
+}
+.appform, .application{
+	font-family: cursive;
+	border: 1px solid transparent;
+	border-radius: 40px;
+	background-color: #99ff99;  /*bestage*/
+	position: absolute;
+	top: 20%;
+	left: 9%;
+	width: 70%;
+	height: 370%;
+	margin-right: -50%;
+	opacity: 0.95;
+	padding: 20px;
+}
+.application{
+	top: 395%;
+	height: 85%;
+}
+#atbtn, #appbtnE, #appbtnD{
+	font-family: cursive;
+	font-weight: bold;
+	background-color: #003366; /*ko7ly*/
+	color: #0099cc;  /*blue*/
+	text-align: center;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+#appbtnE, #appbtnD{
+	position: absolute;
+	top: 480%;
+	left: 40%;
+}
+#appbtnD{left: 45%;}
+#boxes{
+	border: 1px solid transparent;
+  border-radius: 5px;
+	z-index:6;
+}
+#timing{text-align: center;}
+#scTable, th, td{
+	border: 2px solid #003366; /*ko7ly*/
+	border-radius: 5px;
+}
+#footer{
+	position: absolute;
+	top: 160%;
+	left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+	width: 100%;
+	height: 17%;;
+  background-color: #00ff00;  /*green fat7*/
+	opacity: 0.95;
+}
+#ftr{
+	width: 100%;
+}

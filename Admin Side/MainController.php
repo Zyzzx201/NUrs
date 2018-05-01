@@ -46,6 +46,12 @@ if (isset($_POST['Updatebtn'])) {
   header('location:editteacher.php');
 }
 
+$mainOBJ6 =  new main();
+if (isset($_POST['Deletebtn'])) {
+  $mainOBJ6->id = $_POST['id'];
+  $mainOBJ6->deleteBtn();
+}
+
 class mainC
 {
   public $fname;
@@ -58,19 +64,6 @@ class mainC
     return $Mrow1;
   }
 
-  public function MupdateV()
-  {
-    $Mobj3 = new main();
-    $Mrow3 = $Mobj3->update();
-    return $Mrow3;
-  }
-
-  public function MdeleteV()
-  {
-    $Mobj4 = new main();
-    $Mrow4 = $Mobj4->delete();
-    return $Mrow4;
-  }
 }
 
 

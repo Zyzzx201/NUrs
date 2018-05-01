@@ -1,44 +1,41 @@
 <?php
-require_once("db.php");
 require_once("WeekClass.php");
+
+$DayBJ1 = new week();
+if (isset($_POST['saveDay'])) {
+  $DayBJ1->day = $_POST['Dayadditional'];
+  $DayBJ1->insert();
+  header('location:EditDB.php');
+}
+$DayBJ2 = new week();
+if (isset($_POST['updateDay'])) {
+  $DayBJ2->id = $_POST['Dayid'];
+  $DayBJ2->day = $_POST['Daycurrent'];
+  $DayBJ2->update();
+  header('location:EditDB.php');
+}
+
+$DayBJ3 = new week();
+if (isset($_POST['deleteDay'])) {
+  $DayBJ3->id = $_POST['Dayid'];
+  $DayBJ3->delete();
+  header('location:EditDB.php');
+}
 
 class weekC
 {
   public function WselectV()
   {
-    $DBobj1 = new DB();
-    $DBobj1->connect();
     $Wobj1 = new week();
     $Wrow1 = $Wobj1->select();
-    return $Wrow1;
   }
 
-  /*public function WinsertV()
+  public function WselectAll()
   {
-    $DBobj2 = new DB();
-    $DBobj2->connect();
-    $Wobj2 = new week();
-    $Wrow2 = $Wobj2->insert();
-    return $Wrow2;
+    $Wobj1 = new week();
+    $Wrow1 = $Wobj1->selectAll();
   }
 
-  public function WupdateV()
-  {
-    $DBobj3 = new DB();
-    $DBobj3->connect();
-    $Wobj3 = new week();
-    $Wrow3 = $Wobj3->update();
-    return $Wrow3;
-  }
-
-  public function WdeleteV()
-  {
-    $DBobj4 = new DB();
-    $DBobj4->connect();
-    $Wobj4 = new week();
-    $Wrow4 = $Wobj4->delete();
-    return $Wrow4;
-  }*/
 }
 
 

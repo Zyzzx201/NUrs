@@ -9,7 +9,6 @@ public $lname;
 public $dob;
 public $ssn;
 
-
   public function insert(){
     $DBObject = new DB();
     $sql = "INSERT INTO main (utype,status_id,fname,lname,dob,ssn)

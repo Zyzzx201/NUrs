@@ -1,43 +1,38 @@
 <?php
-require_once("db.php");
 require_once("usertypeluClass.php");
+
+$UTLBJ1 = new usertypelu();
+if (isset($_POST['saveUTL'])) {
+  $UTLBJ1->usertype = $_POST['UTLadditional'];
+  $UTLBJ1->insert();
+  header('location:EditDB.php');
+}
+$UTLBJ2 = new usertypelu();
+if (isset($_POST['updateUTL'])) {
+  $UTLBJ2->id = $_POST['UTLid'];
+  $UTLBJ2->usertype = $_POST['UTLcurrent'];
+  $UTLBJ2->update();
+  header('location:EditDB.php');
+}
+
+$UTLBJ3 = new usertypelu();
+if (isset($_POST['deleteUTL'])) {
+  $UTLBJ3->id = $_POST['UTLid'];
+  $UTLBJ3->delete();
+  header('location:EditDB.php');
+}
 
 class usertypeluC
 {
   public function UTselectV()
   {
-    $DBobj1 = new DB();
-    $DBobj1->connect();
     $UTobj1 = new usertypelu();
     $UTrow1 = $UTobj1->select();
-    return $UTrow1;
   }
-
-  public function UTinsertV()
+  public function UTselectAll()
   {
-    $DBobj2 = new DB();
-    $DBobj2->connect();
     $UTobj2 = new usertypelu();
-    $UTrow2 = $UTobj2->insert();
-    return $UTrow2;
-  }
-
-  public function UTupdReV()
-  {
-    $DBobj3 = new DB();
-    $DBobj3->connect();
-    $UTobj3 = new usertypelu();
-    $UTrow3 = $UTobj3->updRe();
-    return $UTrow3;
-  }
-
-  public function UTdeleteV()
-  {
-    $DBobj4 = new DB();
-    $DBobj4->connect();
-    $UTobj4 = new usertypelu();
-    $UTrow4 = $UTobj4->delete();
-    return $UTrow4;
+    $UTrow2 = $UTobj2->selectALL();
   }
 }
 

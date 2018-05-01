@@ -16,13 +16,32 @@ class Page{
     }
     public function select(){
       $DBobject = new DB();
-      $sql = "SELECT * FROM `page` WHERE id  = '".$this->id."' OR friendlyname = '".$this->friendlyname."'";
+      $sql = "SELECT * FROM page WHERE id = '".$this->id."' OR friendlyname = '".$this->friendlyname."'";
       $DBobject->connect();
       $result =  $DBobject->execute($sql);
       $row = mysqli_fetch_array($result);
       $DBobject->disconnect();
       return $row;
      }
+     public function selectAll(){
+        $DBObject = new DB();
+        $sql = "SELECT * FROM page" ;
+        $DBObject->connect();
+        $result = $DBObject->execute($sql);
+        while ($row = mysqli_fetch_array($result)){
+          echo $row['id'];
+          echo " - ";
+          echo $row['friendlyname'];
+          echo " - ";
+          echo $row['path'];
+          echo " - ";
+          echo $row['html'];
+          echo "<br>";
+       }
+       $DBObject->disconnect();
+       return $row;
+     }
+
     public function delete(){
       $DBobject = new DB();
       $sql = "DELETE FROM page WHERE id = '".$this->id."' ";

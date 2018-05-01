@@ -33,6 +33,7 @@ class marital{
            echo $row['value'];
            echo "<br>";
         }
+        
         $DBObject->disconnect();
       }
 

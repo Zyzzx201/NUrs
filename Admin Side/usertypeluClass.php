@@ -21,6 +21,20 @@ class usertypelu{
       $DBobject->disconnect();
       return $row;
      }
+     public function selectALL(){
+         $DBobject = new DB();
+         $sql="SELECT * FROM usertypelu";
+         $DBobject->connect();
+         $result = $DBobject->execute($sql);
+         while ($row = mysqli_fetch_array($result)){
+           echo $row['id'];
+           echo " - ";
+           echo $row['usertype'];
+           echo "<br>";
+        }
+         $DBobject->disconnect();
+         return $row;
+     }
 
     public function delete(){
       $DBobject = new DB();

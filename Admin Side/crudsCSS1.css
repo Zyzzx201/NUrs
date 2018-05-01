@@ -1,0 +1,54 @@
+#crudPage{
+  font-family: cursive;
+	border: 1px solid transparent;
+	border-radius: 40px;
+	background-color: #99ff99;  /*bestage*/
+  position: absolute;
+	top: 19.5%;
+	left: 9%;
+	width: 70%;
+	height: 1000%;
+	margin-right: -50%;
+	opacity: 0.95;
+	padding: 20px;
+}
+#Leg{
+  font-size: 20px;
+  font-weight: bold;
+}
+#addlist{
+  position: absolute;
+  top: 10%;
+}
+#addBTN2{
+  position: absolute;
+  top: 72%;
+  left: 89%;
+}
+#addBTN3{
+  position: absolute;
+  right: 26.5%;
+}
+#natlist{
+  position: absolute;
+  top: 10%;
+}
+#idBox{
+  width: 30px;
+}
+#natBTN1{
+  position: absolute;
+  right: 40%;
+}
+#natBTN2{
+  position: absolute;
+  right: 34%;
+}
+#natBTN3{
+  position: absolute;
+  right: 26.5%;
+}
+#natBTN4{
+  position: absolute;
+  right: 18.6%;
+}

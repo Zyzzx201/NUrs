@@ -25,13 +25,13 @@ class parents{
   public function select(){
     $DBObject = new DB();
     $sql = "SELECT * FROM parent WHERE id = '".$this->id."'";
+    $DBObject->connect();
     $result =  $DBObject->execute($sql);
     $row = mysqli_fetch_array($result);
     $DBObject->disconnect();
     return $row;
-
-
-     }
+  }
+  
   public function update(){
       $DBObject = new DB();
       $sql="UPDATE parent SET child_id = '".$this->child_id."',mother_id = '".$this->mother_id."',father_id = '".$this->father_id."',

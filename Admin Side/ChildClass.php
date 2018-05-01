@@ -21,7 +21,6 @@ class user{
       $row = mysqli_fetch_array($result);
       $DBobject->disconnect();
       return $row;
-
      }
 
     public function update(){

@@ -1,0 +1,47 @@
+#EditTeacher{
+	font-family: cursive;
+	border: 1px solid transparent;
+	border-radius: 40px;
+	background-color: #99ff99;  /*bestage*/
+	position: absolute;
+	top: 20%;
+	left: 9%;
+	width: 70%;
+	height: 188%;
+	margin-right: -50%;
+	opacity: 0.95;
+	padding: 20px;
+}
+#h1te, #h1A{
+	font-family: cursive;
+	font-size: 30px;
+	font-weight: bold;
+	position: absolute;
+	top: -2%;
+	left: 40%;
+  color: #ff0066; /*foshia*/
+}
+#boxes{
+	border: 1px solid transparent;
+  border-radius: 5px;
+	z-index:6;
+}
+#h1A{
+	font-size: 31px;
+	top: 19%;
+	left: 17.5%;
+}
+#h11{
+  font-family: cursive;
+}
+#accBTN, #refBTN, #penBTN{
+	position: absolute;
+	bottom: 10%;
+	left: 50%;
+}
+#refBTN{
+	left: 70%;
+}
+#penBTN{
+	left: 90%;
+}

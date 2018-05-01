@@ -19,23 +19,36 @@ class status{
       $row = mysqli_fetch_array($result);
       $DBobject->disconnect();
       return $row;
-
      }
+
+     public function selectAll(){
+        $DBObject = new DB();
+        $sql = "SELECT * FROM status" ;
+        $DBObject->connect();
+        $result = $DBObject->execute($sql);
+        while ($row = mysqli_fetch_array($result)){
+          echo $row['id'];
+          echo " - ";
+          echo $row['name'];
+          echo "<br>";
+       }
+       $DBObject->disconnect();
+     }
+
     public function delete(){
       $DBobject = new DB();
       $sql="DELETE FROM status WHERE id = '".$this->id."'";
       $DBobject->connect();
       $DBobject->execute($sql);
       $DBobject->disconnect();
-
       }
+      
     public function update(){
       $DBobject = new DB();
-      $sql = "UPDATE status name='".$this->name."' WHERE id = '".$this->id."'";
+      $sql = "UPDATE status SET name='".$this->name."' WHERE id = '".$this->id."'";
       $DBobject->connect();
       $DBobject->execute($sql);
       $DBobject->disconnect();
-
       }
 }
 ?>

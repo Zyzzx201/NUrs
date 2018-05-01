@@ -7,6 +7,7 @@ if (isset($_POST['Savebtn'])) {
   $NatOBJ6->insert();
   header('location:addteacher.php');
 }
+
 $natOBJ1 = new nationality();
 if (isset($_POST['saveNat'])) {
   $natOBJ1->name = $_POST['NATadditional'];
@@ -33,12 +34,12 @@ class nationalityC
   {
     $NAobj1 = new nationality();
     $NArow1 = $NAobj1->select();
-    return $NArow1;
+    //return $NArow1;
   }
   public function NAselectALL()
   {
-    $NAobj1 = new nationality();
-    $NArow1 = $NAobj1->selectAll();
+    $NAobj2 = new nationality();
+    $NArow2 = $NAobj2->selectAll();
   }
 
 }

@@ -22,19 +22,6 @@ class emergencyC
     return $ERrow1;
   }
 
-  public function ERupdateV()
-  {
-    $ERobj3 = new emergency();
-    $ERrow3 = $ERobj3->update();
-    return $ERrow3;
-  }
-
-  public function ERdeleteV()
-  {
-    $ERobj4 = new emergency();
-    $ERrow4 = $ERobj4->delete();
-    return $ERrow4;
-  }
 }
 
 

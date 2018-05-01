@@ -1,43 +1,38 @@
 <?php
-require_once("db.php");
 require_once("CoursesClass.php");
+
+$COBJ1 = new Courses();
+if (isset($_POST['saveC'])) {
+  $COBJ1->description = $_POST['Cadditional'];
+  $COBJ1->insert();
+  header('location:EditDB.php');
+}
+$COBJ2 = new Courses();
+if (isset($_POST['updateC'])) {
+  $COBJ2->id = $_POST['Cid'];
+  $COBJ2->description = $_POST['Ccurrent'];
+  $COBJ2->update();
+  header('location:EditDB.php');
+}
+
+$COBJ3 = new Courses();
+if (isset($_POST['deleteC'])) {
+  $COBJ3->id = $_POST['Cid'];
+  $COBJ3->delete();
+  header('location:EditDB.php');
+}
 
 class coursesC
 {
   public function COselectV()
   {
-    $DBobj1 = new DB();
-    $DBobj1->connect();
     $COobj1 = new Courses();
     $COrow1 = $COobj1->select();
-    return $COrow1;
   }
-
-  public function COnsertV()
+  public function COselectAll()
   {
-    $DBobj2 = new DB();
-    $DBobj2->connect();
     $COobj2 = new Courses();
-    $COrow2 = $COobj2->insert();
-    return $COrow2;
-  }
-
-  public function COupdateV()
-  {
-    $DBobj3 = new DB();
-    $DBobj3->connect();
-    $COobj3 = new Courses();
-    $COrow3 = $COobj3->update();
-    return $COrow3;
-  }
-
-  public function COdeleteV()
-  {
-    $DBobj4 = new DB();
-    $DBobj4->connect();
-    $COobj4 = new Courses();
-    $COrow4 = $COobj4->delete();
-    return $COrow4;
+    $COrow2 = $COobj2->selectAll();
   }
 }
 
