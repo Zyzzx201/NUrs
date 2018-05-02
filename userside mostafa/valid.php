@@ -38,6 +38,8 @@
         }
     }
     /*
+    use the following line to create a button(more or less) that will assist the user in printing the page hes currently on with all its contents.
+    P.S. it doesnt appear like a button but rather a piece of text but if you press it, it will print open the print screen thingy.
     <a title="Print Screen" alt="Print Screen" onclick="window.print();" target="_blank" style="cursor:pointer;" >PRINT BUTTON</a>
     */
 ?>
