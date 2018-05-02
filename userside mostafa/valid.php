@@ -37,5 +37,7 @@
             return $error;
         }
     }
-    
+    /*
+    <a title="Print Screen" alt="Print Screen" onclick="window.print();" target="_blank" style="cursor:pointer;" >PRINT BUTTON</a>
+    */
 ?>
