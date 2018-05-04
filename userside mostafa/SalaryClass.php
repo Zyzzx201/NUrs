@@ -9,7 +9,7 @@ class salary{
 
 	public function insert(){
         $DBObject = new DB();
-        $sql = "INSERT INTO `salary` (`amount`, `bonuses`, `deduct`, `total`) 
+        $sql = "INSERT INTO salary (amount, bonuses, deduct, total) 
         VALUES ('".$this->amount."','".$this->bonuses."','".$this->deduct."','".$this->total."')";
         $DBObject->connect();
         $DBObject->execute($sql);
