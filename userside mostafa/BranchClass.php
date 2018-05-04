@@ -14,7 +14,7 @@ class branch{
 
     public function select(){  
       $DBObject = new DB();
-      $sql = "SELECT * FROM branch ";
+      $sql = "SELECT * FROM branch where id = '".$this->id."' ";
       $DBObject->connect();
       $result = $DBObject->execute($sql);
       while ($row = mysqli_fetch_array($result)){
