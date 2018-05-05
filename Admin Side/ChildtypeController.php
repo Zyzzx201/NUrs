@@ -28,11 +28,13 @@ class childtypeC
   {
     $CTobj1 = new childtype();
     $CTrow1 = $CTobj1->select();
+    return $CTrow1;
   }
   public function CTselectAll()
   {
     $CTobj2 = new childtype();
     $CTrow = $CTobj2->selectAll();
+    return $CTrow;
   }
 
 

@@ -13,6 +13,12 @@ if (isset($_POST['childSave'])) {
   header('location:Onlineapplication.php');
 }
 
+if (isset($_POST['DeleteBtn'])) {
+  $btnobj5 = new emergency();
+  $btnobj5->delete();
+  header('location:editchild.php');
+}
+
 class emergencyC
 {
   public function ERselectV()

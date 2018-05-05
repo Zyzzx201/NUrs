@@ -35,6 +35,7 @@ class maritalC
   {
     $MTobj1 = new marital();
     $MTrow1 = $MTobj1->selectAll();
+    return $MTrow1;
   }
 }
 

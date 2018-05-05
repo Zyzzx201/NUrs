@@ -36,7 +36,7 @@ require_once("db.php");
         }
         public function update(){
             $DBobject = new DB();
-            $sql="UPDATE relation SET relation = '".$this->relation."' ";
+            $sql="UPDATE relation SET relation = '".$this->relation."' WHERE id ='".$this->id."' ";
             $DBobject->connect();
             $DBobject->execute($sql);
             $DBobject->disconnect();

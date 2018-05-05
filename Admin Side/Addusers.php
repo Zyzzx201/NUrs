@@ -91,7 +91,7 @@ $Rrow = $RelOBJ8->RselectV();
 			<!--Home Telephone number:<?php echo $PRrow['homenum'];?><br><br-->
 			Name of the person who will usually pick up the child: <?php echo $PRrow['usualpickup'];?><br><br>
 			<hr>
-			<h1 align="center"> Requested for Attendance: </h1> <?php echo $ATrow['day'];?><br><br>
+			<h1> Requested for Attendance: </h1> <?php echo $ATrow['day'];?><br><br>
 			<hr>
 			<h1 align="center" id="h11"> Emergency contact </h1>
 			Emergency Contact's Name: <?php echo $ERrow['ecname'];?><br><br>

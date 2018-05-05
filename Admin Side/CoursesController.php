@@ -28,6 +28,7 @@ class coursesC
   {
     $COobj1 = new Courses();
     $COrow1 = $COobj1->select();
+    return $COrow1;
   }
   public function COselectAll()
   {

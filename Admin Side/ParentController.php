@@ -19,12 +19,19 @@ if (isset($_POST['childSave'])) {
   header('location:Onlineapplication.php');
 };
 
+if (isset($_POST['DeleteBtn'])) {
+  $btnobj3 = new parents();
+  $btnobj3->delete();
+  header('location:editchild.php');
+}
+
 class parentsC
 {
   public function PselectV()
   {
     $Pobj1 = new parents();
     $Prow1 = $Pobj1->select();
+    return $Prow1;
   }
 
 }

@@ -20,6 +20,16 @@ if (isset($_POST['Updatebtn'])) {
   header('location:editteacher.php');
 }
 
+if (isset($_POST['DeleteBtn'])) {
+  $btnobj4 = new contactinfo();
+  $btnobj4->delete();
+  header('location:editchild.php');
+}
+if (isset($_POST['teacherDelete'])) {
+  $btnobj4 = new contactinfo();
+  $btnobj4->delete();
+  header('location:editteacher.php');
+}
 class contactinfoC
 {
   public function CIselectV()

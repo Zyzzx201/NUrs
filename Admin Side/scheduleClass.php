@@ -16,13 +16,13 @@ class Schedule{
     }
     public function select(){
       $DBobject = new DB();
-      $sql = "SELECT * FROM schedule WHERE id = '".$this->course_id."' ";
+      $sql = "SELECT * FROM schedule WHERE course_id = '".$this->course_id."' OR childtype_id = '".$this->childtype_id."' OR id = '".$this->id."'  ";
       $DBobject->connect();
+      $DBobject->execute($sql);
       $result =  $DBobject->execute($sql);
       $row = mysqli_fetch_array($result);
       $DBobject->disconnect();
       return $row;
-
     }
 
     public function delete(){

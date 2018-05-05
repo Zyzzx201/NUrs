@@ -23,6 +23,7 @@ class Page{
       $DBobject->disconnect();
       return $row;
      }
+
      public function selectAll(){
         $DBObject = new DB();
         $sql = "SELECT * FROM page" ;
@@ -34,8 +35,6 @@ class Page{
           echo $row['friendlyname'];
           echo " - ";
           echo $row['path'];
-          echo " - ";
-          echo $row['html'];
           echo "<br>";
        }
        $DBObject->disconnect();

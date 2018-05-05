@@ -51,12 +51,19 @@ if (isset($_POST['Deletebtn'])) {
   $mainOBJ6->id = $_POST['id'];
   $mainOBJ6->deleteBtn();
 }
+if (isset($_POST['DeleteBtn'])) {
+  $btnobj2 = new main();
+  $btnobj2->delete();
+header('location:editchild.php');
+}
+if (isset($_POST['teacherDelete'])) {
+  $btnobj2 = new main();
+  $btnobj2->delete();
+  header('location:editteacher.php');
+}
 
 class mainC
 {
-  public $fname;
-  public $lname;
-  public $dob;
   public function MselectV()
   {
     $Mobj1 = new main();

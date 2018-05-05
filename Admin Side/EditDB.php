@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" type="text/css" href="StyleSheet.css">
     <link rel="stylesheet" type="text/css" href="crudsCSS1.css">
+    <link rel="stylesheet" type="text/css" href="hovertips.css">
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--arrow down-->
   	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script type="text/javascript">
   		window.onload = function() {
   			document.getElementById('navMenu').style.display = 'none';
+        //document.getElementById('hovertips').style.display = 'none';
   		};
   		function changeM(x) {
   			x.classList.toggle("change");
@@ -19,6 +21,9 @@
   				document.getElementById('navMenu').style.display = 'none';
   			}
   		};
+      function checkD() {
+        return confirm("Are you sure you want to delete this file? This action is unreveresable.");
+      }
     </script>
   </head>
   <body>
@@ -35,7 +40,7 @@
           <a id="addr" href="/acceptteacher.php">Teacher Applications</a>
           <a id="addr" href="/Addusers.php">Children's Applications</a>
           <a id="addr" href="/editteacher.php">Edit Teachers</a>
-          <a id="addr" href="/deleteuser.php">Review Children</a>
+          <a id="addr" href="/editchild.php">Review Children</a>
           <div class="dropdown">
             <button class="dropbtn">Other
               <i class="fa fa-caret-down"></i>
@@ -68,8 +73,8 @@
              </div>
              <div>
                Write the number of address you want to delete here:
-               <input type="text" name="ADDid" value="<?php  echo $names['id']; ?>" id="idBox">
-               <button type="submit" name="deleteAdd">Delete</button> <br><br>
+               <input type="text" name="ADDid" value="<?php echo $names['id']; ?>" id="idBox">
+               <button type="submit" name="deleteAdd" onclick="checkD()">Delete</button> <br><br>
              </div>
         </fieldset>
         <br><br>
@@ -96,7 +101,7 @@
             <div>
               Write the number of nationality you want to delete here:
               <input type="text" name="NATid" value="<?php  echo $names['id']; ?>" id="idBox">
-              <button type="submit" name="deleteNat">Delete</button> <br><br>
+              <button type="submit" name="deleteNat" onclick="checkD()">Delete</button> <br><br>
             </div>
         </fieldset>
         <fieldset>
@@ -122,7 +127,7 @@
             <div>
               Write the number of relation you want to delete here:
               <input type="text" name="RELid" value="<?php  echo $names['id']; ?>" id="idBox">
-              <button type="submit" name="deleteREL">Delete</button> <br><br>
+              <button type="submit" name="deleteREL" onclick="checkD()">Delete</button> <br><br>
             </div>
         </fieldset>
         <fieldset>
@@ -148,7 +153,7 @@
             <div>
               Write the number of marital status you want to delete here:
               <input type="text" name="MSid" value="<?php  echo $names['id']; ?>" id="idBox">
-              <button type="submit" name="deleteMS">Delete</button> <br><br>
+              <button type="submit" name="deleteMS" onclick="checkD()">Delete</button> <br><br>
             </div>
         </fieldset>
         <fieldset>
@@ -160,10 +165,13 @@
             $names = $CTOBJ1->CTselectAll();
             ?>
             <br>
-            <div>
-              Write the name of the child type you want to add here:
-              <button type="submit" name="saveCT">Add</button> <br>
-              <input type="text" name="CTadditional" value="<?php echo $names['type'];?>"> <br><br>
+            <div class="hovertip">
+              <span class="hovertiptext"> A child type is thier year. </span>
+              <div>
+                Write the name of the child type you want to add here:
+                <button type="submit" name="saveCT">Add</button> <br>
+                <input type="text" name="CTadditional" value="<?php echo $names['type'];?>"> <br><br>
+              </div>
             </div>
             <div>
               Write the number and name of the child type you want to modify here:
@@ -174,7 +182,7 @@
             <div>
               Write the number of the child type you want to delete here:
               <input type="text" name="CTid" value="<?php  echo $names['id']; ?>" id="idBox">
-              <button type="submit" name="deleteCT">Delete</button> <br><br>
+              <button type="submit" name="deleteCT" onclick="checkD()">Delete</button> <br><br>
             </div>
         </fieldset>
         <fieldset>
@@ -200,7 +208,7 @@
             <div>
               Write the number of the status you want to delete here:
               <input type="text" name="STATid" value="<?php  echo $names['id']; ?>" id="idBox">
-              <button type="submit" name="deleteSTAT">Delete</button> <br><br>
+              <button type="submit" name="deleteSTAT" onclick="checkD()">Delete</button> <br><br>
             </div>
         </fieldset>
         <fieldset>
@@ -212,13 +220,16 @@
             $names = $POBJ1->PAselectAll();
             ?>
             <br>
-            <div>
-              Write the info of the pages you want to add here:
-              <button type="submit" name="saveP">Add</button> <br><br>
-              <input type="text" name="Padditional" placeholder="Name" value="<?php echo $names['friendlyname'];?>">
-              <input type="text" name="PaddLink" placeholder="Link" value="<?php echo $names['path'];?>"><br><br>
-              <textarea name="PaddHTML" placeholder="Page Content" rows="8" cols="50"
-               value="<?php echo $names['html'];?>"></textarea><br><br>
+            <div class="hovertip">
+              <span class="hovertiptext"> Add the html of the web page here. </span>
+              <div>
+                Write the info of the pages you want to add here:
+                <button type="submit" name="saveP">Add</button> <br><br>
+                <input type="text" name="Padditional" placeholder="Name" value="<?php echo $names['friendlyname'];?>">
+                <input type="text" name="PaddLink" placeholder="Link" value="<?php echo $names['path'];?>"><br><br>
+                <textarea name="PaddHTML" placeholder="Page Content" rows="8" cols="50"
+                 value="<?php echo $names['html'];?>"></textarea><br><br>
+              </div>
             </div>
             <div>
               Write the number and info of the pages you want to modify here:
@@ -232,7 +243,7 @@
             <div>
               Write the number of the pages you want to delete here:
               <input type="text" name="Pid" value="<?php  echo $names['id']; ?>" id="idBox">
-              <button type="submit" name="deleteP">Delete</button> <br><br>
+              <button type="submit" name="deleteP" onclick="checkD()">Delete</button> <br><br>
             </div>
         </fieldset>
         <fieldset>
@@ -247,18 +258,18 @@
             <div>
               Write the name of the day you want to add here:
               <button type="submit" name="saveDay">Add</button> <br>
-              <input type="text" name="Dayadditional" value="<?php echo $names['day'];?>"> <br><br>
+              <input type="text" name="Dayadditional" value="<?php echo $names['days'];?>"> <br><br>
             </div>
             <div>
               Write the number and name of the day you want to modify here:
               <button type="submit" name="updateDay">Modify</button> <br>
               <input type="text" name="Dayid" value="<?php echo $names['id']; ?>" id="idBox">
-              <input type="text" name="Daycurrent" value=" <?php echo $names['day']; ?>"> <br><br>
+              <input type="text" name="Daycurrent" value=" <?php echo $names['days']; ?>"> <br><br>
             </div>
             <div>
               Write the number of the day you want to delete here:
               <input type="text" name="Dayid" value="<?php  echo $names['id']; ?>" id="idBox">
-              <button type="submit" name="deleteDay">Delete</button> <br><br>
+              <button type="submit" name="deleteDay" onclick="checkD()">Delete</button> <br><br>
             </div>
         </fieldset>
         <fieldset>
@@ -284,7 +295,7 @@
             <div>
               Write the number of the user type you want to delete here:
               <input type="text" name="UTLid" value="<?php echo $names['id']; ?>" id="idBox">
-              <button type="submit" name="deleteUTL">Delete</button> <br><br>
+              <button type="submit" name="deleteUTL" onclick="checkD()">Delete</button> <br><br>
             </div>
         </fieldset>
         <fieldset>
@@ -296,23 +307,19 @@
             $names = $DayOBJ1->UTIselectAll();
             ?>
             <br>
-            <div>
-              Write the name of the user pages you want to add here:
-              <button type="submit" name="saveUTLI">Add</button> <br>
-              <input type="text" name="UTLIpageID" placeholder=" Page Number" value="<?php echo $names['page_id'];?>">
-              <input type="text" name="UTLIutlID" placeholder=" User Number" value="<?php echo $names['utl_id'];?>"> <br><br>
-            </div>
-            <div>
-              Write the number and name of the user pages you want to modify here:
-              <button type="submit" name="updateUTLI">Modify</button> <br>
-              <input type="text" name="UTLIid" value="<?php echo $names['id']; ?>" id="idBox">
-              <input type="text" name="UTLIpageID" placeholder=" Page Number" value="<?php echo $names['page_id'];?>">
-              <input type="text" name="UTLIutlID" placeholder=" User Number" value="<?php echo $names['utl_id'];?>"> <br><br>
+            <div class="hovertip">
+              <span class="hovertiptext"> Who can control/access which pages? </span>
+              <div>
+                Write the name of the user pages you want to add here:
+                <button type="submit" name="saveUTLI">Add</button> <br>
+                <input type="text" name="UTLIpageID" placeholder=" Page Number 2 or 4" value="<?php echo $names['page_id'];?>">
+                <input type="text" name="UTLIutlID" placeholder=" User Number 1 or 2" value="<?php echo $names['utl_id'];?>"> <br><br>
+              </div>
             </div>
             <div>
               Write the number of the user pages you want to delete here:
               <input type="text" name="UTLIid" value="<?php echo $names['id']; ?>" id="idBox">
-              <button type="submit" name="deleteUTLI">Delete</button> <br><br>
+              <button type="submit" name="deleteUTLI" onclick="checkD()">Delete</button> <br><br>
             </div>
         </fieldset>
         <fieldset>
@@ -324,49 +331,20 @@
             $names = $DayOBJ1->ATselectAll();
             ?>
             <br>
-            <div>
-              Write the name of the attendance you want to add here:
-              <button type="submit" name="saveATI">Add</button> <br>
-              <input type="text" name="ATIchild_id" placeholder=" Child Number" value="<?php echo $names['child_id'];?>">
-              <input type="text" name="ATIweek_id" placeholder=" Attendance Type" value="<?php echo $names['week_id'];?>"> <br><br>
-            </div>
-            <div>
-              Write the number and name of the attendance you want to modify here:
-              <button type="submit" name="updateATI">Modify</button> <br>
-              <input type="text" name="ATIid" value="<?php echo $names['id']; ?>" id="idBox">
-              <input type="text" name="ATIchild_id" placeholder=" Child Number" value="<?php echo $names['child_id'];?>">
-              <input type="text" name="ATIweek_id" placeholder=" Attendance Type" value="<?php echo $names['week_id'];?>"> <br><br>
+            <div class="hovertip">
+              <span class="hovertiptext"> What type of attendance the child is following? <br>
+              You can check the attendance types in the Week & Attendance section. </span>
+              <div>
+                Write the name of the attendance you want to add here:
+                <button type="submit" name="saveATI">Add</button> <br>
+                <input type="text" name="ATIchild_id" placeholder=" Child Number" value="<?php echo $names['child_id'];?>">
+                <input type="text" name="ATIweek_id" placeholder=" Attendance Type" value="<?php echo $names['week_id'];?>"> <br><br>
+              </div>
             </div>
             <div>
               Write the number of the attendance you want to delete here:
               <input type="text" name="ATIid" value="<?php echo $names['id']; ?>" id="idBox">
-              <button type="submit" name="deleteATI">Delete</button> <br><br>
-            </div>
-        </fieldset>
-        <fieldset>
-          <legend id="Leg">Courses :</legend>
-            <?php
-            require_once("CoursesController.php");
-            $COBJ1 = new coursesC();
-            echo "<br>";
-            $names = $COBJ1->COselectAll();
-            ?>
-            <br>
-            <div>
-              Write the name of the course you want to add here:
-              <button type="submit" name="saveC">Add</button> <br>
-              <input type="text" name="Cadditional" value="<?php echo $names['description'];?>"> <br><br>
-            </div>
-            <div>
-              Write the number and name of the course you want to modify here:
-              <button type="submit" name="updateC">Modify</button> <br>
-              <input type="text" name="Cid" value="<?php echo $names['id']; ?>" id="idBox">
-              <input type="text" name="Ccurrent" value=" <?php echo $names['description']; ?>"> <br><br>
-            </div>
-            <div>
-              Write the number of the course you want to delete here:
-              <input type="text" name="Cid" value="<?php  echo $names['id']; ?>" id="idBox">
-              <button type="submit" name="deleteC">Delete</button> <br><br>
+              <button type="submit" name="deleteATI" onclick="checkD()">Delete</button> <br><br>
             </div>
         </fieldset>
       </div>

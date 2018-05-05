@@ -30,7 +30,7 @@ class week{
         while ($row = mysqli_fetch_array($result)){
           echo $row['id'];
           echo " - ";
-          echo $row['day'];
+          echo $row['days'];
           echo "<br>";
        }
        $DBObject->disconnect();

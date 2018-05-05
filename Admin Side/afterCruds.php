@@ -10,5 +10,4 @@ require_once("WeekController.php");
 require_once("usertypeluController.php");
 require_once("utl_intController.php");
 require_once("attend_intController.php");
-require_once("CoursesController.php");
  ?>

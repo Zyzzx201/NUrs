@@ -11,8 +11,12 @@ if (isset($_POST['childSave'])) {
   $ChildOBJ2->insert();
   header('location:Onlineapplication.php');
 }
-
-
+$ChildOBJ1 =  new user();
+$mainOBJ2 = new main();
+if (isset($_POST['childDelete'])) {
+  $ChildOBJ2->delete();
+  header('location:Onlineapplication.php');
+}
 
 class ChildC
 {
@@ -30,12 +34,6 @@ class ChildC
     return $CHrow3;
   }
 
-  public function CHdeleteV()
-  {
-    $CHobj4 = new user();
-    $CHrow4 = $CHobj4->delete();
-    return $CHrow4;
-  }
 }
 
 

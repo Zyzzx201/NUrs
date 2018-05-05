@@ -13,13 +13,13 @@ class Courses{
 
     }
     public function select(){
-        $DBObject = new DB();
-        $sql = "SELECT * FROM courses WHERE description LIKE '%".$this->description."%'";
-        $DBObject->connect();
-        $result =  $DBObject->execute($sql);
-        $row = mysqli_fetch_array($result);
-        $DBObject->disconnect();
-        return $row;
+      $DBObject = new DB();
+      $sql = "SELECT * FROM courses WHERE description LIKE '%".$this->description."%'";
+      $DBObject->connect();
+      $result =  $DBObject->execute($sql);
+      $row = mysqli_fetch_array($result);
+      $DBObject->disconnect();
+      return $row;
      }
      public function selectALL(){
          $DBobject = new DB();

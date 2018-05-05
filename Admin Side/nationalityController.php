@@ -34,12 +34,13 @@ class nationalityC
   {
     $NAobj1 = new nationality();
     $NArow1 = $NAobj1->select();
-    //return $NArow1;
+    return $NArow1;
   }
   public function NAselectALL()
   {
     $NAobj2 = new nationality();
     $NArow2 = $NAobj2->selectAll();
+    return $NArow2;
   }
 
 }

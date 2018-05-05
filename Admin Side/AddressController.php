@@ -28,6 +28,7 @@ class addressC
   {
     $ADobj2 = new Address();
     $ADrow2 = $ADobj2->selectAll();
+    return $ADrow2;
   }
 }
 

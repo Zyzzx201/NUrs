@@ -8,15 +8,6 @@ if (isset($_POST['saveATI'])) {
   $ATIOBJ1->insert();
   header('location:EditDB.php');
 }
-$ATIOBJ2 = new Attend_int();
-if (isset($_POST['updateATI'])) {
-  $ATIOBJ2->id = $_POST['ATIid'];
-  $ATIOBJ2->child_id = $_POST['ATIchild_id'];
-  $ATIOBJ2->week_id = $_POST['ATIweek_id'];
-  $ATIOBJ2->update();
-  header('location:EditDB.php');
-}
-
 $ATIOBJ3 = new Attend_int();
 if (isset($_POST['deleteATI'])) {
   $ATIOBJ3->id = $_POST['ATIid'];
@@ -30,11 +21,13 @@ class Attend_intC
   {
     $ATobj1 = new Attend_int();
     $ATrow1 = $ATobj1->select();
+    return $ATrow1;
   }
   public function ATselectAll()
   {
     $ATobj1 = new Attend_int();
     $ATrow1 = $ATobj1->selectAll();
+    return $ATrow1;
   }
 
 }

@@ -85,6 +85,12 @@ if (isset($_POST['Updatebtn'])) {
   header('location:editteacher.php');
 }
 
+if (isset($_POST['teacherDelete'])) {
+$btnobj3 = new teacher();
+  $btnobj3->delete();
+  header('location:editteacher.php');
+}
+
 class teacherC
 {
   public function TselectV()
@@ -93,7 +99,7 @@ class teacherC
     $Trow1 = $Tobj1->select();
     return $Trow1;
   }
-  
+
   public function TdeleteV()
   {
     $Tobj4 = new teacher();

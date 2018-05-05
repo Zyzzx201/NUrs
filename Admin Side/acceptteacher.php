@@ -9,6 +9,18 @@
   <link rel="stylesheet" type="text/css" href="AdminSS.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--arrow down-->
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+      $('.search-bar input[type="text"]').on("keyup input", function(){
+          var inputVal = $(this).val();
+          var resultDropdown = $(this).siblings(".result");
+          $.get("aftersearch.php", {term: inputVal}).done(function(data){
+              resultDropdown.html(data);
+          });
+      });
+  });
+  </script>
 </head>
 
 <body>
@@ -32,13 +44,14 @@
     </header>
 
     <div id="EditTeacher">
-      <form id="searchB" method="POST" action="<?php $_SERVER["PHP_SELF"];?>">
-           <input type="text" name="Search" id="boxes" placeholder="Search for names.." onkeyup="aftersearch.php" >
+      <form id="searchB" method="POST" action="aftersearch.php">
+        <div class="search-bar">
+          <input type="text" name="Search" placeholder="Search for names..">
+        </div>
       </form>
       <h1 align="left" id="h11"> <p><u>Teacher Application:</u></p> </h1>
-      <form method="POST" action="<?php $_SERVER["PHP_SELF"];?>">
+      <form method="POST" action="Afterbtns.php">
         <?php
-          require_once("db.php");
           require_once("teacherController.php");
           require_once("MainController.php");
           require_once("AddressController.php");
@@ -87,8 +100,6 @@
         In your point of view, how do you see an ideal nursery regarding its academic side?<br><br>
         <?php echo $Trow['povnursery'];?></textarea><br>
         <br><br>
-      </form>
-      <form  action="Afterbtns.php" method="post" >
         <input type="hidden" name="accept" value="1">
         <input type="submit" name="Accept"  value="Accept Applicant" id="accBTN">
         <input type="hidden" name="refuse" value="2">
