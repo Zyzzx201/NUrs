@@ -40,13 +40,16 @@ class admin{
         $value1 = "Wrong Username and Password combination";
         $value2 = "Validated!";
         $DBObject = new DB();
-        $sql = "SELECT username, passwords FROM admin WHERE username = '".$this->username."' AND passwords = '".$this->passwords."' LIMIT 1";
+        //$sql = "SELECT username, passwords FROM admin WHERE username = '".$this->username."' AND passwords = '".$this->passwords."' LIMIT 1";
+	$sql = "SELECT IF (EXISTS (SELECT username,password from admin where username='".$this->username."' AND passwords LIKE '".$this->passwords."'), 'INVALID' , \'VALID\')";
         $DBObject->connect();
         $result = $DBObject->execute($sql);
+	    /*
         if(mysqli_fetch_row($result) == true)
             return $value1;
         else
             return $value2;
+	    */
         $DBObject->disconnect();
         //         //select * statements for password where password == password and email fetch row
         //         /* 
