@@ -3,7 +3,7 @@ require_once("db.php");
 class main{
 public $id;
 public $utype;
-public $status_id
+public $status_id;
 public $fname;
 public $lname;
 public $dob;
@@ -38,7 +38,7 @@ public $ssn;
 
   public function delete(){ 
     $DBObject = new DB();
-    $sql = "Delete FROM main WHERE main.id = '".$id."'";
+    $sql = "Delete FROM main WHERE main.id = '".$this->id."'";
     $DBObject->connect();
     $DBObject->exceute ($sql);
     $DBObject->disconnect();
@@ -46,7 +46,7 @@ public $ssn;
   public function update(){ 
     $DBObject = new DB();
     $sql = "UPDATE main SET utype = '".$this->utype."' ,'".$this->status_id."',
-    fname = '".$this->fname."',lname = '".$this->lname"' ,dob= '".this->dob."' ,ssn='".$this->ssn."' WHERE id ='".$this->id."'";
+    fname = '".$this->fname."',lname = '".$this->lname."' ,dob= '".$this->dob."' ,ssn='".$this->ssn."' WHERE id ='".$this->id."'";
     $DBObject->connect();
     $DBObject->execute($sql);
     $DBObject->disconnect();

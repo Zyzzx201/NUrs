@@ -20,7 +20,7 @@ class Address{
       $result = $DBObject->execute($sql);
       while ($row = mysqli_fetch_array($result)){
         echo $row['id'];
-        echo $row['parent_id']
+        echo $row['parent_id'];
         echo $row['name'];
       }
      $DBObject->disconnect();
@@ -28,7 +28,7 @@ class Address{
 
     public function delete(){ 
       $DBObject = new DB();
-      $sql = "DELETE FROM address WHERE address.id  = '".$id."'";
+      $sql = "DELETE FROM address WHERE address.id  = '".$this->id."'";
       $DBObject->connect();
       $DBObject->execute($sql);
       $DBObject->disconnect();

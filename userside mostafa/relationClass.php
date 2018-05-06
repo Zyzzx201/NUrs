@@ -1,8 +1,8 @@
 <?php
 require_once("db.php");
     class relation{
-        $id;
-        $value;
+        public $id;
+        public $value;
 
         public function insert(){
             $DBobject =  new DB();
@@ -11,15 +11,17 @@ require_once("db.php");
             $DBobject->execute($sql);
             $DBobject->disconnect();
         }
-        public function select(){
+        public function select()
+        {
             $DBobject = new DB();
-            $sql="SELECT * FROM relation";
+            $sql = "SELECT * FROM relation";
             $DBobject->connect();
             $result = $DBobject->execute($sql);
-             while ($row = mysqli_fetch_array($result)){
+            while ($row = mysqli_fetch_array($result)) {
                 echo $row['id'];
                 echo $row['value'];
-            $DBobject->disconnect();
+                $DBobject->disconnect();
+            }
         }
         public function update(){
             $DBobject = new DB();

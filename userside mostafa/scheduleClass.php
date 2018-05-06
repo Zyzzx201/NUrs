@@ -19,7 +19,7 @@ class Schedule{
       $DBobject = new DB();
       $sql = "SELECT * FROM schedule WHERE course_id = '".$this->course_id."' OR childtype_id = '".$this->childtype_id."' OR id = '".$this->id."'  ";
       $DBobject->connect();
-      $DBobject->execute($sql);
+      $result = $DBobject->execute($sql);
         while ($row = mysqli_fetch_array($result)){
           echo $row['id'];
           echo $row['course_id'];

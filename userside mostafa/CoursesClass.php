@@ -33,7 +33,7 @@ class Courses{
      }
     public function delete(){ 
       $DBObject = new DB();
-      $sql = "DELETE FROM courses WHERE courses.id  = '".$id."'";
+      $sql = "DELETE FROM courses WHERE courses.id  = '".$this->id."'";
       $DBObject->connect();
       $DBObject->execute($sql);
       $DBObject->disconnect();
