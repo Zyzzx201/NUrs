@@ -74,6 +74,10 @@ Class valid{
 
 }
 
+    //this is how you call a function from this class without having to directly create an object (do this only with this class)
+    //valid::function_name($parameters)
+    //if there are errors using this method, create an object instead
+
     //this one is an exception to the error thing because the error is produced by its parameters
 
     //in all the above you will remove the "return" and instead of it a select function will be run with the id of the error that i gave you
