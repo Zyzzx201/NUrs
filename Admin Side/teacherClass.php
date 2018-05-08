@@ -36,11 +36,10 @@ class teacher{
     public function select(){
       $DBObject = new DB();
       $DBObject->connect();
-      $sql = "SELECT * FROM teacher WHERE '".$this->id."' = teacher.main_id = '".$this->main_id."'";
+      $sql = "SELECT * FROM teacher WHERE  teacher.main_id = ".$this->main_id;
       $result =  $DBObject->execute($sql);
-      $row = mysqli_fetch_array($result);
       $DBObject->disconnect();
-      return $row;
+      return $result;
      }
     public function update(){
       $DBObject = new DB();

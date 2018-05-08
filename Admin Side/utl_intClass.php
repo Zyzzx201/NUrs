@@ -26,16 +26,8 @@ class utl_int{
         $sql="SELECT * FROM utl_int";
         $DBobject->connect();
         $result = $DBobject->execute($sql);
-        while ($row = mysqli_fetch_array($result)){
-          echo $row['id'];
-          echo " - ";
-          echo $row['page_id'];
-          echo " - ";
-          echo $row['utl_id'];
-          echo "<br>";
-       }
         $DBobject->disconnect();
-        return $row;
+        return $result;
     }
     public function delete(){
       $DBobject = new DB();

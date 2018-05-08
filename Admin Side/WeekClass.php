@@ -27,13 +27,8 @@ class week{
         $sql = "SELECT * FROM week" ;
         $DBObject->connect();
         $result = $DBObject->execute($sql);
-        while ($row = mysqli_fetch_array($result)){
-          echo $row['id'];
-          echo " - ";
-          echo $row['days'];
-          echo "<br>";
-       }
        $DBObject->disconnect();
+       return $result;
      }
 
       public function delete(){

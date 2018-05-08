@@ -26,13 +26,8 @@ class status{
         $sql = "SELECT * FROM status" ;
         $DBObject->connect();
         $result = $DBObject->execute($sql);
-        while ($row = mysqli_fetch_array($result)){
-          echo $row['id'];
-          echo " - ";
-          echo $row['name'];
-          echo "<br>";
-       }
        $DBObject->disconnect();
+       return $result;
      }
 
     public function delete(){
@@ -42,7 +37,7 @@ class status{
       $DBobject->execute($sql);
       $DBobject->disconnect();
       }
-      
+
     public function update(){
       $DBobject = new DB();
       $sql = "UPDATE status SET name='".$this->name."' WHERE id = '".$this->id."'";

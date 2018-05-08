@@ -20,9 +20,10 @@ if (isset($_POST['childDelete'])) {
 
 class ChildC
 {
-  public function CHselectV()
+  public function CHselectV($id)
   {
     $CHobj1 = new user();
+    $CHobj1->id=$id;
     $CHrow1 = $CHobj1->select();
     return $CHrow1;
   }

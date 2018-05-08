@@ -1,4 +1,9 @@
 <?php session_start();?>
+<?php if(empty($_SESSION["username"])){
+header('location:adminlogin.php');
+}
+else {
+?>
 <?php
 require_once("MainController.php");
 require_once("ChildController.php");
@@ -38,82 +43,116 @@ $Rrow = $RelOBJ8->RselectV();
   <link rel="stylesheet" type="text/css" href="AdminSS.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--arrow down-->
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+      $('.search-bar input[type="text"]').on("keyup input", function(){
+          var inputVal = $(this).val();
+          var resultDropdown = $(this).siblings(".result");
+          $.get("aftersearch.php", {term: inputVal}).done(function(data){
+              resultDropdown.html(data);
+          });
+      });
+  });
+  </script>
 	<script type="text/javascript">
     function checkD() {
       return confirm("Are you sure you want to delete this file? This action can not be undone.");
     }
   </script>
-</head>
-
-<body>
+	<script type="text/javascript">
+  window.onload = function() {
+    document.getElementById('navMenu').style.display = 'none';
+  };
+  function changeM(x) {
+    x.classList.toggle("change");
+    document.getElementById('navMenu').style.display = 'block';
+    if (document.getElementById('Menicon').clicked){
+      document.getElementById('navMenu').display = 'none';
+    }
+  };
+  </script>
 	<header>
 		<img src="logo.png" id="logo" onclick="location.href='userSide/index.php';">
 		<p id="h1D">Edit</p><p id="h1U">Child</p>
-		<button type="button" id="bkbtn" onclick="location.href='userSide/index.php';">Back</button>
-		<form class="" action="Afterbtns.php" method="post">
-			<button type="submit" id="pabtn" name="previousDU">Previous Applicaton</button>
-			<button type="submit" id="nabtn" name="nextDU">Next Applicaton</button>
-		</form>
-		<?php
-			if(!empty($_SESSION["username"])){
-			?>
-			<a href=""><?php echo $_SESSION["username"]; ?></a>
-		<?php  } ?>
-		<?php if(empty($_SESSION["username"])){ ?>
-			<a href="adminlogin.php">Login</a>
-			<a href="">Sign up</a>
-		<?php } ?>
+		<p id="username"><?php echo "Hello ".$_SESSION["username"];} ?></p>
+    <div class="micon" onclick="changeM(this)" id="Menicon">
+      <div class="b1"></div>
+      <div class="b2"></div>
+      <div class="b3"></div>
+    </div>
+    <div id="navMenu" >
+      <div id="myTopnav" class="topnav">
+        <a href="\Admin Side\acceptteacher.php" id="admAdr">Teacher Acceptance</a>
+        <a href="\Admin Side\Addusers.php" id="admAdr">Child Acceptance</a>
+        <!-- <a href="\Admin Side\editchild.php" id="admAdr">Child Edit</a> -->
+        <a href="\Admin Side\editteacher.php" id="admAdr">Teacher Edit</a>
+        <a href="\Admin Side\EditDB.php" id="admAdr">Control Panel</a>
+        <div class="dropdown">
+          <button class="dropbtn">More
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a id="addr" href="\Onlineapplication.php">Online Application</a>
+            <a id="addr" href="\addteacher.php">Teacher Registration</a>
+            <a id="addr" href="\Schedules.php">Schedule</a>
+            <!-- <a id="addr" href="" >Gallery</a>
+            <a id="addr" href="" >Events</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
 	</header>
-</header>
-    <br>
+</head>
+
+<body>
 	<div class = "teacher2">
-		<form id="searchB" method="POST" action="<?php $_SERVER["PHP_SELF"];?>">
-				 <input type="text" name="Search" id="boxes" placeholder="Search for names.." onkeyup="aftersearch.php" >
+		<form id="searchB" method="POST" action="aftersearch.php">
+			<input type="text" name="Search" placeholder="Search for names..">
 		</form>
 		<form name="app" method="POST" action="afterSaveBtn.php"><br>
-			Applicaton number: <input type="text" name="id" value="<?php echo $MArow['id']; ?>">  <br><br>
-			Child's First name: <input type="text" name="cfname" value="<?php echo $MArow['fname']; ?>"><br><br>
-			Child's Last name: <input type="text" name="clname" value="<?php echo $MArow['lname']; ?>"> <br><br>
-			Date of birth: <input type="date" name="dob" value="<?php echo $MArow['dob'];?>"><br><br>
+			Applicaton number: <input type="text" name="id" max="11" min="1" value="<?php echo $MArow['id']; ?>" required>  <br><br>
+			Child's First name: <input type="text" name="cfname" max="100" min="2" value="<?php echo $MArow['fname']; ?>" required><br><br>
+			Child's Last name: <input type="text" name="clname" max="100" min="2" value="<?php echo $MArow['lname']; ?>" required> <br><br>
+			Date of birth: <input type="date" name="dob" value="<?php echo $MArow['dob'];?>" required><br><br>
 			Child's Social number:
-			<input type="text" name="cssn" value="<?php echo $MArow['ssn'];?>"> <br><br>
-			<!--Present age: <?php echo $CHrow['age'];?><br><br-->
-			Desired Date of entry: <input type="date" name="ddoe" value="<?php echo $CHrow['ddoe'];?>"><br>
+			<input type="text" name="cssn" max="14" min="14" value="<?php echo $MArow['ssn'];?>" required> <br><br>
+			Desired Date of entry: <input type="date" name="ddoe" value="<?php echo $CHrow['ddoe'];?>" required><br>
 			<hr>
 			Father's name:
-			<input type="text" name="ffname" value=" <?php echo $MArow['fname'];?>">
-			<input type="text" name="flname" value=" <?php echo $MArow['lname'];?>"><br><br>
-			Mobile number: <input type="text" name="cellphone" value=" <?php echo $CIrow['cellphone'];?>"><br><br>
-			Facebook Account: <input type="text" name="ffbook" value=" <?php echo $PRrow['ffbook'];?>"><br><br>
-			Occupation: <input type="text" name="foccupation" value=" <?php echo $PRrow['foccupation'];?>"><br><br>
+			<input type="text" name="ffname" max="100" min="2" value=" <?php echo $MArow['fname'];?>" required>
+			<input type="text" name="flname" max="100" min="2" value=" <?php echo $MArow['lname'];?>" required><br><br>
+			Mobile number: <input type="text" name="cellphone" max="12" min="11" value=" <?php echo $CIrow['cellphone'];?>" required><br><br>
+			Facebook Account: <input type="text" max="200" min="2" name="ffbook" value=" <?php echo $PRrow['ffbook'];?>" required><br><br>
+			Occupation: <input type="text" name="foccupation" max="100" min="2" value=" <?php echo $PRrow['foccupation'];?>" required><br><br>
 			<hr>
 			Mother's name:
-			<input type="text" name="mfname" value=" <?php echo $MArow['fname'];?>">
-			<input type="text" name="mlname" value=" <?php echo $MArow['lname'];?>"><br><br>
-			Mobile number: <input type="text" name="cellphone" value=" <?php echo $CIrow['cellphone'];?>"><br><br>
-			Facebook Account: <input type="text" name="mfbook" value=" <?php echo $PRrow['mfbook'];?>"><br><br>
-			Occupation: <input type="text" name="moccupation" value=" <?php echo $PRrow['moccupation'];?>"><br><br>
+			<input type="text" name="mfname" max="100" min="2" value=" <?php echo $MArow['fname'];?>" required>
+			<input type="text" name="mlname" max="100" min="2" value=" <?php echo $MArow['lname'];?>" required><br><br>
+			Mobile number: <input type="text" name="cellphone" max="112" min="11" value=" <?php echo $CIrow['cellphone'];?>" required><br><br>
+			Facebook Account: <input type="text" name="mfbook" max="200" min="2" value=" <?php echo $PRrow['mfbook'];?>" required><br><br>
+			Occupation: <input type="text" name="moccupation" max="100" min="2" value=" <?php echo $PRrow['moccupation'];?>" required><br><br>
 			<hr>
-			Parents Are: <input type="text" name="mstatus" value=" <?php echo $MRrow['value'];?>"><br><br>
-			Home Address: <input type="text" name="address" value=" <?php echo $ADrow['name'];?>"><br><br>
+			Parents Are: <input type="text" name="mstatus" max="25" min="2" value=" <?php echo $MRrow['value'];?>" required><br><br>
+			Home Address: <input type="text" name="address" max="300" min="50" value=" <?php echo $ADrow['name'];?>" required><br><br>
 			Name of the person who will usually pick up the child:
-			<input type="text" name="usualpickup" value=" <?php echo $PRrow['usualpickup'];?>"><br><br>
+			<input type="text" name="usualpickup" max="100" min="2" value=" <?php echo $PRrow['usualpickup'];?>" required><br><br>
 			<hr>
 			<h1> Requested for Attendance: </h1>
-			<input type="text" name="attendance" value=" <?php echo $ATrow['days'];?>"><br><br>
+			<input type="text" name="attendance" value=" <?php echo $ATrow['days'];?>" required><br><br>
 			<hr>
 			<h1 align="center" id="h11"> Emergency contact </h1>
 			Emergency Contact's Name:
-			<input type="text" name="ecname" value="<?php echo $ERrow['ecname'];?>"><br><br>
+			<input type="text" name="ecname" max="100" min="2" value="<?php echo $ERrow['ecname'];?>" required><br><br>
 			Emergency Contact's Address:
-			<input type="text" name="ecaddress" value="<?php echo $ADrow['name'];?>:"><br><br>
-			Relationship: <input type="text" name="relation" value="<?php echo $Rrow['relation'];?>"><br><br>
+			<input type="text" name="ecaddress" max="300" min="2" value="<?php echo $ADrow['name'];?>:"><br><br>
+			Relationship: <input type="text" name="relation" max="100" min="2" value="<?php echo $Rrow['relation'];?>" required><br><br>
 			Emergency Contact's Number:
-			<input type="text" name="ecnum" value="<?php echo $ERrow['ecnum'];?>"><br><br>
+			<input type="text" name="ecnum" max="11" min="11" value="<?php echo $ERrow['ecnum'];?>" required><br><br>
 
 			Does your child have special needs, require regular medical attention, have any allergies, food dislikes or
 			intolerances, if yes please give more details in the text are below:<br><br>
-			<textarea name="extrainfo" rows="4" cols="50" value="<?php echo $ERrow['extrainfo'];?>"></textarea>
+			<textarea name="extrainfo" rows="4" cols="50" max="500" min="50" value="<?php echo $ERrow['extrainfo'];?>" required></textarea>
 			<br><br>
 			<button type="submit" name="childSave">Modify Form</button>
       <button type="reset" name="childDelete" onclick="checkD()">Delete Child</button>

@@ -17,9 +17,9 @@ class marital{
         $sql = "SELECT * FROM maritalstatus where id = 1 "; //'".$this->id."'
         $DBObject->connect();
         $result =  $DBObject->execute($sql);
-        $row = mysqli_fetch_array($result);
+
         $DBObject->disconnect();
-        return $row;
+        return $result;
       }
 
       public function selectAll(){
@@ -27,14 +27,8 @@ class marital{
          $sql = "SELECT * FROM maritalstatus" ;
          $DBObject->connect();
          $result = $DBObject->execute($sql);
-         while ($row = mysqli_fetch_array($result)){
-           echo $row['id'];
-           echo " - ";
-           echo $row['value'];
-           echo "<br>";
-        }
-        
-        $DBObject->disconnect();
+         $DBObject->disconnect();
+         return $result;
       }
 
     public function update(){

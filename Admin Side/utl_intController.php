@@ -26,15 +26,25 @@ if (isset($_POST['deleteUTL'])) {
 
 class utl_intC
 {
-  public function UTIselectV()
+  public function UTIselectV($id)
   {
     $UTIobj1 = new utl_int();
+    $UTIobj1->id=$id;
     $UTIrow1 = $UTIobj1->select();
+    return $UTIrow1;
   }
   public function UTIselectAll()
   {
     $UTIobj2 = new utl_int();
     $UTIrow2 = $UTIobj2->selectALL();
+    while ($row = mysqli_fetch_assoc($UTIrow2)){
+      echo $row['id'];
+      echo " - ";
+      echo $row['page_id'];
+      echo " - ";
+      echo $row['utl_id'];
+      echo "<br>";
+   }
   }
 
 }

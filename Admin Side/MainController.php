@@ -64,11 +64,20 @@ if (isset($_POST['teacherDelete'])) {
 
 class mainC
 {
-  public function MselectV()
+  public function MselectV($id)
   {
     $Mobj1 = new main();
+    $Mobj1->id=$id;
     $Mrow1 = $Mobj1->select();
     return $Mrow1;
+  }
+
+  public function MselectAll($id)
+  {
+    $SCobj1 = new main();
+    $SCobj1->status_id=$id;
+    $SCrow1 = $SCobj1->selectAll();
+    return $SCrow1;
   }
 
 }

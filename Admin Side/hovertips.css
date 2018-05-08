@@ -6,7 +6,6 @@
 .hovertip .hovertiptext {
     visibility: hidden;
     width: auto;
-    /* padding: 50px; */
     background-color: #fff;
     color: #555;
     text-align: center;

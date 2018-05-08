@@ -32,9 +32,10 @@ if (isset($_POST['teacherDelete'])) {
 }
 class contactinfoC
 {
-  public function CIselectV()
+  public function CIselectV($id)
   {
     $CIobj1 = new contactinfo();
+    $CIobj1->main_id=$id;
     $CIrow1 = $CIobj1->select();
     return $CIrow1;
   }

@@ -9,7 +9,7 @@ if (isset($_POST['saveMS'])) {
 }
 $MSOBJ2 = new marital();
 if (isset($_POST['updateMS'])) {
-  $MSOBJ2->id = $_POST['MSid'];
+  $MSOBJ2->id = $_POST['MSUid'];
   $MSOBJ2->value = $_POST['MScurrent'];
   $MSOBJ2->update();
   header('location:EditDB.php');
@@ -24,9 +24,10 @@ if (isset($_POST['deleteMS'])) {
 
 class maritalC
 {
-  public function MTselectV()
+  public function MTselectV($id)
   {
     $MTobj1 = new marital();
+    $MTobj1->main_id=$id;
     $MTrow1 = $MTobj1->select();
     return $MTrow1;
   }
@@ -35,7 +36,12 @@ class maritalC
   {
     $MTobj1 = new marital();
     $MTrow1 = $MTobj1->selectAll();
-    return $MTrow1;
+    while ($row = mysqli_fetch_assoc($MTrow1)){
+      echo $row['id'];
+      echo " - ";
+      echo $row['value'];
+      echo "<br>";
+   }
   }
 }
 

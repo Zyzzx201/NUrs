@@ -9,7 +9,7 @@ if (isset($_POST['saveC'])) {
 }
 $COBJ2 = new Courses();
 if (isset($_POST['updateC'])) {
-  $COBJ2->id = $_POST['Cid'];
+  $COBJ2->id = $_POST['CUid'];
   $COBJ2->description = $_POST['Ccurrent'];
   $COBJ2->update();
   header('location:EditDB.php');
@@ -24,9 +24,10 @@ if (isset($_POST['deleteC'])) {
 
 class coursesC
 {
-  public function COselectV()
+  public function COselectV($id)
   {
     $COobj1 = new Courses();
+    $COobj1->id=$id;
     $COrow1 = $COobj1->select();
     return $COrow1;
   }
@@ -34,6 +35,12 @@ class coursesC
   {
     $COobj2 = new Courses();
     $COrow2 = $COobj2->selectAll();
+    while ($row = mysqli_fetch_assoc($COrow2)){
+      echo $row['id'];
+      echo " - ";
+      echo $row['description'];
+      echo "<br>";
+   }
   }
 }
 

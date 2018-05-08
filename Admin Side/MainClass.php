@@ -8,7 +8,6 @@ public $fname;
 public $lname;
 public $dob;
 public $ssn;
-
   public function insert(){
     $DBObject = new DB();
     $sql = "INSERT INTO main (utype,status_id,fname,lname,dob,ssn)
@@ -21,17 +20,23 @@ public $ssn;
   }
   public function select(){
     $DBObject = new DB();
-    $sql = "SELECT * FROM main WHERE fname LIKE '%".$this->fname."%'  AND lname LIKE '%".$this->lname."%' ";
+    $sql = "SELECT * FROM main WHERE id =".$this->id;
     $DBObject->connect();
     $result =  $DBObject->execute($sql);
-    $row = mysqli_fetch_array($result);
     $DBObject->disconnect();
-    return $row;
+    return $result;
   }
-
+  public function selectAll(){
+     $DBObject = new DB();
+     $sql = "SELECT * FROM main WHERE status_id =".$this->status_id ;
+     $DBObject->connect();
+     $result = $DBObject->execute($sql);
+     $DBObject->disconnect();
+     return $result;
+  }
   public function delete(){
     $DBObject = new DB();
-    $sql = "Delete FROM main WHERE main.id = '".$id."'";
+    $sql = "Delete FROM main WHERE main.id = '".$this->id."'";
     $DBObject->connect();
     $DBObject->exceute ($sql);
     $DBObject->disconnect();
@@ -44,6 +49,5 @@ public $ssn;
     $DBObject->execute($sql);
     $DBObject->disconnect();
   }
-
 }
 ?>

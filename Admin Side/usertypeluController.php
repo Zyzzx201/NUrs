@@ -24,15 +24,24 @@ if (isset($_POST['deleteUTL'])) {
 
 class usertypeluC
 {
-  public function UTselectV()
+  public function UTselectV($id)
   {
     $UTobj1 = new usertypelu();
+    $UTobj1->id=$id;;
     $UTrow1 = $UTobj1->select();
+    return $UTrow1;
   }
+
   public function UTselectAll()
   {
     $UTobj2 = new usertypelu();
     $UTrow2 = $UTobj2->selectALL();
+    while ($row = mysqli_fetch_assoc($UTrow2)){
+      echo $row['id'];
+      echo " - ";
+      echo $row['usertype'];
+      echo "<br>";
+   }
   }
 }
 

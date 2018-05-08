@@ -10,7 +10,7 @@ if (isset($_POST['saveREL'])) {
 
 $relOBJ2 = new relation();
 if (isset($_POST['updateREL'])) {
-  $relOBJ2->id = $_POST['RELid'];
+  $relOBJ2->id = $_POST['RELUid'];
   $relOBJ2->relation = $_POST['RELcurrent'];
   $relOBJ2->update();
   header('location:EditDB.php');
@@ -24,9 +24,10 @@ if (isset($_POST['deleteREL'])) {
 
 class relationC
 {
-  public function RselectV()
+  public function RselectV($id)
   {
     $Robj1 = new relation();
+    $Robj1->id=$id;
     $Rrow1 = $Robj1->select();
     return $Rrow1;
   }
@@ -34,7 +35,12 @@ class relationC
   {
     $Robj1 = new relation();
     $Rrow1 = $Robj1->selectALL();
-    return $Rrow1;
+    while ($row = mysqli_fetch_assoc($Rrow1)){
+      echo $row['id'];
+      echo " - ";
+      echo $row['relation'];
+      echo "<br>";
+   }
   }
 
 }

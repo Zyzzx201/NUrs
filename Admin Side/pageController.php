@@ -11,7 +11,7 @@ if (isset($_POST['saveP'])) {
 }
 $POBJ2 = new Page();
 if (isset($_POST['updateP'])) {
-  $POBJ2->id = $_POST['Pid'];
+  $POBJ2->id = $_POST['PUid'];
   $POBJ2->friendlyname = $_POST['Pcurrent'];
   $POBJ2->path = $_POST['PcurrentLink'];
   $POBJ2->html = $_POST['PcurrentHTML'];
@@ -27,9 +27,10 @@ if (isset($_POST['deleteP'])) {
 
 class PageC
 {
-  public function PAselectV()
+  public function PAselectV($id)
   {
     $PAobj1 = new Page();
+    $PAobj1->id=$id;
     $PArow1 = $PAobj1->select();
     return $PArow1;
   }
@@ -38,7 +39,14 @@ class PageC
   {
     $PAobj2 = new Page();
     $PArow2 = $PAobj2->selectAll();
-    return $PArow2;
+    while ($row = mysqli_fetch_assoc($PArow2)){
+      echo $row['id'];
+      echo " - ";
+      echo $row['friendlyname'];
+      echo " - ";
+      echo $row['path'];
+      echo "<br>";
+   }
   }
 }
 

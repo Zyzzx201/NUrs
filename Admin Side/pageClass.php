@@ -29,16 +29,8 @@ class Page{
         $sql = "SELECT * FROM page" ;
         $DBObject->connect();
         $result = $DBObject->execute($sql);
-        while ($row = mysqli_fetch_array($result)){
-          echo $row['id'];
-          echo " - ";
-          echo $row['friendlyname'];
-          echo " - ";
-          echo $row['path'];
-          echo "<br>";
-       }
        $DBObject->disconnect();
-       return $row;
+       return $result;
      }
 
     public function delete(){

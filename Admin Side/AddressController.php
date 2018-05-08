@@ -1,8 +1,11 @@
 <?php
 require_once("AddressClass.php");
+require_once("valid.php");
 
 $addOBJ1 = new Address();
 if (isset($_POST['saveAdd'])) {
+  $_POST['ADDadditional']=valid::test_input($_POST['ADDadditional']);
+  
   $addOBJ1->name = $_POST['ADDadditional'];
   $addOBJ1->parent_id = 2;
   $addOBJ1->insert();
@@ -18,17 +21,25 @@ if (isset($_POST['deleteAdd'])) {
 
 class addressC
 {
-  public function ADselectV()
+  public function ADselectV($id)
   {
     $ADobj1 = new Address();
+    $ADobj1->main_id=$id;
     $ADrow1 = $ADobj1->select();
     return $ADrow1;
   }
+
   public function ADselectAll()
   {
     $ADobj2 = new Address();
     $ADrow2 = $ADobj2->selectAll();
-    return $ADrow2;
+    while ($row = mysqli_fetch_assoc($ADrow2)){
+      echo $row['id'];
+      echo " - ";
+      echo $row['name'];
+      echo "<br>";
+   }
+    //return $ADrow2;
   }
 }
 

@@ -8,19 +8,19 @@ $connection = $dbObj1->connect();
 if($_SERVER["REQUEST_METHOD"]== "POST"){
   $username = $_POST['Username'];
   $password = $_POST['Password'];
-  $sql = "SELECT username, password FROM admin WHERE username = '".$this->username."'";
-  $result = excute($sql);
-  $row = mysqli_fetch_array($result);
-  if(($username==$row["username"])&&($password==$row["password"]))
+  $sql = "SELECT username, passwords FROM admin WHERE username = '".$_POST['Username']."'";
+  $result = $dbObj1->execute($sql);
+  $row = mysqli_fetch_assoc($result);
+  if(($username==$row["username"])&&($password==$row["passwords"]))
   {
       $_SESSION["username"]=$row["username"];
       $_SESSION["password"]=$row["password"];
 
-      header("location:");  //profile page link
+      header("location:userSide/index.php");  //profile page link
   }
 
   else{
-      echo alert('Invalid Username or Password. Please Try Again!');
+      echo "Invalid Username or Password. Please Try Again!";
   }
 
 }

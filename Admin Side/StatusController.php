@@ -9,7 +9,7 @@ if (isset($_POST['saveSTAT'])) {
 }
 $STATOBJ2 = new status();
 if (isset($_POST['updateSTAT'])) {
-  $STATOBJ2->id = $_POST['STATid'];
+  $STATOBJ2->id = $_POST['STATUid'];
   $STATOBJ2->name = $_POST['STATcurrent'];
   $STATOBJ2->update();
   header('location:EditDB.php');
@@ -23,9 +23,10 @@ if (isset($_POST['deleteSTAT'])) {
 
 class statusC
 {
-  public function SselectV()
+  public function SselectV($id)
   {
     $Sobj1 = new status();
+    $Sobj1->id=$id;
     $Srow1 = $Sobj1->select();
     return $Srow1;
   }
@@ -34,7 +35,12 @@ class statusC
   {
     $Sobj1 = new status();
     $Srow1 = $Sobj1->selectAll();
-    return $Srow1;
+    while ($row = mysqli_fetch_assoc($Srow1)){
+      echo $row['id'];
+      echo " - ";
+      echo $row['name'];
+      echo "<br>";
+   }
   }
 
 

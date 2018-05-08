@@ -34,14 +34,19 @@
 #h11{
   font-family: cursive;
 }
-#accBTN, #refBTN, #penBTN{
+#accBTN, #refBTN, #penBTN, #print{
 	position: absolute;
-	bottom: 10%;
-	left: 50%;
+	bottom: 2%;
+	left: 65%;
+	margin-right: -50%;
+  transform: translate(-50%, -50%);
 }
 #refBTN{
-	left: 70%;
+	left: 90%;
 }
 #penBTN{
-	left: 90%;
+	left: 115%;
+}
+#print{
+	left: 132.5%;
 }

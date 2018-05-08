@@ -26,14 +26,7 @@ class usertypelu{
          $sql="SELECT * FROM usertypelu";
          $DBobject->connect();
          $result = $DBobject->execute($sql);
-         while ($row = mysqli_fetch_array($result)){
-           echo $row['id'];
-           echo " - ";
-           echo $row['usertype'];
-           echo "<br>";
-        }
-         $DBobject->disconnect();
-         return $row;
+         return $result;
      }
 
     public function delete(){

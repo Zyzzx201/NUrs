@@ -26,20 +26,12 @@ class Attend_int{
         $sql="SELECT * FROM attend_int";
         $DBobject->connect();
         $result = $DBobject->execute($sql);
-        while ($row = mysqli_fetch_array($result)){
-          echo $row['id'];
-          echo " - ";
-          echo $row['child_id'];
-          echo " - ";
-          echo $row['week_id'];
-          echo "<br>";
-       }
         $DBobject->disconnect();
-        return $row;
+        return $result;
     }
     public function delete(){
       $DBobject = new DB();
-      $sql="DELETE FROM attend_int WHERE id = '".$this->id."'";
+      $sql="DELETE FROM attend_int WHERE id = '".$this->id."' OR child_id = '".$this->child_id."' ";
       $DBobject->connect();
       $DBobject->execute($sql);
       $DBobject->disconnect();

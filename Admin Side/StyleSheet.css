@@ -19,7 +19,7 @@ header #logo{
 	border: 1px solid transparent;
 	border-radius: 25px;
 }
-#h1W, #h1U, #h1O, #h1S{
+#h1W, #h1U, #h1O{
 	font-family: cursive;
 	font-weight: bold;
 	position: absolute;

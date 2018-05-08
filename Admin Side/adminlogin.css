@@ -1,0 +1,55 @@
+body{
+	background-color: #00ccff;  /*labny*/
+}
+header{
+	background-image: url("image.png");
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 18%;
+	width: 100%;
+}
+header #logo{
+	position: absolute;
+	top: 32%;
+	left: 3.6%;
+	width: 115px;
+	height: 60px;
+	border: 1px solid transparent;
+	border-radius: 25px;
+}
+header #bkbtn{
+	position: absolute;
+	top: 38%;
+	right: 12%;
+	font-family: cursive;
+	color: #0099cc;  /*blue*/
+	background-color: #ffcc00;  /*orange*/
+	text-align: center;
+  border: 1px solid transparent;
+  border-radius: 5px;
+	height: 35%;
+	width: 5%;
+}
+.login{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 40%;
+  padding: 0.5%;
+  font-size: 17px;
+	font-family: cursive;
+	text-align: center;
+  border: 1px solid transparent;
+	border-radius: 20px;
+	background-color: #99ff99;  /*bestage*/
+}
+#btns{
+  font-size: 17px;
+	font-family: cursive;
+	text-align: center;
+}

@@ -93,19 +93,14 @@ $btnobj3 = new teacher();
 
 class teacherC
 {
-  public function TselectV()
+  public function TselectV($id)
   {
     $Tobj1 = new teacher();
+    $Tobj1->main_id=$id;
     $Trow1 = $Tobj1->select();
     return $Trow1;
   }
 
-  public function TdeleteV()
-  {
-    $Tobj4 = new teacher();
-    $Trow4 = $Tobj4->delete();
-    return $Trow4;
-  }
 }
 
 

@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php session_start();?>
+<?php if(empty($_SESSION["username"])){
+header('location:adminlogin.php');
+}
+else {
+?>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -12,7 +17,6 @@
     <script type="text/javascript">
   		window.onload = function() {
   			document.getElementById('navMenu').style.display = 'none';
-        //document.getElementById('hovertips').style.display = 'none';
   		};
   		function changeM(x) {
   			x.classList.toggle("change");
@@ -30,6 +34,7 @@
     <header>
       <img src="logo.png" id="logo" onclick="location.href='/index.php';">
       <h1 id="h1W">Welcome</h1>
+      <p id="username"><?php echo "Hello ".$_SESSION["username"];} ?></p>
       <div class="micon" onclick="changeM(this)" id="Menicon">
         <div class="b1"></div>
         <div class="b2"></div>
@@ -37,19 +42,19 @@
       </div>
       <div id="navMenu" >
         <div id="myTopnav" class="topnav">
-          <a id="addr" href="/acceptteacher.php">Teacher Applications</a>
-          <a id="addr" href="/Addusers.php">Children's Applications</a>
-          <a id="addr" href="/editteacher.php">Edit Teachers</a>
-          <a id="addr" href="/editchild.php">Review Children</a>
+          <a href="\Admin Side\acceptteacher.php" id="admAdr">Teacher Acceptance</a>
+  				<a href="\Admin Side\Addusers.php" id="admAdr">Child Acceptance</a>
+  				<a href="\Admin Side\deleteuser.php" id="admAdr">Child Edit</a>
+  				<a href="\Admin Side\editteacher.php" id="admAdr">Teacher Edit</a>
           <div class="dropdown">
-            <button class="dropbtn">Other
+            <button class="dropbtn">More
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a id="admAdr" href="userSide/Onlineapplication.php">Online Application</a>
-              <a id="admAdr" href="userSide/About us.php">About Us</a>
-              <a id="admAdr" href="userSide/addteacher.php">Teacher Registration</a>
-              <a id="admAdr" href="userSide/Schedules.php">Schedule</a>
+              <a id="admAdr" href="\Admin Side\userSide\Onlineapplication.php">Online Application</a>
+              <a id="admAdr" href="\Admin Side\userSide\About us.php">About Us</a>
+              <a id="admAdr" href="\Admin Side\userSide\addteacher.php">Teacher Registration</a>
+              <a id="admAdr" href="\Admin Side\userSide\Schedules.php">Schedule</a>
             </div>
           </div>
         </div>
@@ -95,7 +100,7 @@
             <div>
               Write the number and name of nationality you want to modify here:
               <button type="submit" name="updateNat">Modify</button> <br>
-              <input type="text" name="NATid" value="<?php echo $names['id']; ?>" id="idBox">
+              <input type="text" name="NATUid" value="<?php echo $names['id']; ?>" id="idBox">
               <input type="text" name="NATcurrent" value=" <?php echo $names['name']; ?>"> <br><br>
             </div>
             <div>
@@ -121,7 +126,7 @@
             <div>
               Write the number and name of relation you want to modify here:
               <button type="submit" name="updateREL">Modify</button> <br>
-              <input type="text" name="RELid" value="<?php echo $names['id']; ?>" id="idBox">
+              <input type="text" name="RELUid" value="<?php echo $names['id']; ?>" id="idBox">
               <input type="text" name="RELcurrent" value=" <?php echo $names['relation']; ?>"> <br><br>
             </div>
             <div>
@@ -147,7 +152,7 @@
             <div>
               Write the number and name of marital status you want to modify here:
               <button type="submit" name="updateMS">Modify</button> <br>
-              <input type="text" name="MSid" value="<?php echo $names['id']; ?>" id="idBox">
+              <input type="text" name="MSUid" value="<?php echo $names['id']; ?>" id="idBox">
               <input type="text" name="MScurrent" value=" <?php echo $names['value']; ?>"> <br><br>
             </div>
             <div>
@@ -162,7 +167,7 @@
             require_once("ChildtypeController.php");
             $CTOBJ1 = new childtypeC();
             echo "<br>";
-            $names = $CTOBJ1->CTselectAll();
+            $names = $CTOBJ1->CTselectAll2();
             ?>
             <br>
             <div class="hovertip">
@@ -176,7 +181,7 @@
             <div>
               Write the number and name of the child type you want to modify here:
               <button type="submit" name="updateCT">Modify</button> <br>
-              <input type="text" name="CTid" value="<?php echo $names['id']; ?>" id="idBox">
+              <input type="text" name="CTUid" value="<?php echo $names['id']; ?>" id="idBox">
               <input type="text" name="CTcurrent" value=" <?php echo $names['type']; ?>"> <br><br>
             </div>
             <div>
@@ -202,7 +207,7 @@
             <div>
               Write the number and name of the status you want to modify here:
               <button type="submit" name="updateSTAT">Modify</button> <br>
-              <input type="text" name="STATid" value="<?php echo $names['id']; ?>" id="idBox">
+              <input type="text" name="STATUid" value="<?php echo $names['id']; ?>" id="idBox">
               <input type="text" name="STATcurrent" value=" <?php echo $names['name']; ?>"> <br><br>
             </div>
             <div>
@@ -234,7 +239,7 @@
             <div>
               Write the number and info of the pages you want to modify here:
               <button type="submit" name="updateP">Modify</button> <br><br>
-              <input type="text" name="Pid" value="<?php echo $names['id'];?>" id="idBox">
+              <input type="text" name="PUid" value="<?php echo $names['id'];?>" id="idBox">
               <input type="text" name="Pcurrent" placeholder="Name" value="<?php echo $names['friendlyname'];?>">
               <input type="text" name="PcurrentLink" placeholder="Link" value="<?php echo $names['path'];?>"><br><br>
               <textarea name="PcurrentHTML" placeholder="Page Content" rows="8" cols="50"
@@ -263,7 +268,7 @@
             <div>
               Write the number and name of the day you want to modify here:
               <button type="submit" name="updateDay">Modify</button> <br>
-              <input type="text" name="Dayid" value="<?php echo $names['id']; ?>" id="idBox">
+              <input type="text" name="DayUid" value="<?php echo $names['id']; ?>" id="idBox">
               <input type="text" name="Daycurrent" value=" <?php echo $names['days']; ?>"> <br><br>
             </div>
             <div>
@@ -289,7 +294,7 @@
             <div>
               Write the number and name of the user type you want to modify here:
               <button type="submit" name="updateUTL">Modify</button> <br>
-              <input type="text" name="UTLid" value="<?php echo $names['id']; ?>" id="idBox">
+              <input type="text" name="UTLUid" value="<?php echo $names['id']; ?>" id="idBox">
               <input type="text" name="UTLcurrent" value=" <?php echo $names['usertype']; ?>"> <br><br>
             </div>
             <div>
@@ -312,7 +317,7 @@
               <div>
                 Write the name of the user pages you want to add here:
                 <button type="submit" name="saveUTLI">Add</button> <br>
-                <input type="text" name="UTLIpageID" placeholder=" Page Number 2 or 4" value="<?php echo $names['page_id'];?>">
+                <input type="text" name="UTLIUpageID" placeholder=" Page Number 2 or 4" value="<?php echo $names['page_id'];?>">
                 <input type="text" name="UTLIutlID" placeholder=" User Number 1 or 2" value="<?php echo $names['utl_id'];?>"> <br><br>
               </div>
             </div>

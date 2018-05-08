@@ -1,4 +1,4 @@
-.wt, .ei, .mission, .vision, .scheds{
+.wt, .ei, .mission, .vision{
 	font-size: 14px;
 	font-family: cursive;
 	position: absolute;
@@ -84,17 +84,12 @@
 	border: 2px solid #003366; /*ko7ly*/
 	border-radius: 5px;
 }
-#footer{
+#username{
+	font-family: cursive;
+	font-weight: bold;
+	font-size: 20px;
 	position: absolute;
-	top: 160%;
-	left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-	width: 100%;
-	height: 17%;;
-  background-color: #00ff00;  /*green fat7*/
-	opacity: 0.95;
-}
-#ftr{
-	width: 100%;
+	top: 30%;
+	right: 10%;
+	color: #ff0066; /*foshia*/
 }

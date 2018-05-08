@@ -10,24 +10,33 @@ if (isset($_POST['saveATI'])) {
 }
 $ATIOBJ3 = new Attend_int();
 if (isset($_POST['deleteATI'])) {
-  $ATIOBJ3->id = $_POST['ATIid'];
+  $ATIOBJ3->id = $_POST['ATIUid'];
   $ATIOBJ3->delete();
   header('location:EditDB.php');
 }
 
 class Attend_intC
 {
-  public function ATselectV()
+  public function ATselectV($id)
   {
     $ATobj1 = new Attend_int();
+    $ATobj1->id=$id;
     $ATrow1 = $ATobj1->select();
     return $ATrow1;
   }
+
   public function ATselectAll()
   {
     $ATobj1 = new Attend_int();
     $ATrow1 = $ATobj1->selectAll();
-    return $ATrow1;
+    while ($row = mysqli_fetch_assoc($ATrow1)){
+      echo $row['id'];
+      echo " - ";
+      echo $row['child_id'];
+      echo " - ";
+      echo $row['week_id'];
+      echo "<br>";
+   }
   }
 
 }

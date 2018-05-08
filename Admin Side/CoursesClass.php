@@ -10,30 +10,22 @@ class Courses{
     $DBObject->connect();
     $DBObject->execute($sql);
     $DBObject->disconnect();
-
     }
     public function select(){
-      $DBObject = new DB();
-      $sql = "SELECT * FROM courses WHERE description LIKE '%".$this->description."%'";
-      $DBObject->connect();
-      $result =  $DBObject->execute($sql);
-      $row = mysqli_fetch_array($result);
-      $DBObject->disconnect();
-      return $row;
+        $DBObject = new DB();
+        $sql = "SELECT * FROM courses WHERE id =".$this->id;
+        $DBObject->connect();
+        $result =  $DBObject->execute($sql);
+        $DBObject->disconnect();
+        return $result;
      }
-     public function selectALL(){
-         $DBobject = new DB();
-         $sql="SELECT * FROM courses";
-         $DBobject->connect();
-         $result = $DBobject->execute($sql);
-         while ($row = mysqli_fetch_array($result)){
-           echo $row['id'];
-           echo " - ";
-           echo $row['description'];
-           echo "<br>";
-        }
-         $DBobject->disconnect();
-         return $row;
+     public function selectAll(){
+      $DBObject = new DB();
+      $sql = "SELECT * FROM courses ";
+      $DBObject->connect();
+      $result = $DBObject->execute($sql);
+      $DBObject->disconnect();
+      return $result;
      }
     public function update(){
         $DBObject = new DB();
@@ -41,11 +33,10 @@ class Courses{
         $DBObject->connect();
         $DBObject->execute($sql);
         $DBObject->disconnect();
-
      }
     public function delete(){
       $DBObject = new DB();
-      $sql = "DELETE FROM courses WHERE courses.id  = '".$id."'";
+      $sql = "DELETE FROM courses WHERE courses.id  = '".$this->id."'";
       $DBObject->connect();
       $DBObject->execute($sql);
       $DBObject->disconnect();

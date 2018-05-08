@@ -27,9 +27,10 @@ if (isset($_POST['DeleteBtn'])) {
 
 class parentsC
 {
-  public function PselectV()
+  public function PselectV($id)
   {
     $Pobj1 = new parents();
+    $Pobj1->id=$id;
     $Prow1 = $Pobj1->select();
     return $Prow1;
   }

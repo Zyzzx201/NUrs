@@ -13,30 +13,21 @@ class Address{
     }
     public function select(){
       $DBObject = new DB();
-      $sql = "SELECT * from address WHERE address.id  = '".$this->id."'";
+      $sql = "SELECT * from address";
       $DBObject->connect();
-      $result = $DBObject->execute($sql);
-      $row = mysqli_fetch_array($result);
+      $result =  $DBObject->execute($sql);
+
       $DBObject->disconnect();
-      return $row;
+      return $result;
      }
-
-     public function selectAll(){
-       $DBObject = new DB();
-       $DBObject->connect();
-       $sql = "SELECT * from address";
-       $result =  $DBObject->execute($sql);
-       while ($row = mysqli_fetch_array($result)){
-         echo $row['id'];
-         echo " - ";
-         echo $row['name'];
-         echo "<br>";
-      }
-       $DBObject->disconnect();
-       return $row;
-      }
-
-
+     public function selectALL(){
+         $DBobject = new DB();
+         $sql="SELECT * FROM address";
+         $DBobject->connect();
+         $result = $DBobject->execute($sql);
+         $DBobject->disconnect();
+         return $result;
+     }
     public function delete(){
       $DBObject = new DB();
       $sql = "DELETE FROM address WHERE address.id  = '".$this->id."'";

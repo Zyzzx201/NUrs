@@ -16,7 +16,7 @@ if (isset($_POST['saveNat'])) {
 }
 $natOBJ2 = new nationality();
 if (isset($_POST['updateNat'])) {
-  $natOBJ2->id = $_POST['NATid'];
+  $natOBJ2->id = $_POST['NATUid'];
   $natOBJ2->name = $_POST['NATcurrent'];
   $natOBJ2->update();
   header('location:EditDB.php');
@@ -30,17 +30,24 @@ if (isset($_POST['deleteNat'])) {
 
 class nationalityC
 {
-  public function NAselectV()
+  public function NAselectV($id)
   {
     $NAobj1 = new nationality();
+    $NAobj1->id=$id;
     $NArow1 = $NAobj1->select();
     return $NArow1;
   }
+
   public function NAselectALL()
   {
     $NAobj2 = new nationality();
     $NArow2 = $NAobj2->selectAll();
-    return $NArow2;
+    while ($row = mysqli_fetch_assoc($NArow2)){
+      echo $row['id'];
+      echo " - ";
+      echo $row['name'];
+      echo "<br>";
+   }
   }
 
 }
