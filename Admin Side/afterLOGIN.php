@@ -1,29 +1,33 @@
 <?php
 session_start();
 require("db.php");
+require_once("Encryption.php");
+require_once("AdminClass.php");
 
 $dbObj1 = new DB();
 $connection = $dbObj1->connect();
 
 if($_SERVER["REQUEST_METHOD"]== "POST"){
-  $username = $_POST['Username'];
-  $password = $_POST['Password'];
-  $sql = "SELECT username, passwords FROM admin WHERE username = '".$_POST['Username']."'";
-  $result = $dbObj1->execute($sql);
-  $row = mysqli_fetch_assoc($result);
-  if(($username==$row["username"])&&($password==$row["passwords"]))
-  {
-      $_SESSION["username"]=$row["username"];
-      $_SESSION["password"]=$row["password"];
+  $adminOBJ = new admin();
+  $adminOBJ->username = $_POST['Username'];
+  $adminOBJ->passwords = $_POST['Password'];
+  $row = $adminOBJ->compare();
+$row1=mysqli_fetch_array($row);
 
-      header("location:userSide/index.php");  //profile page link
+  if($row1[0] === 'VALID' )
+  {
+      $_SESSION["username"]=$_POST['Username'];
+      header("location:index.php");
+
+
   }
 
   else{
-      echo "Invalid Username or Password. Please Try Again!";
+      echo "<script>javascript: alert('Invalid Username or Password. Please Try Again!'); </script>";
+//     header("location:adminlogin.php");
   }
 
 }
 
-
  ?>
+
