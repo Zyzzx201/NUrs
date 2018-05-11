@@ -36,20 +36,20 @@ header #bkbtn{
 	color: #0099cc;  /*blue*/
 	background-color: #ffcc00;  /*orange*/
 	text-align: center;
-  border: 1px solid transparent;
-  border-radius: 5px;
+    border: 1px solid transparent;
+    border-radius: 5px;
 	height: 35%;
 	width: 5%;
 }
-.scheds{
+.schedsEdit{
 	font-size: 14px;
 	font-family: cursive;
 	text-align: center;
 	position: absolute;
-  top: 60%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
+	top: 65%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
 	border: 1px solid transparent;
 	border-radius: 40px;
 	background-color: #99ff99;  /*bestage*/
@@ -63,4 +63,24 @@ header #bkbtn{
 	border-radius: 5px;
 	width: auto;
 	text-align: center;
+}
+#createTable{
+	font-size: 14px;
+	font-family: cursive;
+	/*text-align: center;*/
+	position: absolute;
+	top: 170%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+	border: 1px solid transparent;
+	border-radius: 40px;
+	background-color: #99ff99;  /*bestage*/
+	width: auto;
+	height: auto;
+	opacity: 0.95;
+	padding: 20px;
+}
+#idBox{
+	width: 30px;
 }

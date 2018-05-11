@@ -4,7 +4,7 @@ class DB{
   private $hostname = 'localhost';
   private $userName = 'root';
   private $Password = '';
-  private $DBName = 'swe1';
+  private $DBName = 'swe2';
   private static $instance = null;
   private $con;
 
@@ -26,14 +26,15 @@ public function connect(){
 //where to put it?!
 
 public function execute($sql){
-  $result = $this->con->query($sql);
+ $result = $this->con->query($sql);
   return $result;
-  if ($this->con->query($sql) === TRUE) {
-   echo "New record created successfully. Last inserted ID is: ";
-  }
-  else {
-    echo $this->con->error;
-  }
+//  if ($this->con->query($sql) === TRUE) {
+//   echo "New record created successfully. Last inserted ID is: ";
+//
+//  }
+//  else {
+//    echo $this->con->error;
+//  }
 }
 
 public function disconnect(){

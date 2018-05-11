@@ -1,15 +1,26 @@
 <?php
 require_once("attend_intClass.php");
+require_once("valid.php");
 
 $ATIOBJ1 = new Attend_int();
 if (isset($_POST['saveATI'])) {
-  $ATIOBJ1->child_id = $_POST['ATIchild_id'];
+  $_POST['ATIweek_id'] = valid::test_input($_POST['ATIweek_id']);
+  $result = valid::isempty($_POST['ATIweek_id']);
+  $result = valid::numbersonly($_POST['ATIweek_id']);
   $ATIOBJ1->week_id = $_POST['ATIweek_id'];
+
+  $_POST['ATIchild_id'] = valid::test_input($_POST['ATIchild_id']);
+  $result = valid::isempty($_POST['ATIchild_id']);
+  $result = valid::numbersonly($_POST['ATIchild_id']);
+  $ATIOBJ1->child_id = $_POST['ATIchild_id'];
+
   $ATIOBJ1->insert();
   header('location:EditDB.php');
 }
 $ATIOBJ3 = new Attend_int();
 if (isset($_POST['deleteATI'])) {
+  $_POST['ATIUid'] = valid::test_input($_POST['ATIUid']);
+  $result = valid::numbersonly($_POST['ATIUid']);
   $ATIOBJ3->id = $_POST['ATIUid'];
   $ATIOBJ3->delete();
   header('location:EditDB.php');

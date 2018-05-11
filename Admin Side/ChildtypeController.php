@@ -1,16 +1,27 @@
 <?php
 require_once("ChildtypeClass.php");
+require_once("valid.php");
 
 $CTOBJ1 = new childtype();
 if (isset($_POST['saveCT'])) {
+  $_POST['CTadditional']=valid::test_input($_POST['CTadditional']);
+  $result = valid::isempty($_POST['CTadditional']);
+  $result = valid::onlyletters($_POST['CTadditional']);
   $CTOBJ1->type = $_POST['CTadditional'];
+
   $CTOBJ1->insert();
   header('location:EditDB.php');
 }
 $CTOBJ2 = new childtype();
 if (isset($_POST['updateCT'])) {
+  $result = valid::numbersonly($_POST['CTUid']);
   $CTOBJ2->id = $_POST['CTUid'];
-  $CTOBJ2->type = $_POST['CTcurrent'];
+
+  $_POST['CTnew']=valid::test_input($_POST['CTnew']);
+  $result = valid::isempty($_POST['CTnew']);
+  $result = valid::onlyletters($_POST['CTnew']);
+  $CTOBJ2->type = $_POST['CTnew'];
+  
   $CTOBJ2->update();
   header('location:EditDB.php');
 }

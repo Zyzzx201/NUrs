@@ -17,9 +17,9 @@ class utl_int{
       $sql="SELECT * FROM utl_int WHERE page_id = '".$this->pageID."'";
       $DBobject->connect();
       $result =  $DBobject->execute($sql);
-      $row = mysqli_fetch_array($result);
+      //$row = mysqli_fetch_array($result);
       $DBobject->disconnect();
-      return $row;
+      return $result;
     }
     public function selectALL(){
         $DBobject = new DB();

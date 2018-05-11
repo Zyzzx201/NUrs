@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="adminlogin.css">
   <header>
-    <img src="logo.png" id="logo" onclick="location.href='userSide/index.php';">
+    <img src="logo.png" id="logo" onclick="location.href='index.php';">
   </header>
 
   <body>

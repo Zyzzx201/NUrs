@@ -35,7 +35,7 @@
         <div id="navMenu" >
             <div id="myTopnav" class="topnav">
                 <a id="addr" href="userSide/Onlineapplication.php">Online Application</a>
-                <!-- <a id="addr" href="addteacher.php">Teacher Registration</a> -->
+                 <a id="addr" href="addteacher.php">Teacher Registration</a>
                 <a id="addr" href="Schedules.php">Schedule</a>
                 <!-- <a id="addr" href="" >Gallery</a>-->
                 <a id="admAdr" href="events.php">Events</a>

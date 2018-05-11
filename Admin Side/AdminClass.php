@@ -36,7 +36,7 @@ class admin
     {
         $DBObject = new DB();
         //$sql = "SELECT username, passwords FROM admin WHERE username = '".$this->username."' AND passwords = '".$this->passwords."' LIMIT 1";
-        $sql = "SELECT IF (EXISTS (SELECT username,password from admin where username='" . $this->username . "' AND passwords LIKE '" . $this->passwords . "'), 'INVALID' , \'VALID\')";
+        $sql = "SELECT IF (EXISTS (SELECT username,passwords from admin where username='".$this->username."' AND passwords ='".$this->passwords."'), 'VALID' , 'INVALID')";
         $DBObject->connect();
         $result = $DBObject->execute($sql);
         /*
@@ -46,6 +46,7 @@ class admin
             return $value2;
         */
         $DBObject->disconnect();
+        return $result;
     }
 }
 ?>

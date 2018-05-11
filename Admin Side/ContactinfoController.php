@@ -1,12 +1,17 @@
 <?php
 require_once("ContactinfoClass.php");
+require_once("valid.php");
 //require_once("MainClass.php");
 
 $ConOBJ1 = new contactinfo();
-//$mainOBJ1 = new main();
+$mainOBJ1 = new main();
 if (isset($_POST['Savebtn'])) {
+  $_POST['cellphone'] = valid::test_input($_POST['cellphone']);
+  $result = valid::isempty($_POST['cellphone']);
+  $result = valid::numbersonly($_POST['cellphone']);
   $ConOBJ1->cellphone = $_POST['cellphone'];
-  $ConOBJ1->main_id = 4;
+
+  $ConOBJ1->main_id = $mainOBJ1->id;
   $ConOBJ1->insert();
   header('location:addteacher.php');
 }
@@ -14,7 +19,11 @@ if (isset($_POST['Savebtn'])) {
 $ConOBJ2 = new contactinfo();
 $mainOBJ1 = new main();
 if (isset($_POST['Updatebtn'])) {
+  $_POST['cellphone'] = valid::test_input($_POST['cellphone']);
+  $result = valid::isempty($_POST['cellphone']);
+  $result = valid::numbersonly($_POST['cellphone']);
   $ConOBJ2->cellphone = $_POST['cellphone'];
+
   $ConOBJ2->main_id = $mainOBJ1->id;
   $ConOBJ2->update();
   header('location:editteacher.php');

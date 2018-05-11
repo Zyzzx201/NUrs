@@ -46,5 +46,13 @@ class Schedule{
       $DBobject->disconnect();
 
     }
+    public function dispay(){
+        $DBObject = new DB();
+        $sql = "SELECT start, end FROM schedule ";
+        $DBObject->connect();
+        $result = $DBObject->execute($sql);
+        $DBObject->disconnect();
+        return $result;
+    }
 }
 ?>

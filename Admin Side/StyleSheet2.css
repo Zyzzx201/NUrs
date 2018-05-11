@@ -1,19 +1,19 @@
-.wt, .ei, .mission, .vision{
+.wt, .ei, .mission, .vision, .scheds{
 	font-size: 14px;
 	font-family: cursive;
 	position: absolute;
-  top: 42%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
+    top: 42%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
 	border: 1px solid transparent;
 	border-radius: 40px;
 	background-color: #99ff99;  /*bestage*/
 	width: 70%;
-	height: 45%;
+	height: auto;
 	opacity: 0.95;
 	padding: 20px;
-	z-index: -1;
+	/* z-index: -1; */
 }
 .ei, .vision{
   left: 50%;
@@ -22,16 +22,19 @@
 }
 .mission{
 	top: 41%;
-	height: 43%;
+	height: auto;
 }
 .vision{
-	height: 50%;
+	height: auto;
 	top: 83%;
+}
+.ei{
+	top: 85%;
 }
 .scheds{
 	top: 75%;
 	width: 90%;
-	height: 100%;
+	height: auto;
 }
 #h1t{
 	font-family: cursive;
@@ -41,7 +44,7 @@
 	top: -2%;
 	left: 22%;
 }
-.appform, .application{
+.teacher2, .application, .Oappform{
 	font-family: cursive;
 	border: 1px solid transparent;
 	border-radius: 40px;
@@ -50,7 +53,7 @@
 	top: 20%;
 	left: 9%;
 	width: 70%;
-	height: 370%;
+	height: auto;
 	margin-right: -50%;
 	opacity: 0.95;
 	padding: 20px;
@@ -92,4 +95,18 @@
 	top: 30%;
 	right: 10%;
 	color: #ff0066; /*foshia*/
+}
+.Events{
+	font-family: cursive;
+	border: 1px solid transparent;
+	border-radius: 40px;
+	background-color: #99ff99;  /*bestage*/
+	position: absolute;
+	top: 40%;
+	width: 50%;
+	height: auto;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+	padding: 20px;
 }

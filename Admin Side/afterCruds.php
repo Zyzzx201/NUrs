@@ -10,4 +10,10 @@ require_once("WeekController.php");
 require_once("usertypeluController.php");
 require_once("utl_intController.php");
 require_once("attend_intController.php");
+require_once("qualificationController.php");
+require_once("CoursesController.php");
+require_once("scheduleController.php");
+require_once("eventsController.php");
+require_once("BranchController.php");
+require_once("MonthController.php");
  ?>

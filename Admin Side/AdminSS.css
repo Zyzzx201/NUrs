@@ -31,7 +31,7 @@
 	top: 20%;
 	left: 9%;
 	width: 70%;
-	height: 275%;
+	height: auto;
 	margin-right: -50%;
 	opacity: 0.95;
 	padding: 20px;
@@ -57,10 +57,10 @@ header #pabtn{
 }
 #Dbtn{
   font-family: cursive;
-	font-weight: bold;
-	background-color: #003366; /*ko7ly*/
-	color: #0099cc;  /*blue*/
-	text-align: center;
+  font-weight: bold;
+  background-color: #003366; /*ko7ly*/
+  color: #0099cc;  /*blue*/
+  text-align: center;
   border: 1px solid transparent;
   border-radius: 5px;
   position: absolute;
@@ -69,10 +69,10 @@ header #pabtn{
 }
 #ACbtn, #RFbtn, #PNbtn{
   font-family: cursive;
-	font-weight: bold;
-	background-color: #003366; /*ko7ly*/
-	color: #0099cc;  /*blue*/
-	text-align: center;
+  font-weight: bold;
+  background-color: #003366; /*ko7ly*/
+  color: #0099cc;  /*blue*/
+  text-align: center;
   border: 1px solid transparent;
   border-radius: 5px;
   position: absolute;

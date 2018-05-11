@@ -10,8 +10,8 @@ else {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="picsCSS.css">
 	<link rel="stylesheet" type="text/css" href="StyleSheet.css">
-  <link rel="stylesheet" type="text/css" href="StyleSheet2.css">
-  <link rel="stylesheet" type="text/css" href="StyleSheet3.css">
+    <link rel="stylesheet" type="text/css" href="StyleSheet2.css">
+    <link rel="stylesheet" type="text/css" href="StyleSheet3.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--arrow down-->
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<script type="text/javascript">
@@ -34,26 +34,27 @@ else {
 		<h1 id="h1W">Welcome</h1>
 		<p id="username"><?php echo "Hello ".$_SESSION["username"];} ?></p>
 		<div class="micon" onclick="changeM(this)" id="Menicon">
-      <div class="b1"></div>
-      <div class="b2"></div>
-      <div class="b3"></div>
-    </div>
+            <div class="b1"></div>
+            <div class="b2"></div>
+            <div class="b3"></div>
+        </div>
 		<div id="navMenu" >
-      <div id="myTopnav" class="topnav">
-				<a href="\Admin Side\acceptteacher.php" id="admAdr">Teacher Acceptance</a>
-				<a href="\Admin Side\Addusers.php" id="admAdr">Child Acceptance</a>
-				<a href="\Admin Side\deleteuser.php" id="admAdr">Child Edit</a>
-				<a href="\Admin Side\editteacher.php" id="admAdr">Teacher Edit</a>
-				<a href="\Admin Side\EditDB.php" id="admAdr">Control Panel</a>
+        <div id="myTopnav" class="topnav">
+            <a href="acceptteacher.php" id="admAdr">Teacher Acceptance</a>
+            <a href="Addusers.php" id="admAdr">Child Acceptance</a>
+            <a href="editchild.php" id="admAdr">Child Edit</a>
+            <a href="editteacher.php" id="admAdr">Teacher Edit</a>
+            <a href="EditDB.php" id="admAdr">Control Panel</a>
         <div class="dropdown">
-          <button class="dropbtn">More
+        <button class="dropbtn">More
             <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-		        <a id="addr" href="\Schedules.php">Schedule</a>
-		        <!-- <a id="addr" href="" >Gallery</a>
-		        <a id="addr" href="" >Events</a> -->
-          </div>
+        </button>
+        <div class="dropdown-content">
+            <a id="addr" href="Schedules.php">Schedule</a>
+            <a id="admAdr" href="events.php">Events</a>
+            <a href="logout.php" id="admAdr">Logout</a>
+        <!--<a id="addr" href="" >Gallery</a>-->
+        </div>
         </div>
       </div>
     </div>

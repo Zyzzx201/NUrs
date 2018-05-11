@@ -17,7 +17,6 @@ class nationality{
         $DBObject->connect();
         $sql = "SELECT * FROM nationality WHERE id = 1 " ; /*'".$this->id."' OR '%".$this->name."%'*/
         $result = $DBObject->execute($sql);
-
         $DBObject->disconnect();
         return $result;
      }

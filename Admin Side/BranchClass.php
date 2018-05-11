@@ -11,15 +11,21 @@ class branch{
       $DBObject->disconnect();
     }
     public function select(){
-      $DBObject = new DB();
-      $sql = "SELECT * FROM branch where id = '".$this->id."' ";
-      $DBObject->connect();
-      $result = $DBObject->execute($sql);
-      while ($row = mysqli_fetch_array($result)){
-        echo $row['id'];
-        echo $row['value'];
-      }
-     $DBObject->disconnect();
+        $DBObject = new DB();
+        $sql = "SELECT * FROM branch where id = '".$this->id."' ";
+        $DBObject->connect();
+        $result =  $DBobject->execute($sql);
+        //$row = mysqli_fetch_array($result);
+        $DBobject->disconnect();
+        return $result;
+    }
+    public function selectAll(){
+        $DBObject = new DB();
+        $sql = "SELECT * FROM branch" ;
+        $DBObject->connect();
+        $result = $DBObject->execute($sql);
+        $DBObject->disconnect();
+        return $result;
     }
     public function update(){
         $DBObject = new DB();

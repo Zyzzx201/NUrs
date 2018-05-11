@@ -5,7 +5,7 @@ class childtype{
     public $type;
     public function insert(){
     $DBObject = new DB();
-    $sql = "INSERT INTO childtype(type) VALUES '".$this->type."' ";
+    $sql = "INSERT INTO childtype(type) VALUES ('".$this->type."') ";
     $DBObject->connect();
     $DBObject->execute($sql);
     $DBObject->disconnect();
@@ -15,9 +15,9 @@ class childtype{
     $sql = "SELECT * FROM childtype WHERE id = '".$this->id."' ";
     $DBObject->connect();
     $result =  $DBObject->execute($sql);
-    $row = mysqli_fetch_array($result);
+//    $row = mysqli_fetch_array($result);
     $DBObject->disconnect();
-    return $row;
+    return $result;
     }
     public function selectAll(){
       $DBObject = new DB();

@@ -5,11 +5,11 @@
 
             $salt1 = "ironclad";
             $salt2 = "password";
-            $ceasar = 8 ;
+            $ceasar = 8;
             $result = "";
             $result1 = "";
 
-            $newpass = $password;
+//            $newpass = $password;
             $newpass = $salt1.$password.$salt2; //salting
             //echo $newpass;
             //echo "<br>";
@@ -24,10 +24,10 @@
             // for ($i = 0 ; $i<strlen($result);$i++){
             //     $result1 .= chr(ord($result{$i})-$ceasar-$i);                
             // }
-            
-            // echo $result1;
-            echo sha1($newpass);
 
+            // echo $result1;
+            $newpass = sha1($newpass);
+            return $newpass;
         }
         
      }

@@ -16,9 +16,9 @@ class status{
       $sql="SELECT * FROM status WHERE id = '".$this->id."' OR name = '".$this->name."'";
       $DBobject->connect();
       $result =  $DBobject->execute($sql);
-      $row = mysqli_fetch_array($result);
+      //$row = mysqli_fetch_array($result);
       $DBobject->disconnect();
-      return $row;
+      return $result;
      }
 
      public function selectAll(){

@@ -27,6 +27,14 @@ class Courses{
       $DBObject->disconnect();
       return $result;
      }
+    public function dispay(){
+        $DBObject = new DB();
+        $sql = "SELECT * FROM courses ";
+        $DBObject->connect();
+        $result = $DBObject->execute($sql);
+        $DBObject->disconnect();
+        return $result;
+    }
     public function update(){
         $DBObject = new DB();
         $sql="UPDATE courses SET description='".$this->description."' WHERE id ='".$this->id."' ";

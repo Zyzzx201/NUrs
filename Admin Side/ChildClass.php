@@ -10,7 +10,7 @@ class user{
       $DBobject = new DB();
       $sql = "INSERT INTO child (main_id, branch_id, ddoe) VALUES ('".$this->main_id."', '".$this->branch_id."', '".$this->ddoe."')";
       $DBobject->connect();
-      echo $DBobject->execute($sql);
+      $DBobject->execute($sql);
       $DBobject->disconnect();
     }
     public function select(){
@@ -25,7 +25,7 @@ class user{
 
     public function update(){
       $DBobject = new DB();
-      $sql = "UPDATE * child SET child.childtype = '".$this->childtype."' where id = '".$this->id."'";
+      $sql = "UPDATE * child SET child.branch_id = '".$this->branch_id."', child.ddoe = '".$this->ddoe."' where id = '".$this->id."' OR main_id = ".$this->main_id."'";
       $DBobject->connect();
       $DBobject->execute($sql);
       $DBobject->disconnect();

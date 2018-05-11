@@ -27,9 +27,9 @@ class parents{
     $sql = "SELECT * FROM parent WHERE id = '".$this->id."'";
     $DBObject->connect();
     $result =  $DBObject->execute($sql);
-    $row = mysqli_fetch_array($result);
+    //$row = mysqli_fetch_array($result);
     $DBObject->disconnect();
-    return $row;
+    return $result;
   }
   
   public function update(){

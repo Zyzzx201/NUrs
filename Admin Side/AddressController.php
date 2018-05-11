@@ -4,8 +4,9 @@ require_once("valid.php");
 
 $addOBJ1 = new Address();
 if (isset($_POST['saveAdd'])) {
-  $_POST['ADDadditional']=valid::test_input($_POST['ADDadditional']);
-  
+  $_POST['ADDadditional'] = valid::test_input($_POST['ADDadditional']);
+  $result = valid::isempty($_POST['ADDadditional']);
+  $result = valid::onlyletters($_POST['ADDadditional']);
   $addOBJ1->name = $_POST['ADDadditional'];
   $addOBJ1->parent_id = 2;
   $addOBJ1->insert();
@@ -14,7 +15,10 @@ if (isset($_POST['saveAdd'])) {
 
 $addOBJ3 = new Address();
 if (isset($_POST['deleteAdd'])) {
+  $_POST['ADDid'] = valid::test_input($_POST['ADDid']);
+  $result = valid::numbersonly($_POST['ADDid']);
   $addOBJ3->id = $_POST['ADDid'];
+
   $addOBJ3->delete();
   header('location:EditDB.php');
 }
@@ -39,7 +43,6 @@ class addressC
       echo $row['name'];
       echo "<br>";
    }
-    //return $ADrow2;
   }
 }
 

@@ -25,9 +25,9 @@ class emergency{
       $DBobject->connect();
       $sql = "SELECT * FROM emergency WHERE id = 1 "; //'".$this->id."'
       $result = $DBobject->execute($sql);
-      $row = mysqli_fetch_array($result);
+      //$row = mysqli_fetch_array($result);
       $DBobject->disconnect();
-      return $row;
+      return $result;
      }
     public function update(){
       $DBobject = new DB();

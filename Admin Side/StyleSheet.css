@@ -19,7 +19,7 @@ header #logo{
 	border: 1px solid transparent;
 	border-radius: 25px;
 }
-#h1W, #h1U, #h1O{
+#h1W, #h1U, #h1O, #h1S{
 	font-family: cursive;
 	font-weight: bold;
 	position: absolute;
@@ -48,16 +48,16 @@ header #bkbtn{
 	color: #0099cc;  /*blue*/
 	background-color: #ffcc00;  /*orange*/
 	text-align: center;
-  border: 1px solid transparent;
-  border-radius: 5px;
+	border: 1px solid transparent;
+	border-radius: 5px;
 	height: 35%;
 	width: 5%;
 }
 #topnav{
 	position: relative;
-  list-style-type: none;
-  top: -130px;
-  left: 500px;
+	list-style-type: none;
+	top: -130px;
+	left: 500px;
 }
 .micon {
 	display: inline-block;
@@ -86,7 +86,7 @@ header #bkbtn{
 #navMenu{
 	position: absolute;
 	top: 10%;
-	right: 0%;
+	right: 0;
 	left: 40%;
 	z-index: 3;
 }
@@ -98,7 +98,6 @@ header #bkbtn{
 }
 .topnav a {
 	font-family: cursive;
-	font-size: 7px;
 	float: left;
 	display: block;
 	color: #0099cc;  /*blue*/
@@ -115,21 +114,20 @@ header #bkbtn{
 	display: none;
 }
 .dropdown {
-		float: left;
-		overflow: hidden;
-		font-family: cursive;
-		font-size: 15px;
+	float: left;
+	overflow: hidden;
+	font-family: cursive;
+	font-size: 15px;
 }
 .dropdown .dropbtn {
-		font-size: 17px;
-		font-family: cursive;
-		border: none;
-		outline: none;
-		color:  #0099cc;  /*blue*/
-		padding: 10px 12px;
-		background-color: inherit;
-		font-family: inherit;
-		margin: 0;
+	font-size: 17px;
+	font-family: cursive;
+	border: none;
+	outline: none;
+	color:  #0099cc;  /*blue*/
+	padding: 10px 12px;
+	background-color: inherit;
+	margin: 0;
 }
 .dropdown-content {
 	border: 1px solid transparent;
@@ -138,17 +136,17 @@ header #bkbtn{
 	position: absolute;
 	background-color: #003366; /*ko7ly*/
 	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 	z-index: 5;
 }
 .dropdown-content a {
-		float: none;
-		color: #0099cc;  /*blue*/
-		padding: 12px 16px;
-		text-decoration: none;
-		display: block;
-		text-align: left;
-		z-index: 5;
+	float: none;
+	color: #0099cc;  /*blue*/
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	text-align: left;
+	z-index: 5;
 }
 .topnav a:hover, .dropdown:hover .dropbtn {
 	background-color: #99ccff;  /*blue fat7*/

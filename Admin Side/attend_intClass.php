@@ -16,10 +16,10 @@ class Attend_int{
       $DBobject = new DB();
       $sql="SELECT * FROM attend_int WHERE child_id = '".$this->child_id."'";
       $DBobject->connect();
-      $result =  $DBObject->execute($sql);
+      $result = $DBobject->execute($sql);
       $row = mysqli_fetch_array($result);
-      $DBObject->disconnect();
-      return $row;
+      $DBobject->disconnect();
+      return $result;
     }
     public function selectALL(){
         $DBobject = new DB();

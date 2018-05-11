@@ -23,8 +23,8 @@ $row1=mysqli_fetch_array($row);
   }
 
   else{
-      echo "<script>javascript: alert('Invalid Username or Password. Please Try Again!'); </script>";
-//     header("location:adminlogin.php");
+      echo "<script>javascript: alert('Invalid Username or Password. Please Try Again!'); 
+        window.location.href = 'adminlogin.php'; </script>";
   }
 
 }
