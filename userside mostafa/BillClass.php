@@ -33,15 +33,6 @@ class Bill{
         $DBObject->disconnect();
         }
 
-    public function update(){
-        $DBObject = new DB();
-        $sql = "UPDATE bill SET parent_id = '".$this->parent_id."', payment_id ='".$this->payment_id."',price = '".$this->price."' , discount = '".$this->discount."' WHERE id = '".$this->id."'";
-        $DBObject->connect();
-        $DBObject->execute($sql);
-        $DBObject->disconnect();
-
-        }
-
     public function delete(){ 
         $DBObject = new DB();
         $sql = "DELETE FROM bill where id = '".$this->id."'";

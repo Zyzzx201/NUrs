@@ -18,24 +18,15 @@ public function connect(){
               
 }
 
-
-// public function test_input($data) {
-//   $data = trim($data);
-//   $data = stripslashes($data);
-//   $data = htmlspecialchars($data);
-//   return $data;
-// }
-//where to put it?!
-
 public function execute($sql){
   $result = $this->con->query($sql);
-  return $result;
-  /*if ($this->con->query($sql) === TRUE) {
-   // echo "New record created successfully. Last inserted ID is: ";
-  } 
-  else {
-    echo $this->con->error;
-  }*/
+    return $result;
+//  if ($this->con->query($sql) === TRUE) {
+//   // echo "New record created successfully. Last inserted ID is: ";
+//  }
+//  else {
+//    echo $this->con->error;
+//  }
 }
 
 public function disconnect(){

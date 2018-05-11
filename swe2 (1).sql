@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 07, 2018 at 06:08 PM
+-- Generation Time: May 11, 2018 at 04:22 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -99,24 +99,22 @@ DROP TABLE IF EXISTS `bill`;
 CREATE TABLE IF NOT EXISTS `bill` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_id` int(11) NOT NULL,
-  `payment_id` int(11) NOT NULL,
-  `price` int(11) NOT NULL,
   `discount` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  KEY `parent_id` (`parent_id`),
-  KEY `payment_id` (`payment_id`)
+  KEY `parent_id` (`parent_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `bill`
 --
 
-INSERT INTO `bill` (`id`, `parent_id`, `payment_id`, `price`, `discount`, `time`) VALUES
-(1, 1, 1, 5000, 2000, '2018-04-28 22:00:00'),
-(2, 1, 1, 12441, 12, '2018-06-29 04:00:00'),
-(3, 1, 1, 1234, 12, '2018-04-29 18:53:18'),
-(4, 1, 1, 2455, 200, '2018-05-01 18:21:44');
+INSERT INTO `bill` (`id`, `parent_id`, `discount`, `price`, `time`) VALUES
+(1, 1, 2000, 5000, '2018-04-28 22:00:00'),
+(2, 1, 12, 12441, '2018-06-29 04:00:00'),
+(3, 1, 12, 1234, '2018-04-29 18:53:18'),
+(4, 1, 200, 2455, '2018-05-01 18:21:44');
 
 -- --------------------------------------------------------
 
@@ -372,6 +370,7 @@ CREATE TABLE IF NOT EXISTS `main` (
   `ssn` bigint(14) NOT NULL COMMENT 'can also be social num',
   `Dateofapply` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `ssn` (`ssn`),
   KEY `utype` (`utype`),
   KEY `dob` (`dob`) USING BTREE,
   KEY `status_id` (`status_id`)
@@ -384,7 +383,7 @@ CREATE TABLE IF NOT EXISTS `main` (
 INSERT INTO `main` (`id`, `utype`, `status_id`, `fname`, `lname`, `dob`, `ssn`, `Dateofapply`) VALUES
 (1, 1, 3, 'Mustafa', 'WALLY', '1998-05-27', 987654321, '2018-04-01 14:38:33'),
 (2, 1, 3, 'mostwfa', 'wasfaw', '1997-11-27', 1234567543263, '2018-04-01 14:48:06'),
-(3, 1, 3, 'mostafa', 'waly', '1997-11-27', 2612395129357, '2018-04-01 15:57:21'),
+(3, 1, 3, 'mostafa', 'waly', '1997-11-27', 26123951129357, '2018-04-01 15:57:21'),
 (4, 1, 3, 'mostafa', 'waly', '1997-11-27', 2612395129357, '2018-04-01 15:57:21'),
 (5, 2, 3, 'mostafa', 'waly1', '1997-11-27', 1234567890, '2018-04-04 21:44:27');
 
@@ -637,6 +636,22 @@ INSERT INTO `paymentopt` (`id`, `options_id`, `payment_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pmov_bill`
+--
+
+DROP TABLE IF EXISTS `pmov_bill`;
+CREATE TABLE IF NOT EXISTS `pmov_bill` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pmov_id` int(11) NOT NULL,
+  `bill_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pmov_id` (`pmov_id`),
+  KEY `bill_id` (`bill_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pm_o_v`
 --
 
@@ -750,19 +765,28 @@ CREATE TABLE IF NOT EXISTS `salary` (
   `bonuses` int(11) NOT NULL,
   `deduct` int(11) NOT NULL,
   `reason` varchar(300) NOT NULL COMMENT 'this includes the reason why the deducted and the bonus values are added',
-  `total` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `teacher_id_2` (`teacher_id`,`month_id`),
   KEY `teacher_id` (`teacher_id`),
   KEY `month_id` (`month_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `salary`
 --
 
-INSERT INTO `salary` (`id`, `teacher_id`, `month_id`, `amount`, `bonuses`, `deduct`, `reason`, `total`) VALUES
-(2, 1, 1, 2222, 3333, 4444, '1asfbhasbvubasifb', 2000);
+INSERT INTO `salary` (`id`, `teacher_id`, `month_id`, `amount`, `bonuses`, `deduct`, `reason`) VALUES
+(2, 1, 1, 2222, 3333, 4444, '1asfbhasbvubasifb'),
+(3, 3, 7, 4000, 1000, 1000, '');
+
+--
+-- Triggers `salary`
+--
+DROP TRIGGER IF EXISTS `Calctotal`;
+DELIMITER $$
+CREATE TRIGGER `Calctotal` AFTER INSERT ON `salary` FOR EACH ROW UPDATE salary SET salary.total = (SELECT * FROM (SELECT (s.amount + s.bonuses - s.deduct) FROM salary s)tblTmp)
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -863,10 +887,6 @@ CREATE TABLE IF NOT EXISTS `teacher` (
   `address_id` int(11) NOT NULL,
   `main_id` int(11) NOT NULL,
   `mstatus_id` int(11) NOT NULL,
-  `acaqual1` varchar(300) NOT NULL,
-  `date_acaqual1` int(8) NOT NULL,
-  `personal_qual1` varchar(300) NOT NULL,
-  `date_ppersonalqual1` int(8) NOT NULL,
   `pempname` varchar(100) NOT NULL,
   `pempaddress_id` int(11) NOT NULL,
   `pempnum` int(11) NOT NULL,
@@ -886,9 +906,9 @@ CREATE TABLE IF NOT EXISTS `teacher` (
 -- Dumping data for table `teacher`
 --
 
-INSERT INTO `teacher` (`id`, `nationality`, `address_id`, `main_id`, `mstatus_id`, `acaqual1`, `date_acaqual1`, `personal_qual1`, `date_ppersonalqual1`, `pempname`, `pempaddress_id`, `pempnum`, `corlsalary`, `reqsalary`, `othernursery`, `povnursery`) VALUES
-(1, 3, 3, 4, 1, 'fnakhs vha shffausfiunfa', 214123, 'uianfiuansfuinag', 1235123, 'gunuisanuiafg', 4, 1234567, 25123, 12351, 'jknaiuvnauisnfuiansuifn', 'uadguiansuifnuiansf'),
-(3, 1, 1, 5, 1, 'a degree from', 27111997, 'a degree from ', 27111997, 'farouk el said', 1, 123456789, 5000, 5000, 'because why the hell not!!', 'a nursery should be a palce of nurture');
+INSERT INTO `teacher` (`id`, `nationality`, `address_id`, `main_id`, `mstatus_id`, `pempname`, `pempaddress_id`, `pempnum`, `corlsalary`, `reqsalary`, `othernursery`, `povnursery`) VALUES
+(1, 3, 3, 4, 1, 'gunuisanuiafg', 4, 1234567, 25123, 12351, 'jknaiuvnauisnfuiansuifn', 'uadguiansuifnuiansf'),
+(3, 1, 1, 5, 1, 'farouk el said', 1, 123456789, 5000, 5000, 'because why the hell not!!', 'a nursery should be a palce of nurture');
 
 -- --------------------------------------------------------
 
@@ -1079,6 +1099,13 @@ ALTER TABLE `parent`
 ALTER TABLE `paymentopt`
   ADD CONSTRAINT `paymentopt_ibfk_1` FOREIGN KEY (`payment_id`) REFERENCES `payment` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `paymentopt_ibfk_2` FOREIGN KEY (`options_id`) REFERENCES `options` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `pmov_bill`
+--
+ALTER TABLE `pmov_bill`
+  ADD CONSTRAINT `pmov_bill_ibfk_1` FOREIGN KEY (`pmov_id`) REFERENCES `pm_o_v` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pmov_bill_ibfk_2` FOREIGN KEY (`bill_id`) REFERENCES `bill` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pm_o_v`

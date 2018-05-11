@@ -6,7 +6,7 @@ class childtype{
 
     public function insert(){
     $DBObject = new DB();
-    $sql = "INSERT INTO childtype(type) VALUES '".$this->type."' ";
+    $sql = "INSERT INTO childtype(type) VALUES ('".$this->type."') ";
     $DBObject->connect();
     $DBObject->execute($sql);
     $DBObject->disconnect();
@@ -26,7 +26,7 @@ class childtype{
 
     public function update(){
     $DBObject = new DB();
-    $sql = "UPDATE childtype SET type= '".$this->type."' WHERE id = '".$this->id."' ";
+    $sql = "UPDATE childtype SET type = '".$this->type."' WHERE id = '".$this->id."' ";
     $DBObject->connect();
     $DBObject->execute($sql);
     $DBObject->disconnect();
