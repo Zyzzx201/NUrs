@@ -5,10 +5,10 @@ class Schedule{
     public $course_id;
     public $childtype_id;
     public $start;
-    public $end;
+    public $ends;
 	  public function insert(){
       $DBobject = new DB();
-      $sql = "INSERT INTO schedule (course_id,childtype_id, start, end) VALUES ('".$this->course_id."','".$this->childtype_id."','".$this->start."','".$this->end."')";
+      $sql = "INSERT INTO schedule (course_id,childtype_id, start, ends) VALUES ('".$this->course_id."','".$this->childtype_id."','".$this->start."','".$this->ends."')";
       $DBobject->connect();
       $DBobject->execute($sql);
       $DBobject->disconnect();
@@ -40,7 +40,7 @@ class Schedule{
     }
     public function update(){
       $DBobject = new DB();
-      $sql="UPDATE schedule SET course_id = '".$this->course_id."'  ,start ='".$this->start."' ,end = '".$this->end."', childtype_id ='".$this->childtype_id."'  WHERE course_id = '".$this->course_id."' ";
+      $sql="UPDATE schedule SET course_id = '".$this->course_id."'  ,start ='".$this->start."' ,ends = '".$this->ends."', childtype_id ='".$this->childtype_id."'  WHERE course_id = '".$this->course_id."' ";
       $DBobject->connect();
       $DBobject->execute($sql);
       $DBobject->disconnect();
@@ -48,7 +48,7 @@ class Schedule{
     }
     public function dispay(){
         $DBObject = new DB();
-        $sql = "SELECT start, end FROM schedule ";
+        $sql = "SELECT start, ends FROM schedule ";
         $DBObject->connect();
         $result = $DBObject->execute($sql);
         $DBObject->disconnect();

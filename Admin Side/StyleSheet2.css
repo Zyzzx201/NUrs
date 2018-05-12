@@ -29,22 +29,14 @@
 	top: 83%;
 }
 .ei{
-	top: 85%;
+	top: 82%;
 }
 .scheds{
 	top: 75%;
 	width: 90%;
 	height: auto;
 }
-#h1t{
-	font-family: cursive;
-	font-size: 30px;
-	font-weight: bold;
-	position: absolute;
-	top: -2%;
-	left: 22%;
-}
-.teacher2, .application, .Oappform{
+.teacher2, .application, .Oappform, .teacher1{
 	font-family: cursive;
 	border: 1px solid transparent;
 	border-radius: 40px;
@@ -59,7 +51,7 @@
 	padding: 20px;
 }
 .application{
-	top: 395%;
+	top: 403%;
 	height: 85%;
 }
 #atbtn, #appbtnE, #appbtnD{

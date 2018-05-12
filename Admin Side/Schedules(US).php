@@ -24,7 +24,7 @@
 
 <body>
   <header>
-    <img src="logo.png" id="logo" onclick="location.href='index.php';">
+    <img src="logo.png" id="logo" onclick="location.href='index(US).php';">
       <div class="micon" onclick="changeM(this)" id="Menicon">
           <div class="b1"></div>
           <div class="b2"></div>
@@ -32,11 +32,12 @@
       </div>
       <div id="navMenu" >
           <div id="myTopnav" class="topnav">
-              <a id="addr" href="Onlineapplication.php">Online Application</a>
-              <a id="addr" href="addteacher.php">Teacher Registration</a>
+              <a id="addr" href="index(US).php">Home</a>
+              <a id="addr" href="Onlineapplication(US).php">Online Application</a>
+              <a id="addr" href="addteacher(US).php">Teacher Registration</a>
 <!--              <a id="addr" href="Schedules(US).php">Schedules</a>-->
-               <a id="addr" href="" >Gallery</a>
-              <a id="admAdr" href="events.php">Events</a>
+<!--               <a id="addr" href="" >Gallery</a>-->
+              <a id="addr" href="events(US).php">Events</a>
               <div class="dropdown">
                   <button class="dropbtn">More
                       <i class="fa fa-caret-down"></i>

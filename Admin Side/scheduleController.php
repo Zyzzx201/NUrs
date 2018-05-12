@@ -1,20 +1,19 @@
 <?php
 require_once("scheduleClass.php");
+require_once("CoursesController.php");
 
-$SCoBJ1 = new Schedule();
-if (isset($_POST['saveCourse'])) {
-    $_POST['childtype_id'] = valid::test_input($_POST['childtype_id']);
-    $result = valid::isempty($_POST['childtype_id']);
-    $result = valid::isempty($_POST['start']);
-    $result = valid::isempty($_POST['end']);
-    //$result = valid::onlyletters($_POST['childtype_id']);
-    $SCoBJ1->childtype_id = $_POST['childtype_id'];
-    $SCoBJ1->start = $_POST['start'];
-    $SCoBJ1->end = $_POST['end'];
+//$SCoBJ1 = new coursesC();
+//if (isset($_POST['AddCourse'])) {
+//    $SCoBJ1->InsertCourse();
+//    header('location:Schedules.php');
+//}
+$COBJ1 = new coursesC();
+if (isset($_POST['AddCourse'])) {
+    $CoRow = $COBJ1->InsertCourse();
+    header('location:Schedules(AS).php');
 
-    $SCoBJ1->insert();
-    header('location:Scedules.php');
 }
+
 
 class ScheduleC
 {

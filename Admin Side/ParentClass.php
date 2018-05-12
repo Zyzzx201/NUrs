@@ -15,8 +15,9 @@ class parents{
 
 	public function insert(){
     $DBObject = new DB();
-    $sql = "INSERT INTO parent (child_id, mother_id, father_id, ffbook, foccupation, mfbook, moccupation, mstatus_id, address_id, usualpickup)
-    VALUES ('".$this->child_id."','".$this->mother_id."','".$this->father_id."','".$this->ffbook."','".$this->foccupation."','".$this->mfbook."',
+    $sql = "INSERT INTO parent (child_id, mother_id, father_id, ffbook, foccupation, mfbook, moccupation,
+      mstatus_id, address_id, usualpickup) VALUES ('".$this->child_id."','".$this->mother_id."',
+      '".$this->father_id."','".$this->ffbook."','".$this->foccupation."','".$this->mfbook."',
     '".$this->moccupation."','".$this->mstatus_id."','".$this->address_id."','".$this->usualpickup."')";
     $DBObject->connect();
     $DBObject->execute($sql);

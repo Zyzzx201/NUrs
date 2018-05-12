@@ -48,11 +48,11 @@ if (isset($_POST['childSave'])) {
   header('location:Onlineapplication.php');
 };
 
-if (isset($_POST['DeleteBtn'])) {
-  $btnobj3 = new parents();
-  $btnobj3->delete();
-  header('location:editchild.php');
-}
+//if (isset($_POST['DeleteBtn'])) {
+//  $btnobj3 = new user();
+//  $btnobj3->delete();
+//  header('location:editchild.php');
+//}
 
 class parentsC
 {

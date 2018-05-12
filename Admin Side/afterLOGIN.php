@@ -8,18 +8,19 @@ $dbObj1 = new DB();
 $connection = $dbObj1->connect();
 
 if($_SERVER["REQUEST_METHOD"]== "POST"){
-  $adminOBJ = new admin();
-  $adminOBJ->username = $_POST['Username'];
-  $adminOBJ->passwords = $_POST['Password'];
-  $row = $adminOBJ->compare();
-$row1=mysqli_fetch_array($row);
+    $adminOBJ = new admin();
+    $passOBJ = new encrypt();
+    $password = $_POST['Password'];
+    $password = $passOBJ->encrypt1($password);
+    $adminOBJ->username = $_POST['Username'];
+    $adminOBJ->passwords = $password;
+    $row = $adminOBJ->compare();
+    $row1=mysqli_fetch_array($row);
 
-  if($row1[0] === 'VALID' )
+  if('VALID' === $row1[0])
   {
       $_SESSION["username"]=$_POST['Username'];
-      header("location:index.php");
-
-
+      header("location:index(AS).php");
   }
 
   else{

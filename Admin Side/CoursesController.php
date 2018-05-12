@@ -1,39 +1,43 @@
 <?php
 require_once("CoursesClass.php");
+require_once ("scheduleClass.php");
 require_once("valid.php");
 
 $COBJ1 = new Courses();
-if (isset($_POST['saveCourse'])) {
+if (isset($_POST['AddCourse'])) {
   $_POST['Courseadd'] = valid::test_input($_POST['Courseadd']);
   $result = valid::isempty($_POST['Courseadd']);
-  $result = valid::onlyletters($_POST['Courseadd']);
+  //$result = valid::onlyletters($_POST['Courseadd']);
   $COBJ1->description = $_POST['Courseadd'];
-  
+
   $COBJ1->insert();
-  header('location:Scedules.php');
+  header('location:Schedules(AS).php');
+}
+elseif (isset($_POST['AddCourse'])){
+    coursesC::InsertCourse();
 }
 $COBJ2 = new Courses();
-if (isset($_POST['updateC'])) {
-  $_POST['CUid'] = valid::test_input($_POST['CUid']);
-  $result = valid::numbersonly($_POST['CUid']);
-  $COBJ2->id = $_POST['CUid'];
+if (isset($_POST['updateCourse'])) {
+  $_POST['CourseUid'] = valid::test_input($_POST['CourseUid']);
+  $result = valid::numbersonly($_POST['CourseUid']);
+  $COBJ2->id = $_POST['CourseUid'];
 
-  $_POST['Cnew'] = valid::test_input($_POST['Cnew']);
-  $result = valid::isempty($_POST['Cnew']);
-  $result = valid::onlyletters($_POST['Cnew']);
-  $COBJ2->description = $_POST['Cnew'];
+  $_POST['Coursenew'] = valid::test_input($_POST['Coursenew']);
+  $result = valid::isempty($_POST['Coursenew']);
+  $result = valid::onlyletters($_POST['Coursenew']);
+  $COBJ2->description = $_POST['Coursenew'];
 
   $COBJ2->update();
-  header('location:Scedules.php');
+  header('location:Schedules(AS).php');
 }
 
 $COBJ3 = new Courses();
-if (isset($_POST['deleteC'])) {
-  $_POST['Cid'] = valid::test_input($_POST['Cid']);
-  $result = valid::numbersonly($_POST['Cid']);
-  $COBJ3->id = $_POST['Cid'];
+if (isset($_POST['deleteCourse'])) {
+  $_POST['Courseid'] = valid::test_input($_POST['Courseid']);
+  $result = valid::numbersonly($_POST['Courseid']);
+  $COBJ3->id = $_POST['Courseid'];
   $COBJ3->delete();
-  header('location:Scedules.php');
+  header('location:Schedules(AS).php');
 }
 
 
@@ -57,12 +61,31 @@ class coursesC
       echo "<br>";
    }
   }
-    public function COdisplay()
-    {
-        $SCobj1 = new Courses();
-        $SCrow1 = $SCobj1->dispay();
-        return $SCrow1;
-    }
+  public function COdisplay()
+  {
+      $SCobj1 = new Courses();
+      $SCrow1 = $SCobj1->display();
+      return $SCrow1;
+  }
+
+  public function InsertCourse(){
+    $Name = $_POST['Courseadd'];
+    $Type = $_POST['childtype_id'];
+    $StartTime = $_POST['start'];
+    $EndTime = $_POST['ends'];
+
+    $CourseObject = new Courses();
+    $CourseObject->description = $Name;
+    $CourseObject->insert();
+    $ID = $CourseObject->SelectID();
+
+    $ScheduleObject = new Schedule();
+    $ScheduleObject->course_id = $ID;
+    $ScheduleObject->childtype_id = $Type;
+    $ScheduleObject->start = $StartTime;
+    $ScheduleObject->ends = $EndTime;
+    $ScheduleObject->insert();
+  }
 }
 
 

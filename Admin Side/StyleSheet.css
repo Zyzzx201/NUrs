@@ -19,17 +19,22 @@ header #logo{
 	border: 1px solid transparent;
 	border-radius: 25px;
 }
-#h1W, #h1U, #h1O, #h1S{
+#h1W, #h1U, #h1O, #h1S, #h1A, #h1oA{
 	font-family: cursive;
 	font-weight: bold;
 	position: absolute;
-	top: 31%;
-	left: 34.3%;
+	top: 31.5%;
+	left: 35%;
 	color: #ff0066; /*foshia*/
+    font-size: 31px;
 }
 #h1O{
-	top: -2%;
-	left: 20.3%;
+    top: 17%;
+	left: 20%;
+}
+#h1A{
+	top: 19%;
+	left: 40%;
 }
 #h1S{
 	font-size: 30px;
@@ -39,6 +44,19 @@ header #logo{
 #h2{
 	font-family: cursive;
 	font-weight: bold;
+}
+#h1oA{
+    top: 17%;
+    left: 33.4%;
+}
+
+#h1t{
+    font-family: cursive;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    top: -2%;
+    left: 22%;
 }
 header #bkbtn{
 	position: absolute;

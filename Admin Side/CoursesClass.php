@@ -1,5 +1,6 @@
 <?php
 require_once('db.php');
+
 class Courses{
     public $id;
     public $description;
@@ -27,7 +28,7 @@ class Courses{
       $DBObject->disconnect();
       return $result;
      }
-    public function dispay(){
+    public function display(){
         $DBObject = new DB();
         $sql = "SELECT * FROM courses ";
         $DBObject->connect();
@@ -48,6 +49,14 @@ class Courses{
       $DBObject->connect();
       $DBObject->execute($sql);
       $DBObject->disconnect();
+      }
+
+      public function SelectID(){
+	    $DBObject = new DB();
+	    $sql = "SELECT id FROM courses WHERE description = '".$this->description."'";
+	    $Result = $DBObject->execute($sql);
+	    $Row = mysqli_fetch_array($Result);
+	    return $Row['id'];
       }
 
 }
