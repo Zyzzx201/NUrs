@@ -6,12 +6,15 @@ class admin
     public $teacher_id;
     public $username;
     public $passwords;
+    public $strategy;
 
     public function insert()
     {
         $DBObject = new DB();
-        $sql = "INSERT INTO admin (teacher_id, username, passwords) VALUES ( '" . $this->teacher_id . "' ,'" . $this->username . "', '" . $this->passwords . "')";
+        $sql = "INSERT INTO admin (teacher_id, username, passwords, strategy) VALUES 
+        ( '" . $this->teacher_id . "' ,'" . $this->username . "', '" . $this->passwords . "','".$this->strategy."')";
         $DBObject->connect();
+        //SELECT IF (EXISTS (SELECT username,password from admin where username=  AND passwords '" . $this->passwords . "'), 'Valid' , 'Invalid')
         $DBObject->execute($sql);
         $DBObject->disconnect();
     }
@@ -27,6 +30,7 @@ class admin
             echo $row['teacher_id'];
             echo $row['username'];
             echo $row['passwords'];
+            echo $row['strategy'];
         }
         $DBObject->disconnect();
     }
@@ -44,15 +48,9 @@ class admin
     {
         $DBObject = new DB();
         //$sql = "SELECT username, passwords FROM admin WHERE username = '".$this->username."' AND passwords = '".$this->passwords."' LIMIT 1";
-        $sql = "SELECT IF (EXISTS (SELECT username,password from admin where username='" . $this->username . "' AND passwords '" . $this->passwords . "'), 'Valid' , 'Invalid')";
+        $sql = "SELECT IF (EXISTS (SELECT username,passwords from admin where username='" . $this->username . "' AND passwords '" . $this->passwords . "'), 'Valid' , 'Invalid')";
         $DBObject->connect();
         $result = $DBObject->execute($sql);
-        /*
-        if(mysqli_fetch_row($result) == true)
-            return $value1;
-        else
-            return $value2;
-        */
         return $result;
         $DBObject->disconnect();
     }

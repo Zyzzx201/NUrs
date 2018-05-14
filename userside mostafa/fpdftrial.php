@@ -19,20 +19,27 @@
             $pmovbill = new Pmovbill();
             $dbobject = new DB();
             //////////////////////////////
-            $sql= "SELECT * FROM pm_o_v
+            $result = $sql= "SELECT * FROM pm_o_v
                     INNER JOIN parent ON pm_o_v.parent_id = parent.id
                     INNER JOIN main m ON parent.mother_id = m.id
                     INNER JOIN main d on parent.father_id = d.id
                     INNER JOIN paymentopt ON pm_o_v.payment_o_id = paymentopt.id
                     INNER JOIN options ON paymentopt.options_id = options.id
                     INNER JOIN payment on paymentopt.payment_id = payment.id";
+
+//            $sql1="SELECT payment.name AS paymentmethod, options.name AS options, parent.child_id as Fname
+//FROM pm_o_v
+//INNER JOIN paymentopt on pm_o_v.payment_o_id = paymentopt.id
+//INNER JOIN options ON paymentopt.options_id = options.id
+//INNER JOIN payment on paymentopt.payment_id = payment.id
+//INNER JOIN parent on pm_o_v.parent_id = parent.child_id";
             $dbobject->connect();
             $dbobject->execute($sql);
             $dbobject->disconnect();
             ///////////////////
             $total = 0;
             /// Bill is going to be used for everything else, EVERYTHING inside bill will be displayed
-
+            /// the above sql will return everything you need
             //////////////////
             $fpdf->addpage();
             $fpdf1->SetFont('Arial','',20);
