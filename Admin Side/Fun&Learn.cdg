@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Fun&amp;Learn">
+  <ClassDiagramComponents>
+    <Class name="MainClass" package="" visibility="public" xPosition="69.0" yPosition="13.0">
+      <Fields>
+        <Field name="id" type="int" visibility="public"/>
+        <Field name="fname" type="string" visibility="public"/>
+        <Field name="lname" type="string" visibility="public"/>
+        <Field name="dob" type="date" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="insert" returnType="void" visibility="public"/>
+        <Method name="select" returnType="int" visibility="public"/>
+        <Method name="selectSSN" returnType="int" visibility="public"/>
+        <Method name="selectAll" returnType="int" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="delete" returnType="void" visibility="public"/>
+        <Method name="search" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="teacherClass" package="" visibility="public" xPosition="258.0" yPosition="-12.0">
+      <Fields>
+        <Field name="nationality_id" type="int" visibility="public"/>
+        <Field name="address_id" type="int" visibility="public"/>
+        <Field name="main_id" type="int" visibility="public"/>
+        <Field name="mstatus_id" type="int" visibility="public"/>
+        <Field name="pempname" type="string" visibility="public"/>
+        <Field name="pempaddress_id" type="int" visibility="public"/>
+        <Field name="pempnum" type="int" visibility="public"/>
+        <Field name="corlsalary" type="int" visibility="public"/>
+        <Field name="reqsalary" type="int" visibility="public"/>
+        <Field name="othernursey" type="string" visibility="public"/>
+        <Field name="povnursery" type="string" visibility="public"/>
+        <Field name="id" type="int" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="insert" returnType="void" visibility="public"/>
+        <Method name="select" returnType="int" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AddressClass" package="" visibility="public" xPosition="-21.0" yPosition="288.0">
+      <Fields>
+        <Field name="id" type="int" visibility="public"/>
+        <Field name="parent_id" type="int" visibility="public"/>
+        <Field name="name" type="string" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="insert" returnType="void" visibility="public"/>
+        <Method name="select" returnType="int" visibility="public"/>
+        <Method name="selectALL" returnType="int" visibility="public"/>
+        <Method name="selectid" returnType="int" visibility="public"/>
+        <Method name="delete" returnType="void" visibility="public"/>
+        <Method name="getAllRoots" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AdminClass" package="" visibility="public" xPosition="159.0" yPosition="353.0">
+      <Fields>
+        <Field name="id" type="int" visibility="public"/>
+        <Field name="teacher_id" type="int" visibility="public"/>
+        <Field name="username" type="string" visibility="public"/>
+        <Field name="passwords" type="string" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="insert" returnType="void" visibility="public"/>
+        <Method name="delete" returnType="void" visibility="public"/>
+        <Method name="select" returnType="int" visibility="public"/>
+        <Method name="compare" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="attend_intClass" package="" visibility="public" xPosition="-10.0" yPosition="13.0">
+      <Fields>
+        <Field name="id" type="int" visibility="public"/>
+        <Field name="child_id" type="int" visibility="public"/>
+        <Field name="week_id" type="int" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="insert" returnType="void" visibility="public"/>
+        <Method name="select" returnType="int" visibility="public"/>
+        <Method name="selectALL" returnType="int" visibility="public"/>
+        <Method name="delete" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="BillClass" package="" visibility="public" xPosition="317.0" yPosition="-53.0">
+      <Fields>
+        <Field name="id" type="int" visibility="public"/>
+        <Field name="parent_id" type="int" visibility="public"/>
+        <Field name="payment_id" type="int" visibility="public"/>
+        <Field name="price" type="int" visibility="public"/>
+        <Field name="discount" type="int" visibility="public"/>
+        <Field name="time" type="date" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="insert" returnType="void" visibility="public"/>
+        <Method name="select" returnType="int" visibility="public"/>
+        <Method name="delete" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="BranchClass" package="" visibility="public" xPosition="159.0" yPosition="13.0">
+      <Fields>
+        <Field name="id" type="int" visibility="public"/>
+        <Field name="value" type="string" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="insert" returnType="void" visibility="public"/>
+        <Method name="select" returnType="int" visibility="public"/>
+        <Method name="selectAll" returnType="int" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="delete" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ChildClass" package="" visibility="public" xPosition="170.0" yPosition="74.0">
+      <Fields>
+        <Field name="id" type="int" visibility="public"/>
+        <Field name="ddoe" type="date" visibility="public"/>
+        <Field name="branch_id" type="int" visibility="public"/>
+        <Field name="main_id" type="int" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="insert" returnType="void" visibility="public"/>
+        <Method name="select" returnType="int" visibility="public"/>
+        <Method name="selectID" returnType="int" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ChildtypeClass" package="" visibility="public" xPosition="170.0" yPosition="201.0">
+      <Fields>
+        <Field name="id" type="int" visibility="public"/>
+        <Field name="type" type="string" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="insert" returnType="void" visibility="public"/>
+        <Method name="select" returnType="int" visibility="public"/>
+        <Method name="selectAll" returnType="int" visibility="public"/>
+        <Method name="selectAll2" returnType="int" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="delete" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ContactinfoClass" package="" visibility="public" xPosition="69.0" yPosition="220.0">
+      <Fields>
+        <Field name="id" type="int" visibility="public"/>
+        <Field name="main_is" type="int" visibility="public"/>
+        <Field name="cellphone" type="string" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="insert" returnType="void" visibility="public"/>
+        <Method name="select" returnType="int" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="delete" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="CoursesClass" package="" visibility="public" xPosition="281.0" yPosition="86.0">
+      <Fields>
+        <Field name="id" type="int" visibility="public"/>
+        <Field name="description" type="string" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="insert" returnType="void" visibility="public"/>
+        <Method name="select" returnType="int" visibility="public"/>
+        <Method name="selectAll" returnType="int" visibility="public"/>
+        <Method name="display" returnType="int" visibility="public"/>
+        <Method name="selectID" returnType="int" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="delete" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AddressController" package="" visibility="public" xPosition="89.0" yPosition="94.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="ADselectV" returnType="int" visibility="public"/>
+        <Method name="ADselectID" returnType="int" visibility="public"/>
+        <Method name="ADselectAll" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="attend_intController" package="" visibility="public" xPosition="170.0" yPosition="201.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="ATselectV" returnType="int" visibility="public"/>
+        <Method name="ATselectAll" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="BranchController" package="" visibility="public" xPosition="207.0" yPosition="309.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="BrselectV" returnType="int" visibility="public"/>
+        <Method name="BrselectALL" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ChildController" package="" visibility="public" xPosition="89.0" yPosition="268.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="CHseelctV" returnType="int" visibility="public"/>
+        <Method name="CHselectID" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ChildtypeController" package="" visibility="public" xPosition="237.0" yPosition="258.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="CTselectV" returnType="int" visibility="public"/>
+        <Method name="CTselectAll" returnType="int" visibility="public"/>
+        <Method name="CTselectAll2" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ContactinfoController" package="" visibility="public" xPosition="148.0" yPosition="277.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="CIselectV" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="CoursesController" package="" visibility="public" xPosition="281.0" yPosition="290.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="COselectV" returnType="int" visibility="public"/>
+        <Method name="COselectAll" returnType="int" visibility="public"/>
+        <Method name="COdisplay" returnType="int" visibility="public"/>
+        <Method name="InsertCourse" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="EmergancyClass" package="" visibility="public" xPosition="159.0" yPosition="125.0">
+      <Fields>
+        <Field name="id" type="int" visibility="public"/>
+        <Field name="main_id" type="int" visibility="public"/>
+        <Field name="ecname" type="string" visibility="public"/>
+        <Field name="ecnum" type="int" visibility="public"/>
+        <Field name="ecaddress_id" type="int" visibility="public"/>
+        <Field name="relation_id" type="int" visibility="public"/>
+        <Field name="extrainfo" type="string" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="insert" returnType="void" visibility="public"/>
+        <Method name="select" returnType="int" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="EmergancyController" package="" visibility="public" xPosition="185.0" yPosition="411.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="ERselectV" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ErrorClass" package="" visibility="public" xPosition="49.0" yPosition="192.0">
+      <Fields>
+        <Field name="id" type="int" visibility="public"/>
+        <Field name="description" type="string" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="insert" returnType="void" visibility="public"/>
+        <Method name="select" returnType="int" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="delete" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="eventsClass" package="" visibility="public" xPosition="187.0" yPosition="125.0">
+      <Fields>
+        <Field name="id" type="int" visibility="public"/>
+        <Field name="description" type="string" visibility="public"/>
+        <Field name="date" type="date" visibility="public"/>
+        <Field name="location" type="string" visibility="public"/>
+        <Field name="time" type="time" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="insert" returnType="void" visibility="public"/>
+        <Method name="select" returnType="int" visibility="public"/>
+        <Method name="selectAll" returnType="int" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="delete" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="eventsController" package="" visibility="public" xPosition="89.0" yPosition="156.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="EVselectV" returnType="int" visibility="public"/>
+        <Method name="EVselectAll" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MainController" package="" visibility="public" xPosition="79.0" yPosition="220.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="MselectV" returnType="int" visibility="public"/>
+        <Method name="MselectTeacher" returnType="int" visibility="public"/>
+        <Method name="MselectChild" returnType="int" visibility="public"/>
+        <Method name="Mserch" returnType="int" visibility="public"/>
+        <Method name="MselectSSn" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MaritalstatusClass" package="" visibility="public" xPosition="614.0" yPosition="177.0">
+      <Fields>
+        <Field name="id" type="int" visibility="public"/>
+        <Field name="value" type="string" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="insert" returnType="void" visibility="public"/>
+        <Method name="select" returnType="int" visibility="public"/>
+        <Method name="selectID" returnType="int" visibility="public"/>
+        <Method name="selectAll" returnType="int" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="untitledMethod" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>
