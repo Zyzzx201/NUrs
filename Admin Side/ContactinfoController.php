@@ -13,7 +13,7 @@ if (isset($_POST['Savebtn'])) {
 
   $ConOBJ1->main_id = $mainOBJ1->id;
   $ConOBJ1->insert();
-  header('location:addteacher.php');
+  header('location:addteacher(US).php');
 }
 
 $ConOBJ2 = new contactinfo();
@@ -26,19 +26,11 @@ if (isset($_POST['Updatebtn'])) {
 
   $ConOBJ2->main_id = $mainOBJ1->id;
   $ConOBJ2->update();
-  header('location:editteacher.php');
+  header('location:editteacher(AS).php');
 }
 
-if (isset($_POST['DeleteBtn'])) {
-  $btnobj4 = new contactinfo();
-  $btnobj4->delete();
-  header('location:editchild.php');
-}
-if (isset($_POST['teacherDelete'])) {
-  $btnobj4 = new contactinfo();
-  $btnobj4->delete();
-  header('location:editteacher.php');
-}
+
+
 class contactinfoC
 {
   public function CIselectV($id)

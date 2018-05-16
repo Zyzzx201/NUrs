@@ -17,4 +17,6 @@ require_once("scheduleController.php");
 require_once("eventsController.php");
 require_once("BranchController.php");
 require_once("MonthController.php");
+require_once("PaymentController.php");
+require_once("OptionController.php");
  ?>

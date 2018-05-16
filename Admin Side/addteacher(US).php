@@ -51,7 +51,7 @@
 
 <body>
     <div class = "teacher1">
-        <form method="POST" action="afterSaveBtn.php">
+        <form method="POST" action="MainController.php">
             <p id="h1t"><u>Preliminary Teacher Application:</u></p><br><br><hr>
             Full name:
             <input type="text" name="fname">
@@ -75,17 +75,17 @@
             Social Security Number:
             <input type="text" name="ssn" maxlength="11"><br><br>
             Marital Status:<br>
-            <input type="radio" name="mstatus" value="Single" checked>Single<br>
-            <input type="radio" name="mstatus" value="Married">Married<br>
-            <input type="radio" name="mstatus" value="Divorced">Divorced<br>
-            <input type="radio" name="mstatus" value="Widowed">Widowed<br><br><hr>
+            <input type="radio" name="mstatus_id" value="Single" checked>Single<br>
+            <input type="radio" name="mstatus_id" value="Married">Married<br>
+            <input type="radio" name="mstatus_id" value="Divorced">Divorced<br>
+            <input type="radio" name="mstatus_id" value="Widowed">Widowed<br><br><hr>
             <u>Qualifications with Dates:</u><br>
             Qualification 1:
             <select name="qualification_id1" >
                 <option value="-1"></option>
                 <?php require_once("qualificationClass.php");
                     $QOBJ3 = new qualification();
-                    $result = $QOBJ3->select();
+                    $result = $QOBJ3->selectAll();
                     while ($row = mysqli_fetch_array($result))
                         echo "<option value='".$row['id']."'>".$row['name']."</option>";
                 ?>
@@ -97,7 +97,7 @@
               <option value="-1"></option>
               <?php require_once("qualificationClass.php");
                     $QOBJ3 = new qualification();
-                    $result = $QOBJ3->select();
+                    $result = $QOBJ3->selectAll();
                     while ($row = mysqli_fetch_array($result))
                         echo "<option value='".$row['id']."'>".$row['name']."</option>";
                 ?>
@@ -109,7 +109,7 @@
                 <option value="-1"></option>
                 <?php require_once("qualificationClass.php");
                     $QOBJ3 = new qualification();
-                    $result = $QOBJ3->select();
+                    $result = $QOBJ3->selectAll();
                     while ($row = mysqli_fetch_array($result))
                         echo "<option value='".$row['id']."'>".$row['name']."</option>";
                 ?>
@@ -142,8 +142,7 @@
             In your point of view, how do you see an ideal nursery regarding its academic side?<br>
             <textarea rows="1" cols="50" name="povnursery"></textarea><br><br>
             Branch:
-            <select name="branches" >
-                <option value="-1"></option>
+            <select name="branch_id" >
                 <?php require_once("BranchClass.php");
                 $BOBJ3 = new branch();
                 $result = $BOBJ3->selectAll();

@@ -15,7 +15,7 @@ class nationality{
     public function select(){
         $DBObject = new DB();
         $DBObject->connect();
-        $sql = "SELECT * FROM nationality WHERE id = 1 " ; /*'".$this->id."' OR '%".$this->name."%'*/
+        $sql = "SELECT * FROM nationality WHERE id = '".$this->id."'" ;
         $result = $DBObject->execute($sql);
         $DBObject->disconnect();
         return $result;
@@ -44,6 +44,14 @@ class nationality{
         $DBObject->execute($sql);
         $DBObject->disconnect();
 
+      }
+      public function selectID(){
+          $DBObject = new DB();
+          $sql = "SELECT id FROM nationality where name='".$this->name."'";
+          $DBObject->connect();
+          $result = $DBObject->execute($sql);
+          $DBObject->disconnect();
+          return $result;
       }
 }
 ?>

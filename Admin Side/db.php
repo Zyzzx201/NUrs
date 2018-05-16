@@ -6,17 +6,17 @@ class DB{
   private $Password = '';
   private $DBName = 'swe2';
   private static $instance = null;
-  private $con;
+  public $con;
 
-public function connect(){
-  if ($this->con == null) { //singleton
-    $this->con = new mysqli($this->hostname,$this->userName,$this->Password,$this->DBName); // connecting to the localhost
-  }
-  else { // There is already a PDO, so just send it back.
-   return $this->con;
-  }
+    public function connect(){
+        if ($this->con == null) { //singleton
+            $this->con = mysqli_connect($this->hostname,$this->userName,$this->Password,$this->DBName); // connecting to the localhost
+        }
+        else { // There is already a PDO, so just send it back.
+            return $this->con;
+        }
 
-}
+    }
 // public function test_input($data) {
 //   $data = trim($data);
 //   $data = stripslashes($data);
@@ -26,8 +26,8 @@ public function connect(){
 //where to put it?!
 
 public function execute($sql){
- $result = $this->con->query($sql);
-  return $result;
+$result = $this->con->query($sql);
+return $result;
 //  if ($this->con->query($sql) === TRUE) {
 //   echo "New record created successfully. Last inserted ID is: ";
 //
@@ -43,7 +43,8 @@ public function disconnect(){
 
 public function getID(){
   $ID = $this->con->insert_id;
-  return $ID;
+    return $ID;
+  //mysqli_insert_id($this->con);`
 }
 
 }

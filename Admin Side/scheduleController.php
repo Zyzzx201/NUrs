@@ -34,7 +34,7 @@ class ScheduleC
   public function SCdisplay()
   {
      $SCobj3 = new Schedule();
-     $SCrow3 = $SCobj3->dispay();
+     $SCrow3 = $SCobj3->display();
      return $SCrow3;
   }
 }

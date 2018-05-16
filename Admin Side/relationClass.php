@@ -13,13 +13,14 @@ require_once("db.php");
         public function select()
         {
             $DBObject = new DB();
-            $sql = "SELECT * FROM relation";
+            $sql = "SELECT * FROM relation where id = '".$this->id."'";
             $DBObject->connect();
             $result =  $DBObject->execute($sql);
             //$row = mysqli_fetch_array($result);
             $DBObject->disconnect();
             return $result;
         }
+
         public function selectALL(){
             $DBobject = new DB();
             $sql="SELECT * FROM relation";

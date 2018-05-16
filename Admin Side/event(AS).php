@@ -43,18 +43,20 @@ else {
     </div>
     <div id="navMenu" >
         <div id="myTopnav" class="topnav">
+            <a href="index(AS).php" id="admAdr">Home</a>
             <a href="acceptteacher(AS).php" id="admAdr">Teacher Acceptance</a>
             <a href="Addusers(AS).php" id="admAdr">Child Acceptance</a>
             <a href="editchild(AS).php" id="admAdr">Child Edit</a>
             <a href="editteacher(AS).php" id="admAdr">Teacher Edit</a>
-            <a href="EditDB.php" id="admAdr">Control Panel</a>
             <div class="dropdown">
                 <button class="dropbtn">More
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
+                    <a href="EditDB.php" id="admAdr">Control Panel</a>
 <!--                    <a id="admAdr" href="event(AS).php">Events</a>-->
                     <a id="admAdr" href="Schedules(AS).php">Schedule</a>
+                    <a id="admADR" href="Payment(AS).php">Payments</a>
                     <a href="logout.php" id="admAdr">Logout</a>
                 </div>
             </div>

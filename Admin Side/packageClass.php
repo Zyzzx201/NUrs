@@ -1,23 +1,21 @@
 <?php
 require_once("db.php");
-class qualvalue{
+class package{
     public $id;
-    public $qual_id;
-    public $teacher_id;
-    public $value;
-    public $date;
+    public $name;
+    public $discount;
+    public $description;
 
     public function insert(){
         $DBObject = new DB();
-        $sql = "INSERT INTO qualvalue (qual_id, teacher_id, value, date) VALUES ('".$this->qual_id."','".$this->teacher_id."','".$this->value."',
-        '".$this->date."')";
+        $sql = "INSERT INTO package (name, discount, description) VALUES ('".$this->name."','".$this->discount."', '".$this->description."')";
         $DBObject->connect();
         $DBObject->execute($sql);
         $DBObject->disconnect();
     }
     public function select(){
         $DBObject = new DB();
-        $sql = "SELECT * FROM qualvalue where teacher_id = '".$this->teacher_id."'" ;
+        $sql = "SELECT * FROM package WHERE id = '".$this->id."' ";
         $DBObject->connect();
         $result = $DBObject->execute($sql);
         $DBObject->disconnect();
@@ -25,15 +23,14 @@ class qualvalue{
     }
     public function update(){
         $DBObject = new DB();
-        $sql = "UPDATE qualvalue SET `qual_id`= '".$this->qual_id."' ,`teacher_id`= '".$this->teacher_id."',`value`= '".$this->value."',
-        `date`= '".$this->date."' WHERE id  = '".$this->id."' OR teacher_id = '".$this->teacher_id."' ";
+        $sql = "UPDATE package SET  discount ='".$this->name."', discount ='".$this->discount."',description ='".$this->description."' WHERE id  = '".$this->id."' ";
         $DBObject->connect();
         $DBObject->execute($sql);
         $DBObject->disconnect();
     }
     public function delete(){
         $DBObject = new DB();
-        $sql = "DELETE FROM qualvalue WHERE id  = '".$this->id."' OR teacher_id = '".$this->teacher_id."' ";
+        $sql = "DELETE FROM package WHERE id  = '".$this->id."' OR name = '%".$this->name."%' LIMIT 1";
         $DBObject->connect();
         $DBObject->execute($sql);
         $DBObject->disconnect();

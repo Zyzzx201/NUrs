@@ -74,14 +74,18 @@ class coursesC
     $StartTime = $_POST['start'];
     $EndTime = $_POST['ends'];
 
+
     $CourseObject = new Courses();
+    $childtype = new childtype();
+    $childtype->type=$Type;
+    $child_id = $childtype->SelectID();
     $CourseObject->description = $Name;
     $CourseObject->insert();
     $ID = $CourseObject->SelectID();
 
     $ScheduleObject = new Schedule();
     $ScheduleObject->course_id = $ID;
-    $ScheduleObject->childtype_id = $Type;
+    $ScheduleObject->childtype_id = $child_id;
     $ScheduleObject->start = $StartTime;
     $ScheduleObject->ends = $EndTime;
     $ScheduleObject->insert();

@@ -9,7 +9,7 @@ if (isset($_POST['childSave'])) {
     $BranchOBJ1->value = $_POST['branches'];
 
     $BranchOBJ1->insert();
-    header('location:Onlineapplication.php');
+    header('location:Onlineapplication(US).php');
 }
 $BranchOBJ2 = new branch();
 if (isset($_POST['Savebtn'])) {
@@ -18,7 +18,7 @@ if (isset($_POST['Savebtn'])) {
     $BranchOBJ2->value = $_POST['branches'];
 
     $BranchOBJ2->insert();
-    header('location:addteacher.php');
+    header('location:addteacher(US).php');
 }
 
 $BranchOBJ3 = new branch();

@@ -48,6 +48,14 @@ class weekC
     return $Wrow1;
   }
 
+    public function WselectID($days)
+    {
+        $Wobj1 = new week();
+        $Wobj1->days=$days;
+        $Wrow1 = $Wobj1->selectID();
+        return $Wrow1;
+    }
+
   public function WselectAll()
   {
     $Wobj1 = new week();

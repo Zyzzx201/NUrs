@@ -1,41 +1,43 @@
 <?php
 require_once("db.php");
-class contactinfo{
+class pmov{
     public $id;
-    public $main_id;
-    public $cellphone;
+    public $parent_id;
+    public $payment_o_id;
+    public $value;
 
 	public function insert(){
         $DBObject = new DB();
+        $sql = "INSERT INTO pm_o_v(parent_id, payment_o_id, value) VALUES ('".$this->parent_id."','".$this->payment_o_id."','".$this->value."')";
         $DBObject->connect();
-        $sql = "INSERT INTO contactinfo (main_id, cellphone) VALUES ('".$this->main_id."','".$this->cellphone."')";
         $DBObject->execute($sql);
         $DBObject->disconnect();
+        }
 
-    }
     public function select(){
         $DBObject = new DB();
-        $sql = "SELECT * FROM contactinfo WHERE main_id ='".$this->main_id."' ";
+        $sql = "SELECT * FROM pm_o_v where id = '".$this->id."' ";
         $DBObject->connect();
-        $result =  $DBObject->execute($sql);
+        $result =$DBObject->execute($sql);
         $DBObject->disconnect();
         return $result;
-     }
+        }
+
     public function update(){
         $DBObject = new DB();
-        $sql = "UPDATE contactinfo SET cellphone = '".$this->cellphone."' WHERE id = '".$this->id."' ";
+        $sql = "UPDATE pm_o_v SET parent_id = '".$this->parent_id."', payment_o_id ='".$this->payment_o_id."',value = '".$this->value."'  WHERE id = '".$this->id."'";
         $DBObject->connect();
         $DBObject->execute($sql);
         $DBObject->disconnect();
 
-     }
-    public function delete(){
+        }
+
+    public function delete(){ 
         $DBObject = new DB();
-        $sql = "DELETE FROM contactinfo WHERE cellphone  = '".$this->cellphone."'";
+        $sql = "DELETE FROM pm_o_v where id = '".$this->id."'";
         $DBObject->connect();
         $DBObject->execute($sql);
         $DBObject->disconnect();
-
-      }
+        }
 }
 ?>

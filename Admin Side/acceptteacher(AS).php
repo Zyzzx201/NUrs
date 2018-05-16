@@ -14,7 +14,7 @@ else {
   require_once("qualvaluesController.php");
 
   $teacherOBJ3 = new mainC();
-  $Trow3 = $teacherOBJ3->MselectAll('3');
+  $Trow3 = $teacherOBJ3->MselectTeacher(3);
 ?>
 <html>
 <head>
@@ -52,19 +52,21 @@ else {
       </div>
       <div id="navMenu" >
         <div id="myTopnav" class="topnav">
+            <a href="index(AS).php" id="admAdr">Home</a>
             <!-- <a href="acceptteacher(AS).php" id="admAdr">Teacher Acceptance</a> -->
             <a href="Addusers(AS).php" id="admAdr">Child Acceptance</a>
             <a href="editchild(AS).php" id="admAdr">Child Edit</a>
             <a href="editteacher(AS).php" id="admAdr">Teacher Edit</a>
             <a href="EditDB.php" id="admAdr">Control Panel</a>
+            <a id="addr" href="Schedules(AS).php">Schedule</a>
             <div class="dropdown">
                 <button class="dropbtn">More
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a id="addr" href="Schedules(AS).php">Schedule</a>
                     <!-- <a id="addr" href="" >Gallery</a> -->
                     <a id="admAdr" href="event(AS).php">Events</a>
+                    <a id="admADR" href="Payment(AS).php">Payments</a>
                     <a href="logout.php" id="admAdr">Logout</a>
                 </div>
             </div>
@@ -94,11 +96,11 @@ else {
         $Trow=mysqli_fetch_assoc($Trow1);
 
         $addOBJ3 =  new addressC();
-        $ADrow1 =  $addOBJ3->ADselectV($row['address_id']);
+        $ADrow1 =  $addOBJ3->ADselectV($Trow['address_id']);
         $ADrow=mysqli_fetch_assoc($ADrow1);
 
         $marrOBJ4 = new maritalC();
-        $MRrow1= $marrOBJ4->MTselectV($row['mstatus_id']);
+        $MRrow1= $marrOBJ4->MTselectV($Trow['mstatus_id']);
         $MRrow=mysqli_fetch_assoc($MRrow1);
 
         $ConOBJ5 = new contactinfoC();
@@ -106,11 +108,11 @@ else {
         $CIrow=mysqli_fetch_assoc($CIrow1);
 
         $NatOBJ6 = new nationalityC();
-        $NTrow1 = $NatOBJ6->NAselectV($row['nationality']);
+        $NTrow1 = $NatOBJ6->NAselectV($Trow['nationality']);
         $NTrow=mysqli_fetch_assoc($NTrow1);
 
         $QualOBJ6 = new qualvaluesC();
-        $Qualrow1 = $QualOBJ6->QVselectV($row['pendingnames']);
+        $Qualrow1 = $QualOBJ6->QVselectV($Trow['id']);
         $Qualrow1 = mysqli_fetch_assoc($Qualrow1);
 
        ?>

@@ -1,6 +1,13 @@
 <?php
-require_once("MainController.php");
 require_once("ParentController.php");
+require_once("MainController.php");
 require_once("ChildController.php");
+require_once("AddressController.php");
+require_once("MaritalController.php");
+require_once("ContactinfoController.php");
 require_once("EmergencyController.php");
+require_once("attend_intController.php");
+require_once("relationController.php");
+require_once("WeekController.php");
+require_once("BranchController.php");
  ?>

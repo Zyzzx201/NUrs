@@ -14,13 +14,21 @@ class week{
       }
       public function select(){
         $DBObject = new DB();
-        $sql = "SELECT * FROM week"; //add condition if you want one
+        $sql = "SELECT * FROM week where id='".$this->id."'"; //add condition if you want one
         $DBObject->connect();
         $result =  $DBObject->execute($sql);
         //$row = mysqli_fetch_array($result);
         $DBObject->disconnect();
         return $result;
      }
+    public function selectID(){
+        $DBobject = new DB();
+        $sql="SELECT id FROM week WHERE days = '".$this->days."'";
+        $DBobject->connect();
+        $result = $DBobject->execute($sql);
+        $DBobject->disconnect();
+        return $result;
+    }
 
      public function selectAll(){
         $DBObject = new DB();

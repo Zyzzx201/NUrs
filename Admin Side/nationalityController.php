@@ -53,6 +53,13 @@ class nationalityC
     $NArow1 = $NAobj1->select();
     return $NArow1;
   }
+    public function NAselectID($name)
+    {
+        $NAobj1 = new nationality();
+        $NAobj1->name=$name;
+        $NArow1 = $NAobj1->selectID();
+        return $NArow1;
+    }
 
   public function NAselectALL()
   {

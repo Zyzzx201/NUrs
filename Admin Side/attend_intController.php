@@ -1,5 +1,6 @@
 <?php
 require_once("attend_intClass.php");
+require_once("WeekController.php");
 require_once("valid.php");
 
 $ATIOBJ1 = new Attend_int();
@@ -31,9 +32,16 @@ class Attend_intC
   public function ATselectV($id)
   {
     $ATobj1 = new Attend_int();
-    $ATobj1->id=$id;
-    $ATrow1 = $ATobj1->select();
-    return $ATrow1;
+    $ATobj1->child_id=$id;
+    $ATrow1 = $ATobj1->selectALL();
+    $week = new weekC();
+    foreach ($ATrow1 as $weekId){
+        $weekRow = $week->WselectV($weekId['week_id']);
+        foreach ($weekRow as $result)
+            if ($weekId['week_id'] == $result['id'])
+                return $result['days'];
+    }
+
   }
 
   public function ATselectAll()

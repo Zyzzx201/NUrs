@@ -1,8 +1,8 @@
-<?php //session_start();
-//if(empty($_SESSION["username"])){
-//    header('location:adminlogin.php');
-//}
-//else {
+<?php session_start();
+if(empty($_SESSION["username"])){
+    header('location:adminlogin.php');
+}
+else {
 ?>
 
 <html>
@@ -38,7 +38,7 @@
   <header>
     <img src="logo.png" id="logo" onclick="location.href='index(AS).php';">
     <p id="h1S">Schedules</p>
-<!--    <p id="username">--><?php //echo "Hello ".$_SESSION["username"];} ?><!--</p>-->
+    <p id="username"><?php echo "Hello ".$_SESSION["username"];} ?></p>
     <div class="micon" onclick="changeM(this)" id="Menicon">
         <div class="b1"></div>
         <div class="b2"></div>
@@ -46,17 +46,20 @@
     </div>
     <div id="navMenu" >
         <div id="myTopnav" class="topnav">
+            <a href="index(AS).php" id="admAdr">Home</a>
             <a href="acceptteacher(AS).php" id="admAdr">Teacher Acceptance</a>
             <a href="Addusers(AS).php" id="admAdr">Child Acceptance</a>
             <a href="editchild(AS).php" id="admAdr">Child Edit</a>
             <a href="editteacher(AS).php" id="admAdr">Teacher Edit</a>
-            <a href="EditDB.php" id="admAdr">Control Panel</a>
             <div class="dropdown">
                 <button class="dropbtn">More
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
+                    <a href="EditDB.php" id="admAdr">Control Panel</a>
                     <a id="admAdr" href="event(AS).php">Events</a>
+                    <a id="admADR" href="Payment(AS).php">Payments</a>
+<!--                    <a id="addr" href="Schedules(AS).php">Schedule</a>-->
                     <a href="logout.php" id="admAdr">Logout</a>
                     <!--<a id="addr" href="" >Gallery</a>-->
                 </div>
@@ -79,7 +82,6 @@
           <?php
            while($row=mysqli_fetch_assoc($CTrow))
            echo "<option value='".$row['id']."'>".$row['type']."</option>";
-           $_SESSION['']
            ?>
         </select>
         <button type="submit" name="childtypeselect">View</button>
@@ -157,10 +159,14 @@
             1- Write the name of course you want to add here: <br>
             <input type="text" name="Courseadd" value="<?php $row2['description'];?>"> <br>
             2- Select the type of students you wnat to assign the course to:<br>
-            <?php
-                while($row3=mysqli_fetch_assoc($CTrow2)){
-            ?>
-            <input type="radio" name="childtype_id"><?php echo $row3['id'],"- ", $row3['type']; }?> <br>
+            <select name="childtype_id">
+                <?php
+                $childtypeC = new childtypeC();
+                $CTrow =  $childtypeC->CTselectAll();
+                while($row=mysqli_fetch_assoc($CTrow))
+                    echo "<option value='".$row['id']."'>".$row['type']."</option>";
+                ?>
+            </select>
             3- Select duration:
             <select name="start">
                 <?php

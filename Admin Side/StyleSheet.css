@@ -213,8 +213,11 @@ header #bkbtn{
 		text-align: left;
 	}
 }
-#searchB{
+#Searchbar{
 	position: absolute;
-	right: 10%;
-	z-index: auto;
+	right: 18%;
+}
+#searchBtn{
+	position: absolute;
+	right: 8%;
 }

@@ -49,5 +49,12 @@ class childtype{
     $DBObject->execute($sql);
     $DBObject->disconnect();
     }
+    public function SelectID(){
+        $DBObject = new DB();
+        $sql = "SELECT id FROM childtype WHERE type = '".$this->type."'";
+        $Result = $DBObject->execute($sql);
+        $Row = mysqli_fetch_array($Result);
+        return $Row['id'];
+    }
 }
 ?>

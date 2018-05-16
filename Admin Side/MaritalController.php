@@ -36,15 +36,37 @@ if (isset($_POST['deleteMS'])) {
   header('location:EditDB.php');
 }
 
+$MSOBJ2 = new marital();
+if (isset($_POST['updateMS'])) {
+    $_POST['MSUid'] = valid::test_input($_POST['MSUid']);
+    $result = valid::isempty($_POST['MSUid']);
+    $result = valid::numbersonly($_POST['MSUid']);
+    $MSOBJ2->id = $_POST['MSUid'];
+
+    $_POST['MSnew'] = valid::test_input($_POST['MSnew']);
+    $result = valid::isempty($_POST['MSnew']);
+    $result = valid::onlyletters($_POST['MSnew']);
+    $MSOBJ2->value = $_POST['MSnew'];
+    $MSOBJ2->update();
+    header('location:EditDB.php');
+}
+
 class maritalC
 {
   public function MTselectV($id)
   {
     $MTobj1 = new marital();
-    $MTobj1->main_id=$id;
+    $MTobj1->id=$id;
     $MTrow1 = $MTobj1->select();
     return $MTrow1;
   }
+    public function MTselectID($value)
+    {
+        $MTobj1 = new marital();
+        $MTobj1->value=$value;
+        $MTrow1 = $MTobj1->selectID();
+        return $MTrow1;
+    }
 
   public function MTselectALL()
   {

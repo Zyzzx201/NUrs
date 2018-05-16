@@ -38,7 +38,7 @@ class qualvaluesC
     public function QVselectV($id)
     {
         $Qualobj1 = new qualvalue();
-        $Qualobj1->id = $id;
+        $Qualobj1->teacher_id = $id;
         $Qualrow1 = $Qualobj1->select();
         return $Qualrow1;
     }

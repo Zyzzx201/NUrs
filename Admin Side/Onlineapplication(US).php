@@ -63,13 +63,13 @@
 			<div class="b2"></div>
 			<div class="b3"></div>
 		</div>
-		<div id="navMenu" >
+		<div id="navMenu" required>
             <div id="myTopnav" class="topnav">
                 <a id="addr" href="index(US).php">Home</a>
 <!--                <a id="addr" href="Onlineapplication(US).php">Online Application</a>-->
                  <a id="addr" href="addteacher(US).php">Teacher Registration</a>
                 <a id="addr" href="Schedules(US).php">Schedules</a>
-                <!-- <a id="addr" href="" >Gallery</a>-->
+                <!-- <a id="addr" href="" required>Gallery</a>-->
                 <a id="addr" href="events(US).php">Events</a>
                 <div class="dropdown">
                     <button class="dropbtn">More
@@ -85,7 +85,7 @@
 
 	<div class = "Oappform">
         <h1 align="center" id="oat"> Application Form </h1>
-        <form name="app" method="POST" action="childafterSave.php">
+        <form name="app" method="POST" action="MainController.php">
             Child's name:
             <input type="text" name="cfname" required>
             <input type="text" name="clname" required><br><br>
@@ -94,7 +94,7 @@
             Child's Social number:
             <input type="text" name="cssn" minlength="11" maxlength="11" required><br><br>
             Desired Date of entry:
-            <input type="date" name="ddoe" min="1" max ="5" required><br>
+            <input type="date" name="ddoe" required><br>
             <hr>
             Father's name:
             <input type="text" name="ffname" required>
@@ -102,7 +102,9 @@
             Father's Social security number:
             <input type="text" name="fssn" maxlength="11" required><br><br>
             Facebook Account:
-            <input type="text" name="ffbook"  required><br><br>
+            <input type="text" name="ffbook"  ><br><br>
+            Father's mobile no.:
+            <input type="text" name="fcellphone" maxlength="11" required><br><br>
             Occupation:
             <input type="text" name="foccupation" required><br>
             <hr>
@@ -113,12 +115,14 @@
             <input type="text" name="mssn" maxlength="11" required><br><br>
             Facebook Account:
             <input type="text" name="mfbook" required><br><br>
+            Mother's mobile no.:
+            <input type="text" name="mcellphone" maxlength="11" required><br><br>
             Occupation:
             <input type="text" name="moccupation" required><br>
             <hr>
             Parents Are:
             <label><input type="radio" name="mstatus_id" value="Married" required> Married</label>
-            <label><input type="radio" name="mstatus_id" value="Separated" > Separated<br><br></label>
+            <label><input type="radio" name="mstatus_id" value="Divorced" required> Separated<br><br></label>
             Home Address:
             <select name="address_id" required>
                 <?php require_once("AddressClass.php");
@@ -139,19 +143,20 @@
             <!-- Needs the  field to be made as a javascript function-->
             <h1 align="center" id="oat"> Requested for Attendance</h1>
             Please fill in with a tick below in order of preference: <br>
-            <label><input type="radio" name="status" value="FT" id="ozr" onclick="ptdays();" required checked>
+            <label><input type="radio" name="days" value="Full Time" id="ozr" onclick="ptdays();"  checked>
             Full Time attendance : Sun.  - Thurs.(08:00 am - 3:00pm)<br></label>
-            <label><input type="radio" name="status" value="PT" id="PTD" onclick="ptdays();">
+            <label><input type="radio" name="days" value="Part Time" id="PTD" onclick="ptdays();">
             Part Time attendance : Three days a week, please specify the days in the box below
             <br></label>
             <div id="ptdyz" required>
-                <input type="checkbox" name="sun" value="DY" onclick="KeepCount(), ptdays()" id="sun">Sunday<br>
-                <input type="checkbox" name="mon" value="DY" onclick="KeepCount(), ptdays()" id="mon">Monday<br>
-                <input type="checkbox" name="tue" value="DY" onclick="KeepCount(), ptdays()" id="tue">Tuesday<br>
-                <input type="checkbox" name="wed" value="DY" onclick="KeepCount(), ptdays()" id="wed">Wednesday<br>
-                <input type="checkbox" name="thu" value="DY" onclick="KeepCount(), ptdays()" id="thu">Thursday<br>
+                <input type="checkbox" name="days" value="DY" onclick="KeepCount(), ptdays()" id="sun">Sunday<br>
+                <input type="checkbox" name="days" value="DY" onclick="KeepCount(), ptdays()" id="mon">Monday<br>
+                <input type="checkbox" name="days" value="DY" onclick="KeepCount(), ptdays()" id="tue">Tuesday<br>
+                <input type="checkbox" name="days" value="DY" onclick="KeepCount(), ptdays()" id="wed">Wednesday<br>
+                <input type="checkbox" name="days" value="DY" onclick="KeepCount(), ptdays()" id="thu">Thursday<br>
             </div>
-            <label><input type="radio" name="status" value="other" id="ozr2" onclick="ptdays();"> Sun. - Thurs. (09:00 am - 1:00pm)<br>
+            <label><input type="radio" name="days" value="other" id="ozr2" onclick="ptdays();">
+            Sun. - Thurs. (09:00 am - 1:00pm)<br>
             </label><br>
             <strong>Note</strong> For working mothers who can not collect their children at 3:00pm extra fees will be charged<br>
             <hr>
@@ -169,19 +174,21 @@
                 ?>
             </select>  <br><br>
             Relationship:
-            <select required>
-                <option value="" >None</option>
-                <option value="1" name="relation_id">Uncle (mum's side)</option>
-                <option value="2" name="relation_id">Uncle (dad's side)</option>
-                <option value="3" name="relation_id">Cousin (has to be 18+ years old)</option>
-                <option value="4" name="relation_id">Sister (has to be 18+ years old)</option>
-                <option value="5" name="relation_id">Brother (has to be 18+ years old)</option>
-                <option value="8" name="relation_id">Grandpa (mum's side)</option>
-                <option value="8" name="relation_id">Grandpa (dad's side)</option>
-                <option value="9" name="relation_id">Grandma (dad's side)</option>
-                <option value="9" name="relation_id">Grandma (mum's side)</option>
-                <option value="10" name="relation_id">Aunt (mum's side)</option>
-                <option value="11" name="relation_id">Aunt (dad's side)</option>
+            <select name="relation_id">
+                <option value="" required>None</option>
+                <option value="6">Father</option>
+                <option value="7">Mother</option>
+                <option value="1">Uncle (mum's side)</option>
+                <option value="2">Uncle (dad's side)</option>
+                <option value="3">Cousin (has to be 18+ years old)</option>
+                <option value="4">Sister (has to be 18+ years old)</option>
+                <option value="5">Brother (has to be 18+ years old)</option>
+                <option value="8">Grandpa (mum's side)</option>
+                <option value="8">Grandpa (dad's side)</option>
+                <option value="9">Grandma (dad's side)</option>
+                <option value="9">Grandma (mum's side)</option>
+                <option value="10">Aunt (mum's side)</option>
+                <option value="11">Aunt (dad's side)</option>
             </select><br><br>
             Emergency Contact's Number:
             <input type="text" name="ecnum"  maxlength="11" required><br><br>
@@ -189,8 +196,8 @@
             intolerances, if yes please give more details in the text are below: <br><br>
             <textarea name="extrainfo" rows="4" cols="50" required></textarea><br><br>
             Branch:
-            <select name="branches" >
-                <option value="-1"></option>
+            <select name="branch_id" required>
+<!--                <option value="-1"></option>-->
                 <?php require_once("BranchClass.php");
                 $BOBJ3 = new branch();
                 $result = $BOBJ3->selectAll();
@@ -226,14 +233,14 @@
             <input type="checkbox" name="hereby" value="acceptance" required> By checking this field, I hereby
             accept all the above mentioned rules and regulations.<br>
             <!--The date this formed is being filled out:
-            <input type="date" name="doa"  required--><br>
+            <input type="date" name="doa"  --><br>
             <hr>
             <input type="submit" value="Submit Form" name="childSave" id="atbtn"/>
             <input type="reset"  value="Reset Form" id="atbtn">
         </form>
 		</div>
 		<div class = "application">
-			<h1 align="center" id="oat" > Things to bring </h1>
+			<h1 align="center" id="oat" required> Things to bring </h1>
 			<ul>
 				<li>Personal towel to be sent with the child at the beginning of the week and will be taken at the week end to wash it </li>
 				<li>Tooth Paste </li>

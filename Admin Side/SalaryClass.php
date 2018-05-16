@@ -8,12 +8,11 @@ class salary{
     public $bonuses;
     public $deduct;
     public $reason;
-    public $total;
 
     public function insert(){
         $DBObject = new DB();
         $sql = "INSERT INTO salary (teacher_id, month_id, amount, bonuses, deduct, reason, total) 
-        VALUES ('".$this->teacher_id."','".$this->month_id."','".$this->amount."','".$this->bonuses."','".$this->deduct."','".$this->reason."','".$this->total."')";
+        VALUES ('".$this->teacher_id."','".$this->month_id."','".$this->amount."','".$this->bonuses."','".$this->deduct."','".$this->reason."')";
         $DBObject->connect();
         $DBObject->execute($sql);
         $DBObject->disconnect();
@@ -32,7 +31,6 @@ class salary{
             echo $row['bonuses'];
             echo $row['deduct'];
             echo $row['reason'];
-            echo $row['total'];
         }
         $DBObject->disconnect();
     }
@@ -40,7 +38,7 @@ class salary{
     public function update(){
         $DBObject = new DB();
         $sql = "UPDATE salary SET month_id='".$this->month_id."',amount = '".$this->amount."', bonuses ='".$this->bonuses."',
-         deduct ='".$this->deduct."', reason ='".$this->reason."', total ='".$this->total."' WHERE id = '".$this->id."' OR teacher_id = '".$this->teacher_id."' ";
+         deduct ='".$this->deduct."', reason ='".$this->reason."'WHERE id = '".$this->id."' OR teacher_id = '".$this->teacher_id."' ";
         $DBObject->connect();
         $DBObject->execute($sql);
         $DBObject->disconnect();

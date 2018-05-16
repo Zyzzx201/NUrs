@@ -17,10 +17,10 @@ class Attend_int{
       $sql="SELECT * FROM attend_int WHERE child_id = '".$this->child_id."'";
       $DBobject->connect();
       $result = $DBobject->execute($sql);
-      $row = mysqli_fetch_array($result);
       $DBobject->disconnect();
       return $result;
     }
+
     public function selectALL(){
         $DBobject = new DB();
         $sql="SELECT * FROM attend_int";
@@ -37,5 +37,14 @@ class Attend_int{
       $DBobject->disconnect();
 
       }
+    public function update(){
+        $DBobject = new DB();
+        $sql = "UPDATE * attend_int SET attend_int.child_id = '".$this->child_id."', attend_int.week_id = '".$this->week_id."' 
+        where id = '".$this->id."'";
+        $DBobject->connect();
+        $DBobject->execute($sql);
+        $DBobject->disconnect();
+
+    }
 }
 ?>

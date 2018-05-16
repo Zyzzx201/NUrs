@@ -36,7 +36,7 @@
 	width: 90%;
 	height: auto;
 }
-.teacher2, .application, .Oappform, .teacher1{
+.childedit, .application, .Oappform, .teacher1{
 	font-family: cursive;
 	border: 1px solid transparent;
 	border-radius: 40px;
@@ -51,7 +51,7 @@
 	padding: 20px;
 }
 .application{
-	top: 403%;
+	top: 440%;
 	height: 85%;
 }
 #atbtn, #appbtnE, #appbtnD{
@@ -100,5 +100,19 @@
 	left: 50%;
 	margin-right: -50%;
 	transform: translate(-50%, -50%);
+	padding: 20px;
+}
+.childedit{
+	font-family: cursive;
+	border: 1px solid transparent;
+	border-radius: 40px;
+	background-color: #99ff99;  /*bestage*/
+	position: absolute;
+	top: 20%;
+	left: 9%;
+	width: 70%;
+	height: auto;
+	margin-right: -50%;
+	opacity: 0.95;
 	padding: 20px;
 }

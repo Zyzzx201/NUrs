@@ -32,7 +32,7 @@ else {
   </head>
   <body>
     <header>
-      <img src="logo.png" id="logo" onclick="location.href='index.php';">
+      <img src="logo.png" id="logo" onclick="location.href='index(AS).php';">
       <h1 id="h1W">Welcome</h1>
       <p id="username"><?php echo "Hello ".$_SESSION["username"];} ?></p>
       <div class="micon" onclick="changeM(this)" id="Menicon">
@@ -42,17 +42,19 @@ else {
       </div>
       <div id="navMenu" >
         <div id="myTopnav" class="topnav">
-          <a href="acceptteacher.php" id="admAdr">Teacher Acceptance</a>
-            <a href="Addusers.php" id="admAdr">Child Acceptance</a>
-            <a href="editchild.php" id="admAdr">Child Edit</a>
-            <a href="editteacher.php" id="admAdr">Teacher Edit</a>
+            <a href="index(AS).php" id="admAdr">Home</a>
+          <a href="acceptteacher(AS).php" id="admAdr">Teacher Acceptance</a>
+            <a href="Addusers(AS).php" id="admAdr">Child Acceptance</a>
+            <a href="editchild(AS).php" id="admAdr">Child Edit</a>
+            <a href="editteacher(AS).php" id="admAdr">Teacher Edit</a>
           <div class="dropdown">
           <button class="dropbtn">More
               <i class="fa fa-caret-down"></i>
           </button>
           <div class="dropdown-content">
-            <a id="admAdr" href="event.php">Events</a>
-            <a id="admAdr" href="Schedules.php">Schedule</a>
+            <a id="admAdr" href="event(AS).php">Events</a>
+            <a id="admAdr" href="Schedules(AS).php">Schedule</a>
+            <a id="admADR" href="Payment(AS).php">Payments</a>
             <a href="logout.php" id="admAdr">Logout</a>
           </div>
           </div>
@@ -393,7 +395,7 @@ else {
                  <div class="hovertip">
 <!--                     <span class="hovertiptext"> </span>-->
                      <div>
-                         Write the name of the branch you want to add here: <br>
+                         Write the name of branch you want to add here: <br>
                          <input type="text" name="branchAdd" value="<?php $names['value'];?>">
                          <button type="submit" name="saveBranch">Add</button><br><br>
                      </div>
@@ -404,7 +406,7 @@ else {
                          <button type="submit" name="updateBranch">Modify</button><br><br>
                      </div>
                      <div>
-                         Write the number of the branch you want to delete here:
+                         Write the number of branch you want to delete here:
                          <input type="text" name="Branchid" value="<?php $names['id']; ?>" id="idBox">
                          <button type="submit" name="deleteBranch" onclick="checkD()">Delete</button> <br><br>
                      </div>
@@ -422,18 +424,18 @@ else {
               <div class="hovertip">
                   <!-- <span class="hovertiptext"> </span>-->
                   <div>
-                      Write the name of the month you want to add here: <br>
+                      Write the month you want to add here: <br>
                       <input type="text" name="MonthAdd" value="<?php $names['name'];?>">
                       <button type="submit" name="saveMonth">Add</button><br><br>
                   </div>
                   <div>
-                      Write the number and name of the month type you want to modify here: <br>
+                      Write the number and name of the month you want to modify here: <br>
                       <input type="text" name=MonthUid" value="<?php $names['id']; ?>" id="idBox">
                       <input type="text" name="newMonth" value=" <?php $names['name']; ?>">
                       <button type="submit" name="updateMonth">Modify</button><br><br>
                   </div>
                   <div>
-                      Write the number of the month you want to delete here:
+                      Write the number of month you want to delete here:
                       <input type="text" name="Monthid" value="<?php $names['id']; ?>" id="idBox">
                       <button type="submit" name="deleteMonth" onclick="checkD()">Delete</button> <br><br>
                   </div>

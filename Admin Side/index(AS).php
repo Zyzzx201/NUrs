@@ -52,6 +52,7 @@ else {
         <div class="dropdown-content">
             <a id="addr" href="Schedules(AS).php">Schedule</a>
             <a id="admAdr" href="event(AS).php">Events</a>
+            <a id="admADR" href="Payment(AS).php">Payments</a>
             <a href="logout.php" id="admAdr">Logout</a>
         <!--<a id="addr" href="" >Gallery</a>-->
         </div>

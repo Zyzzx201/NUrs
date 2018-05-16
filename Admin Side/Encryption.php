@@ -26,7 +26,7 @@
             // }
 
             // echo $result1;
-            $newpass = sha1($newpass);
+            $newpass = sha1($result);
             return $newpass;
         }
         

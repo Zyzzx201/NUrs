@@ -28,10 +28,17 @@ class addressC
   public function ADselectV($id)
   {
     $ADobj1 = new Address();
-    $ADobj1->main_id=$id;
+    $ADobj1->id=$id;
     $ADrow1 = $ADobj1->select();
     return $ADrow1;
   }
+    public function ADselectID($name)
+    {
+        $ADobj1 = new Address();
+        $ADobj1->name=$name;
+        $ADrow1 = $ADobj1->selectID();
+        return $ADrow1;
+    }
 
   public function ADselectAll()
   {

@@ -19,7 +19,7 @@ Class valid{
             //return $error;
             $error->id = 1;
             $result = $error->select();
-            $row = msqli_fetch_array($result);
+            $row = mysqli_fetch_array($result);
             return $row[1];
         }
     }
@@ -31,7 +31,7 @@ Class valid{
             //return $error;
             $error->id = 2;
             $result = $error->select();
-            $row = msqli_fetch_array($result);
+            $row = mysqli_fetch_array($result);
             return $row[1];
         }
     }
@@ -44,7 +44,7 @@ Class valid{
             //return $emailerr;
             $error->id = 3;
             $result = $error->select();
-            $row = msqli_fetch_array($result);
+            $row = mysqli_fetch_array($result);
             return $row[1];
         }
     }
@@ -56,7 +56,7 @@ Class valid{
             //return $msg;
             $error->id = 4;
             $result = $error->select();
-            $row = msqli_fetch_array($result);
+            $row = mysqli_fetch_array($result);
             return $row[1];
         }
     }

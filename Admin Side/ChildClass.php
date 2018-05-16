@@ -11,17 +11,28 @@ class user{
       $sql = "INSERT INTO child (main_id, branch_id, ddoe) VALUES ('".$this->main_id."', '".$this->branch_id."', '".$this->ddoe."')";
       $DBobject->connect();
       $DBobject->execute($sql);
+      $last_id = $DBobject->getID();
       $DBobject->disconnect();
+      return $last_id;
     }
     public function select(){
       $DBobject = new DB();
-      $sql = "SELECT * FROM child WHERE id = '".$this->id;
+      $sql = "SELECT * FROM child WHERE main_id = '".$this->main_id."'";
       $DBobject->connect();
       $result =  $DBobject->execute($sql);
       //$row = mysqli_fetch_array($result);
       $DBobject->disconnect();
       return $result;
      }
+    public  function selectID(){
+        $DBObject = new DB();
+        $sql = "SELECT id from child where main_id = '".$this->main_id."'";
+        $DBObject->connect();
+        $result =  $DBObject->execute($sql);
+
+        $DBObject->disconnect();
+        return $result;
+    }
 
     public function update(){
       $DBobject = new DB();

@@ -13,12 +13,21 @@ class Address{
     }
     public function select(){
       $DBObject = new DB();
-      $sql = "SELECT * from address";
+      $sql = "SELECT * from address where id = '".$this->id."'";
       $DBObject->connect();
       $result =  $DBObject->execute($sql);
 
       $DBObject->disconnect();
       return $result;
+     }
+     public  function selectID(){
+         $DBObject = new DB();
+         $sql = "SELECT id from address where name LIKE '".$this->name."'";
+         $DBObject->connect();
+         $result =  $DBObject->execute($sql);
+
+         $DBObject->disconnect();
+         return $result;
      }
      public function selectALL(){
          $DBobject = new DB();

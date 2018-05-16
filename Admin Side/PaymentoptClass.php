@@ -1,12 +1,13 @@
 <?php
 require_once("db.php");
-class marital{
+class payopt{
     public $id;
-    public $value;
+    public $options_id;
+    public $payment_id;
 
 	public function insert(){
         $DBObject = new DB();
-        $sql = "INSERT INTO maritalstatus(value) VALUES ('".$this->value."')";
+        $sql = "INSERT INTO paymentopt (options_id,payment_id) VALUES ('".$this->options_id."','".$this->payment_id."')";
         $DBObject->connect();
         $DBObject->execute($sql);
         $DBObject->disconnect();
@@ -14,42 +15,34 @@ class marital{
 
     public function select(){
         $DBObject = new DB();
-        $sql = "SELECT * FROM maritalstatus where id = '".$this->id."' ";
+        $sql = "SELECT * FROM paymentopt where id = '".$this->id."' ";
         $DBObject->connect();
         $result =  $DBObject->execute($sql);
+        //$row = mysqli_fetch_array($result);
         $DBObject->disconnect();
         return $result;
-      }
-    public  function selectID(){
+        }
+    public function selectPid(){
         $DBObject = new DB();
-        $sql = "SELECT id from maritalstatus where value LIKE '".$this->value."'";
+        $sql = "SELECT * FROM paymentopt where payment_id = '".$this->payment_id."' ";
         $DBObject->connect();
         $result =  $DBObject->execute($sql);
+        //$row = mysqli_fetch_array($result);
         $DBObject->disconnect();
         return $result;
     }
 
-      public function selectAll(){
-         $DBObject = new DB();
-         $sql = "SELECT * FROM maritalstatus" ;
-         $DBObject->connect();
-         $result = $DBObject->execute($sql);
-         $DBObject->disconnect();
-         return $result;
-      }
-
     public function update(){
         $DBObject = new DB();
-        $sql = "UPDATE maritalstatus SET value = '".$this->value."' WHERE id = '".$this->id."' ";
+        $sql = "UPDATE paymentopt SET options_id = '".$this->options_id."', payment_id ='".$this->payment_id."' WHERE id = '".$this->id."' ";
         $DBObject->connect();
         $DBObject->execute($sql);
         $DBObject->disconnect();
+        }
 
-         }
-
-    public function delete(){
+    public function delete(){ 
         $DBObject = new DB();
-        $sql = "DELETE FROM maritalstatus where id = '".$this->id."' ";
+        $sql = "DELETE FROM paymentopt where id = '".$this->id."'";
         $DBObject->connect();
         $DBObject->execute($sql);
         $DBObject->disconnect();
